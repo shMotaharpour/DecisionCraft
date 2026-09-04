@@ -58,7 +58,8 @@ M from a real constraint (here: the budget).
 ## 4. Run it
 
 ```bash
-uv run python phase1_milp/lesson1_1_portfolio_toy.py
+uv run python phase1_milp/lesson1_1_scipy.py         # scipy.optimize.milp
+uv run python phase1_milp/lesson1_1_portfolio_ortools.py  # OR-Tools (SCIP)
 ```
 
 Expected: the solver puts everything it can into the highest-return options —
