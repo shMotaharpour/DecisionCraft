@@ -1,0 +1,16 @@
+[project]
+name = "decisioncraft"
+version = "0.1.0"
+description = "Hands-on MILP, MDP, and RL course with finance and simulation applications"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "highspy>=1.7",
+    "ortools>=9.10",
+    "pyomo>=6.7",
+    "matplotlib>=3.8",
+]
+
+[tool.uv]
+package = false
