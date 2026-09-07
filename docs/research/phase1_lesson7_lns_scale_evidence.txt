@@ -1,0 +1,17 @@
+# Evidence: phase1 lesson1.7 LNS + scale test — live run 2026-09-07, ortools 9.15
+# cmd: python phase1_milp/lesson1_7a_lns.py
+15-node TSP (depot 0), LNS with exact CP-SAT fragment repair
+  nearest neighbor start :   430
+  after LNS 5s (630 iters)  :   407   tour: 0-6-5-4-13-12-3-2-1-11-10-9-8-7-14
+  reference (1.5 GLS 5s) :   329
+
+Note: LNS here is deliberately simple (single fragment, better-accept).
+CP-SAT's internal LNS and Routing's operators destroy/repair many
+fragments in parallel and accept sideways moves — that's the gap.
+
+# cmd: python phase1_milp/lesson1_7b_scale_cpsat_vs_routing.py
+   n                   CP-SAT (30s cap)       Routing GLS (5s)
+  15            524 in   0.1s [OPTIMAL]           524 in  5.0s
+  30            609 in   0.1s [OPTIMAL]           609 in  5.0s
+  60            811 in   1.9s [OPTIMAL]           846 in  5.0s
+ 120 1111 in  30.1s [FEASIBLE (gap 1064)]          1086 in  5.0s
