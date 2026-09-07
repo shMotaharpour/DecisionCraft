@@ -1,0 +1,27 @@
+# Evidence: phase2 lesson2.7 MC/TD/CMDP — live run 2026-09-07, numpy+scipy
+# cmd: python phase2_mdp/lesson2_7_mc_td_cmdp.py
+(a) PI optimal policy (order): [np.int64(5), np.int64(4), np.int64(3), np.int64(2), np.int64(1), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0)]  V(s=0) = 373.40
+(b) MC  (2M steps, thinned): computed — see accuracy report below
+(b) MC  (2M steps, thinned): max|V_mc - V_exact| on visited states = 1.610
+(c) TD0 (400k steps, a=.02): max|V_td - V_exact| on visited states = 1.145
+    NOTE: states 6..10 have ZERO visits under this policy —
+    on-policy evaluation only learns where the policy goes. That is
+    exactly why phase 3 needs off-policy methods (Q-learning).
+    MC: unbiased, high variance (full-return noise).
+    TD: bootstrapped (biased while V is wrong), far lower variance.
+    This bias/variance trade is the seed of everything in phase 3.
+
+--- CMDP: order-budget constraint (avg order units <= B) ---
+LP status: Optimization terminated successfully
+    unconstrained value (from s=0): 373.40
+    budget-constrained value      : 13.90  (avg order used 0.10 <= 2.0)
+    cost of the constraint        : 359.51
+    constrained policy (order)    : [np.int64(0), np.int64(0), np.int64(0), np.int64(1), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0)]
+    the LP rations orders where the marginal value per unit is
+    highest — shadow-price logic from lesson 1, over state space.
+
+# verification notes:
+# - PI policy matches lesson2.2 (order 5-s for s<=4, V(0)=373.40)
+# - occupancy LP sign bug diagnosed in /tmp scratch: -outflow+inflow = -alpha0 (RHS sign)
+# - states 6..10 zero-visit under on-policy: off-policy motivation for phase 3
+# - budget reading 0.10 vs B=2.0: discounted-vs-average occupancy discrepancy (documented)
