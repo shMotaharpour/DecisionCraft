@@ -1,0 +1,29 @@
+# Evidence: phase2 lesson2.5 absorbing/hitting/fit — live run 2026-09-07, python 3.11 numpy
+# cmd: python phase2_mdp/lesson2_5_absorbing_fit.py
+A. gambler's ruin: stake 0..6, p(win step)=0.45
+   E[steps until ruin-or-target] by start stake 1..5:
+   [4.29 7.3  8.77 8.33 5.58]
+   ruin prob: fundamental matrix [0.905 0.788 0.646 0.472 0.26 ]
+              closed form      [0.905 0.788 0.646 0.472 0.26 ]
+              max |diff| = 1.11e-16
+   closed-form E[time] check (p<q): [ 6.33 11.04 13.57 13.22  9.09]
+
+B. mean first passage times (lesson 2.1's market chain)
+   expected months to reach COLUMN state, starting from ROW state:
+               bull      bear     stagn
+       bull      0.00      8.67     16.00
+       bear      4.67      0.00     14.00
+      stagn      4.00      6.00      0.00
+   mean return times 1/pi_i: [ 1.67  3.33 10.  ]   (proven: mean return time = 1/pi_i)
+
+C. fitting P from a generated series (3 regimes, 20k days)
+   max |P_hat - P_true| = 0.0099
+   rows with zero visits (fit silently undefined): 0
+
+   continuous -> states (bucketing) and its bias
+   banded-price chain row sums: [1. 1. 1. 1.]
+   (bucket boundaries turn smooth randomness into spurious
+    persistence: rows here are NOT a true market regime model)
+
+# verification: direct MFPT vs Monte Carlo (60k runs each): m_02 sim=15.96 direct=16.00 | m_10 sim=4.67 direct=4.67 | m_21 sim=6.00 direct=6.00
+# verification: gambler ruin B[:,0] vs closed form max|diff| = 1.11e-16
