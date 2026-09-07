@@ -1,0 +1,29 @@
+# Evidence: phase2 lesson2.6 finite horizon — live run 2026-09-07
+# cmd: python phase2_mdp/lesson2_6_finite_horizon.py
+A. backward induction over (weeks left t, stock s): optimal price
+   (P24 P20 P16 P12; '·' = stock exhausted)
+   t= 0  ·  P24 P24 P24 P24 P24 P24 P24 P20 P20 P20 P20 P20 P20 P20 P20
+   t= 1  ·  P24 P24 P24 P24 P24 P24 P20 P20 P20 P20 P20 P20 P20 P20 P20
+   t= 2  ·  P24 P24 P24 P24 P24 P24 P20 P20 P20 P20 P20 P20 P20 P20 P16
+   t= 3  ·  P24 P24 P24 P24 P24 P20 P20 P20 P20 P20 P20 P20 P16 P16 P16
+   t= 4  ·  P24 P24 P24 P24 P24 P20 P20 P20 P20 P20 P20 P16 P16 P16 P16
+   t= 5  ·  P24 P24 P24 P24 P20 P20 P20 P20 P20 P20 P16 P16 P16 P16 P16
+   t= 6  ·  P24 P24 P24 P20 P20 P20 P20 P20 P16 P16 P16 P16 P16 P16 P16
+   t= 7  ·  P24 P24 P24 P20 P20 P20 P20 P16 P16 P16 P16 P16 P16 P16 P16
+   t= 8  ·  P24 P24 P20 P20 P20 P16 P16 P16 P16 P16 P16 P16 P16 P12 P12
+   t= 9  ·  P24 P20 P20 P20 P16 P16 P16 P16 P16 P16 P12 P12 P12 P12 P12
+   t=10  ·  P20 P20 P16 P16 P16 P16 P12 P12 P12 P12 P12 P12 P12 P12 P12
+   t=11  ·  P16 P16 P12 P12 P12 P12 P12 P12 P12 P12 P12 P12 P12 P12 P12
+   V_0(s=15) =   261.78
+
+B. best single (stationary) price policy for the same 12 weeks
+   always P24: V_0(s=15) =   115.20
+   always P20: V_0(s=15) =   212.23
+   always P16: V_0(s=15) =   239.81
+   always P12: V_0(s=15) =   180.00
+   best stationary: P16 at 239.81
+   time-dependent optimal: 261.78
+   VALUE OF TIME-DEPENDENCE = 21.97 (9.2% better)
+
+   the time-dependent policy's price path from s=15:
+   t0: P20(~0.9 u) -> t1: P20(~0.9 u) -> t2: P20(~0.9 u) -> t3: P20(~0.9 u) -> t4: P20(~0.9 u) -> t5: P20(~0.9 u) -> t6: P16(~2.2 u) -> t7: P20(~0.9 u) -> t8: P16(~2.2 u) -> t9: P20(~0.9 u) -> t10: P16(~2.2 u) -> t11: P16(~2.2 u)
