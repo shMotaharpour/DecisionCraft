@@ -1,0 +1,38 @@
+# Evidence: phase1 lesson1.5 Routing library — live run
+# Date: 2026-09-07 | ortools 9.15.6755 | python 3.11 | cmd: python phase1_milp/lesson1_5a_routing_tour.py
+==============================================================
+A. TSP — 1 vehicle, all cities + depot 0
+   route (14 cities): 0 -> 6 -> 5 -> 4 -> 13 -> 12 -> 3 -> 2 -> 1 -> 11 -> 10 -> 14 -> 9 -> 8 -> 7 -> 0
+   total cost 329
+==============================================================
+B. CVRP — 2 vehicles, capacity 100
+   vehicle 0: 0 -> 5 -> 4 -> 13 -> 12 -> 3 -> 2 -> 1 -> 11 -> 10 -> 14 -> 9 -> 0  load 100
+   vehicle 1: 0 -> 8 -> 7 -> 6 -> 0  load 34
+   objective 383
+==============================================================
+C. VRPTW — + time windows (horizon 300, service 5 min)
+   vehicle 0: 0 -> 6 -> 5 -> 4 -> 13 -> 12 -> 3 -> 2 -> 11 -> 1 -> 0
+   vehicle 1: 0 -> 7 -> 8 -> 9 -> 14 -> 10 -> 0
+   objective 391
+==============================================================
+D. Pickup & delivery — pairs [[1, 6], [2, 8], [3, 9]]
+   vehicle 0: 0 -> 0
+   vehicle 1: 0 -> 5 -> 4 -> 13 -> 12 -> 3 -> 2 -> 1 -> 11 -> 10 -> 14 -> 9 -> 8 -> 7 -> 6 -> 0
+   objective 347
+==============================================================
+E. First-solution strategy x metaheuristic — random 40-node TSP
+   (15 nodes is so small that everything converges to 329; we
+    need a bigger instance to SEE the strategy differences)
+   strategy                            GRDSC        GLS     SIMANN       TABU      GTABU
+   AUTOMATIC                             657        639        658        639        658
+   PATH_CHEAPEST_ARC                     657        639        658        639        658
+   PARALLEL_CHEAPEST_INS                 648        643        639        645        697
+   LOCAL_CHEAPEST_INS                    646        639        641        641        641
+   BEST_INSERTION                     none       none       none       none       none  
+   CHRISTOFIDES                          641        631        641        641        641
+   GLOBAL_CHEAPEST_ARC                   648        644        643        643        643
+   FIRST_UNBOUND_MIN_VAL                 643        639        692        631        695
+
+# BEST_INSERTION size sweep (diag): n=20 -> 414 | n=25,30,35,40 -> None (instant)
+# SWEEP strategy error: 'Undefined sweep arranger for ROUTING_SWEEP strategy' (routing.cc:6631)
+# VRPTW horizon=180 -> None (infeasible round trips); horizon=300 -> objective 391

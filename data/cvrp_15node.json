@@ -1,0 +1,23 @@
+{
+  "name": "cvrp_15node",
+  "coords": [
+    [0, 0],
+    [12, 35],
+    [28, 40],
+    [45, 28],
+    [50, 10],
+    [35, -8],
+    [15, -15],
+    [-10, -20],
+    [-25, -5],
+    [-30, 18],
+    [-15, 38],
+    [5, 55],
+    [60, 40],
+    [70, 20],
+    [-40, 40]
+  ],
+  "demands": [0, 12, 8, 15, 10, 7, 9, 14, 11, 6, 13, 8, 9, 5, 7],
+  "pickup_pairs": [[1, 6], [2, 8], [3, 9]],
+  "notes": "Node 0 is the depot. Demands sum to 134 (fits 2 vehicles x 100). Pickup pairs: first element picked up before second is delivered."
+}
