@@ -1,0 +1,66 @@
+# Evidence: phase2 lessons 2.1/2.2/2.4 — live run 2026-09-07, numpy + scipy (HiGHS), python 3.11
+
+# cmd: python phase2_mdp/lesson2_1_markov_chain.py
+(a) empirical transition matrix after 100k months:
+    from bull     : 0.851  0.099  0.050
+    from bear     : 0.201  0.698  0.101
+    from stagnant : 0.298  0.296  0.406
+    max abs deviation from P: 0.0065
+(b) start in bear, P(in bull) after  1 months = 0.200
+(b) start in bear, P(in bull) after  3 months = 0.433
+(b) start in bear, P(in bull) after 12 months = 0.597
+(c) stationary distribution (analytic):
+    bull      = 0.6000
+    bear      = 0.3000
+    stagnant  = 0.1000
+    long-run share from simulation (visits/N):
+    bull      = 0.6020
+    bear      = 0.2966
+    stagnant  = 0.1014
+    convergence check |sim - analytic|: 0.0034
+    eigenvalues of P (memory decay): [0.315+0.j 0.635+0.j 1.   +0.j]
+
+# cmd: python phase2_mdp/lesson2_2_mdp_inventory.py
+Value Iteration: converged in 462 sweeps
+Policy Iteration: converged in 2 iterations
+|V_vi - V_pi| max = 1.84e-08  (same V*)
+
+Optimal policy (s -> order up to s+a):
+  inv= 0 -> order  5  (target level  5)  V=  373.40
+  inv= 1 -> order  4  (target level  5)  V=  376.40
+  inv= 2 -> order  3  (target level  5)  V=  379.40
+  inv= 3 -> order  2  (target level  5)  V=  382.40
+  inv= 4 -> order  1  (target level  5)  V=  385.40
+  inv= 5 -> order  0  (target level  5)  V=  388.40
+  inv= 6 -> order  0  (target level  6)  V=  391.39
+  inv= 7 -> order  0  (target level  7)  V=  393.98
+  inv= 8 -> order  0  (target level  8)  V=  396.33
+  inv= 9 -> order  0  (target level  9)  V=  398.49
+  inv=10 -> order  0  (target level 10)  V=  400.45
+
+(s,S) rule check: order-up-to levels used: [np.int64(5)]
+Reorder point s*: smallest s with order > 0 = 0
+
+# cmd: python phase2_mdp/lesson2_4_approx_alp.py
+(a) exact tabular VI on the regime-augmented MDP
+    |S| = 22 states; V(inv=0, bull) =   412.47   V(inv=0, bear) =   395.98
+    optimal target level per (inv, regime):
+    inv= 0 -> bull:7  bear:3
+    inv= 2 -> bull:7  bear:3
+    inv= 4 -> bull:7  bear:4
+    inv= 6 -> bull:7  bear:6
+    inv= 8 -> bull:8  bear:8
+    inv=10 -> bull:10  bear:10
+
+(b) Approximate Linear Program with 6 features
+    LP status: Optimization terminated successfully  (total slack = 0.0)
+    max |V_ALP - V_exact| over 22 states = 6.575  (rel. 1.5%)
+
+(c) ALP dual = state-pricing weights (occupancy-style)
+    dual variables shape: (132,)
+    top-5 states by total dual pressure (caution: slack-penalized):
+      inv= 3 regime=bull  dual=5.384
+      inv= 3 regime=bear  dual=5.042
+      inv= 0 regime=bull  dual=4.735
+      inv= 5 regime=bull  dual=2.279
+      inv= 7 regime=bull  dual=1.402

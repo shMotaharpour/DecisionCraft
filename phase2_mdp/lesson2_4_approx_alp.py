@@ -2,7 +2,7 @@
 
 (a) exact tabular VI on an inventory MDP with a market-regime dimension
     (bull/bear changes demand mean): shows where tabular still works.
-(b) Approximate Linear Program: V(s) = theta @ phi(s) with 4 RBF features,
+(b) Approximate Linear Program: V(s) = theta @ phi(s) with 6 features,
     solved with scipy.optimize.linprog; compare against exact V.
 (c) the dual meaning: the ALP's dual gives state-pricing weights alpha.
 """
@@ -98,9 +98,6 @@ K = 6
 # objective: minimize sum_s alpha(s) theta.phi(s), alpha uniform
 rows, rhs = [], []
 valid = [(s, a) for s in range(NS_all) for a in range(NA) if R[s, a] > -1e8]
-for s, a in valid:
-    coef = phi(s) - GAMMA * np.einsum("p,sap->p", np.eye(K) @ np.array([phi(sp) for sp in range(NS_all)]).T, P[s, a]) if False else None
-
 # build constraint matrix efficiently: phi_all[s] precomputed
 PHI = np.array([phi(s) for s in range(NS_all)])          # [s, K]
 for s, a in valid:
