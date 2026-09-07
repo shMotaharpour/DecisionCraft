@@ -21,7 +21,7 @@ industrial tooling on realistic scenarios.
 
 ```
 DecisionCraft/
-├── phase1_milp/          # MILP: modeling alphabet, logic → linear constraints, OR-Tools (pywraplp/CP-SAT/Routing), metaheuristics, LNS
+├── phase1_milp/          # MILP: modeling alphabet, logic → linear constraints, OR-Tools (pywraplp/CP-SAT/Routing/flows), scheduling, metaheuristics, LNS
 ├── phase2_mdp/           # Markov chains, Bellman equations, Value/Policy Iteration
 ├── phase3_rl/            # Q-Learning, tabular methods, Gymnasium environments, PPO
 ├── phase4_hybrid/        # MILP + RL combos, game theory, capstone pipeline
