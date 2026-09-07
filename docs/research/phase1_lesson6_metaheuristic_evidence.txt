@@ -1,0 +1,29 @@
+# Evidence: phase1 lesson1.6 metaheuristics — live run 2026-09-07, ortools 9.15, scipy 1.18
+# cmd: python phase1_milp/lesson1_6a_metaheuristics.py
+40-node TSP (seed 7), budget 4.0s each, 2-opt moves
+  nearest-neighbor construction :    869
+  hill climbing (2-opt, 1st-im) :    751
+  simulated annealing           :    713
+  tabu search (swap, tenure 20) :    701
+  iterated local search         :    710
+  OR-Tools GLS 4s             :    639
+
+0/1 knapsack n=50, capacity = W/3, SA at two starting temperatures
+  greedy density baseline       :   1439
+  SA  T0=10   (too cold)        :   1233
+  SA  T0=1000 (proper)          :   1326
+
+# cmd: python phase1_milp/lesson1_6b_bignumber_milp.py
+      n  exact (s)  exact val  heuristic   gap %  heur time
+     50       0.02       1697       1691    0.35       0.50
+    100       0.06       2891       2887    0.14       0.50
+    200       0.03       6126       6120    0.10       0.50
+    400       0.13      11571      11569    0.02       0.50
+    800       1.17      23785      23785    0.00       0.50
+   1600       0.99      48643      48643    0.00       0.50
+   3200       1.82      96282      96280    0.00       0.50
+   6400       3.16     195855     195855    0.00       0.51
+
+# diag: scipy.milp default mip_rel_gap stops early:
+#   n=6400 default gap -> 195846 (mip_gap=4.6e-05, 6.4s); mip_rel_gap=0 -> 195855 (4.4s)
+#   heuristic found 195855 = true optimum; 'exact' with default gap was WORSE
