@@ -1,0 +1,24 @@
+# Evidence: phase1 lesson1.9 Dantzig-Wolfe + column generation — live run 2026-09-08, scipy HiGHS
+# cmd: python phase1_milp/lesson1_9_dantzig_wolfe.py
+instance: 6 blocks x 8 activities, 2 shared resources
+
+(a) direct LP   : profit 404.3424  (4 ms)
+
+(b) Dantzig-Wolfe + column generation:
+   it   1: obj   379.044  pi [-7.542 -8.198]  cols 12
+   it   2: obj   395.075  pi [-0.    -9.239]  cols 13
+   it   3: obj   395.209  pi [-2.8   -6.369]  cols 14
+   it  10: obj   404.342  pi [-1.777 -5.795]  cols 21
+    converged in 10 pricing rounds, 21 columns, 153 ms
+    profit 404.3424
+
+(c) |direct − DW| = 5.12e-13 (proven: same LP, different path)
+    the loop that closed: master duals = shadow prices of the
+    shared resources (lesson 1.4) -> each block best-responds
+    locally (its own LP) -> the master re-prices. This is the
+    formal core of the lesson-4.3 hybrid architecture.
+
+# debugging notes:
+# - initial master INFEASIBLE with max-profit-only start columns (marginals=None) -> zero-plan fix
+# - sign bug: pi negated -> loop stalled at 393.64 while claiming convergence; correct: rc uses (profit + pi*gu) with scipy's raw marginals
+# - converged: |direct - DW| = 5.1e-13 in 10 rounds / 21 columns / 163 ms
