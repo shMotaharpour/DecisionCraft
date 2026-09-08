@@ -23,11 +23,11 @@ from lesson3_1_qlearning_inventory import (
     MAX_INV, N_STATES, N_ACTIONS, EP_LEN, evaluate, policy_exact,
 )
 GAMMA = 0.95
-EPISODES = 300
-BATCH = 32
-LR = 8e-4
-BUFFER = 5_000
-SYNC = 150
+EPISODES = 1500
+BATCH = 64
+LR = 5e-4
+BUFFER = 20_000
+SYNC = 300
 
 
 def one_hot(s):
@@ -43,7 +43,8 @@ def qnet(hidden=64):
         nn.Linear(hidden, N_ACTIONS))
 
 
-def dqn_variant(use_replay=True, use_target=True, seed=7, linear=False):
+def dqn_variant(use_replay=True, use_target=True, seed=7, linear=False,
+                lr=LR, clip_grads=True):
     """Train one variant; return greedy policy table + volatility metric."""
     torch.manual_seed(seed); random.seed(seed)
     env = InventoryEnv(seed)
@@ -59,7 +60,7 @@ def dqn_variant(use_replay=True, use_target=True, seed=7, linear=False):
         net = qnet()
         net2 = qnet()
         net2.load_state_dict(net.state_dict())
-        opt = torch.optim.Adam(net.parameters(), lr=LR)
+        opt = torch.optim.Adam(net.parameters(), lr=lr)
         buf = []
 
     policy_perf_curve = []
@@ -105,7 +106,8 @@ def dqn_variant(use_replay=True, use_target=True, seed=7, linear=False):
                 q_sa = net(obs).gather(1, act.unsqueeze(1)).squeeze(1)
                 loss = nn.functional.smooth_l1_loss(q_sa, target)
                 opt.zero_grad(); loss.backward()
-                nn.utils.clip_grad_norm_(net.parameters(), 5.0)
+                if clip_grads:
+                    nn.utils.clip_grad_norm_(net.parameters(), 5.0)
                 opt.step()
                 if use_target and steps % SYNC == 0:
                     net2.load_state_dict(net.state_dict())
@@ -114,13 +116,16 @@ def dqn_variant(use_replay=True, use_target=True, seed=7, linear=False):
 
     if linear:
         pol = theta.argmax(axis=1)
+        q_max = float(np.abs(theta).max())
     else:
         with torch.no_grad():
             obs_all = torch.tensor(np.stack([one_hot(x) for x in range(N_STATES)]))
-            pol = net(obs_all).argmax(dim=1).numpy()
+            q_table = net(obs_all).numpy()
+            pol = q_table.argmax(axis=1)
+        q_max = float(np.abs(q_table).max())
     curve = np.array(policy_perf_curve)
     volatility = float(np.std(np.diff(np.convolve(curve, np.ones(51) / 51, mode="valid"))))
-    return pol, volatility, curve
+    return pol, volatility, curve, q_max
 
 
 if __name__ == "__main__":
@@ -134,11 +139,13 @@ if __name__ == "__main__":
         ("NO target net", dict(use_target=False)),
         ("NO replay", dict(use_replay=False)),
         ("NEITHER (online moving targets)", dict(use_replay=False, use_target=False)),
+        ("DIVERGENT: no clip, lr 3e-3, NEITHER",
+         dict(use_replay=False, use_target=False, lr=3e-3, clip_grads=False)),
     ]
-    print(f"{'variant':44s} {'%exact':>7s} {'volatility':>11s}")
+    print(f"{'variant':44s} {'%exact':>7s} {'volatility':>11s} {'max|Q|':>9s}")
     for name, kw in variants:
-        pol, vol, curve = dqn_variant(**kw)
+        pol, vol, curve, q_max = dqn_variant(**kw)
         pol = np.array([min(int(x), MAX_INV - s) for s, x in enumerate(pol)])
         perf = evaluate(pol)
-        print(f"{name:44s} {100*perf/exact_perf:6.1f}% {vol:11.2f}")
+        print(f"{name:44s} {100*perf/exact_perf:6.1f}% {vol:11.2f} {q_max:9.1f}")
         print(f"    policy: {list(pol)}")
