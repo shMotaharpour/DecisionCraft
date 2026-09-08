@@ -1,0 +1,32 @@
+# Phase 4 — Lesson 4.6 Add-on B evidence: Bayesian λ posterior + Thompson
+
+Live run 2026-09-08, numpy/scipy, ~3 s. Command:
+`python phase4_hybrid/lesson4_6b_bayes.py`
+
+Setup: Poisson demand, λ\* = 3.0 unknown; Gamma prior (a=1, b=0.3,
+mean 3.3 — deliberately mis-centered); exact conjugate posterior update
+(a += Σdemand, b += days); 200 days; warmup 10 days forced exploration;
+per-episode VI re-solve cached by sampled λ (Thompson).
+
+```
+posterior mean trace: day 10 3.01 -> day 200 3.09 (true 3.0)
+
+total profit over 200 days:
+  policy        profit  vs oracle
+  oracle        4156.0      +0.0%
+  thompson      3763.5      -9.4%
+  point         3624.0     -12.8%
+  robust        3819.0      -8.1%
+```
+
+Readings:
+- Thompson beats the point planner by 3.4pp and beats nothing else —
+  sampling from the posterior hedges epistemic risk without committing.
+- Robust (box worst-case over the 90% band) actually WINS this run at
+  −8.1%: with a small MDP, the insurance premium is cheap and the worst
+  case-λ policies are near-optimal for mid-band λ too.
+- All three pay vs oracle: the price of not knowing λ is 8–13% — the
+  quantified value of identification/estimation quality.
+- posterior mean converged (3.01 by day 10 — Poisson informs fast), so
+  the remaining gap is structure: with λ known, the oracle's policy is
+  exactly optimal; the learners' warmup policies were not.

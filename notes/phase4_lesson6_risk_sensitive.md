@@ -183,6 +183,27 @@ below mean) is right while the calibration is not. Distributional RL
 fixes *what you can express*, not *whether your network lies*. Calibration
 needs Double-Q-style selection/evaluation (exercise) and more data.
 
+**Add-on B — Bayesian λ posterior executed (`lesson4_6b_bayes.py`, ~3 s):**
+demand is Poisson(λ\*) with λ\* unknown; a Gamma prior (conjugate → exact
+posterior) updates daily; three decision rules compete on the SAME demand
+stream against the oracle that knows λ\*: point-estimate planner (VI on
+the posterior mean), robust planner (VI vs the worst λ in the 90%
+credible band), and **Thompson** (sample λ from the posterior each
+episode, VI for that λ). Live results over 200 days:
+
+| policy | profit | vs oracle |
+|---|---|---|
+| oracle (knows λ\*) | 4156.0 | — |
+| robust (box, 90% band) | 3819.0 | −8.1% |
+| Thompson | 3763.5 | −9.4% |
+| point estimate | 3624.0 | −12.8% |
+
+Findings: Thompson beats the point planner by 3.4pp (sampling hedges
+instead of committing to a λ); **robust wins this run** — in a small MDP
+the insurance premium is cheap; and the 8–13% gap to the oracle *is the
+quantified price of model uncertainty*, the number §2.6 exists to
+justify. Evidence: `docs/research/phase4_lesson6b_bayes_evidence.txt`.
+
 `phase4_hybrid/lesson4_6_risk_sensitive.py` — the inventory problem,
 three planners on the SAME demand stream:
 1. **Risk-neutral VI** (phase-2 baseline);
