@@ -97,4 +97,6 @@ PPO's stability.
   RLHF. You now know its mechanics from first principles.
 - Gymnasium's terminated-vs-truncated split is not pedantry: bootstrapping
   on a truncation is a classic silent bug.
-- Phase-3 capstone next (lesson 3.5): RL agent on YOUR game, simplified.
+- Phase-3 capstone: lesson 3.7 (RL vs rule-based vs exact DP on a mini
+  farm game) — and lesson 4.9 replays the same duel with MCTS planning:
+  read both for the learning-vs-planning contrast.

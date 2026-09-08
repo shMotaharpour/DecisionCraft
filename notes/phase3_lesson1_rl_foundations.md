@@ -78,8 +78,14 @@ rule from lesson 2.2.
 
 ## 7. Bridge to the next lessons
 
-- Exploration *how* is lesson 3.2 (ε-greedy is the weakest answer).
+- **Where does the sample→value bridge come from?** Lesson 2.7 already
+  compared MC vs TD(0) against exact V on this very policy — this phase
+  re-derives it with the model hidden.
+- Exploration *how* is lesson 3.2 (ε-greedy is the weakest answer; the
+  bandit theory behind it is lesson 3.5).
 - When |S| explodes or states are continuous, the table dies —
   function approximation + deep nets is lesson 3.3 (DQN).
 - When the *argmax* over actions is itself hard or continuous —
   policy gradients and PPO is lesson 3.4.
+- The phase lands on its capstone, lesson 3.7: RL on a mini farm game,
+  graded against exact DP.

@@ -108,6 +108,11 @@ days map onto this math.
 That's why the Chista project's MILP+prediction architecture was the
 right engineering call — and why phase 4 will formalize it.
 
+The escape routes this taxonomy promises are built in later lessons:
+absorbing chains & hitting times (2.5), finite-horizon backward
+induction (2.6), and the sample→value bridge with a CMDP worked LP
+(2.7) — each covers one axis's "how" for the cases marked above.
+
 **Proven results cited in this lesson:** Bellman optimality for all four
 horizon formulations; Blackwell optimality (γ→1); contraction/convergence
 only where γ<1 (average-reward needs different proofs); minimax values of

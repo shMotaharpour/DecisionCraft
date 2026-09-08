@@ -71,8 +71,13 @@ A trading-and-inventory firm over T days:
 5. **Test environments before agents** (lesson 3.1's signature bug!) and
    compare policies by evaluated performance, never by value magnitudes
    across horizons.
-6. **Symmetry/tightness decide MILP speed**; **domains decide CP-SAT
+- **Symmetry/tightness decide MILP speed**; **domains decide CP-SAT
    speed** (lessons 1.2b, 1.4c/d).
+- When the coupling structure dominates, this architecture has an exact
+  formal twin: **Dantzig-Wolfe decomposition + column generation
+  (lesson 1.9)** — master-as-coordinator with dual feedback is precisely
+  the pricing loop — and when the blocks are integer, its completion is
+  **branch-and-price (lesson 1.10)**.
 
 ## 4. Run it
 
