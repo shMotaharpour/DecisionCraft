@@ -1,19 +1,21 @@
-# Evidence: phase3 lesson3.6 triad ablation — live run 2026-09-08, torch 2.14.0+cpu, 4 cores
-# cmd: python phase3_rl/lesson3_6_triad_ablation.py  (1m49s wall, 300 episodes, batch 32)
+# Evidence: phase3 lesson3.6 triad ablation — full run 2026-09-08, 1500 eps, batch 64, ~10 min wall
+# cmd: python phase3_rl/lesson3_6_triad_ablation.py
 exact (s,S) policy performance: 902.4
 
-variant                                       %exact  volatility
-linear-FA TD (on-policy, provably stable)      99.9%        2.44
-    policy: [np.int64(5), np.int64(8), np.int64(5), np.int64(2), np.int64(6), np.int64(2), np.int64(2), np.int64(2), np.int64(2), np.int64(0), np.int64(0)]
-full DQN (replay + target + Huber)            101.1%        2.37
-    policy: [np.int64(6), np.int64(6), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(0)]
-NO target net                                  95.3%        2.55
-    policy: [np.int64(5), np.int64(5), np.int64(8), np.int64(7), np.int64(5), np.int64(5), np.int64(4), np.int64(3), np.int64(2), np.int64(1), np.int64(0)]
-NO replay                                      94.9%        2.48
+variant                                       %exact  volatility    max|Q|
+linear-FA TD (on-policy, provably stable)     101.5%        2.53     380.7
+    policy: [np.int64(6), np.int64(8), np.int64(5), np.int64(5), np.int64(1), np.int64(2), np.int64(2), np.int64(2), np.int64(2), np.int64(1), np.int64(0)]
+full DQN (replay + target + Huber)             96.1%        2.07     439.2
+    policy: [np.int64(3), np.int64(3), np.int64(2), np.int64(2), np.int64(2), np.int64(2), np.int64(2), np.int64(2), np.int64(0), np.int64(1), np.int64(0)]
+NO target net                                 101.4%        2.12     442.3
+    policy: [np.int64(4), np.int64(4), np.int64(2), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(0), np.int64(0)]
+NO replay                                      94.9%        2.53    1301.6
     policy: [np.int64(8), np.int64(8), np.int64(8), np.int64(7), np.int64(6), np.int64(5), np.int64(4), np.int64(3), np.int64(2), np.int64(1), np.int64(0)]
-NEITHER (online moving targets)                94.9%        2.46
+NEITHER (online moving targets)                94.9%        2.53    1198.4
+    policy: [np.int64(9), np.int64(9), np.int64(8), np.int64(7), np.int64(6), np.int64(5), np.int64(4), np.int64(3), np.int64(2), np.int64(1), np.int64(0)]
+DIVERGENT: no clip, lr 3e-3, NEITHER           94.9%        2.56 324460160.0
     policy: [np.int64(8), np.int64(8), np.int64(8), np.int64(7), np.int64(6), np.int64(5), np.int64(4), np.int64(3), np.int64(2), np.int64(1), np.int64(0)]
+exit=0
 
-# NOTE first run with 1500 eps/batch 64 took 6m11s with same qualitative ranking:
-#   linear 99.3% / DQN 99.3% / no-target 96.1% / no-replay 94.9% / neither 94.8%
-# divergence demonstration (lr 3e-3, no clip) left as exercise - VM budget
+# smaller 300-eps run (~1m49s) gave same qualitative ranking: linear 99.9 / DQN 101.1 / no-target 95.3 / no-replay 94.9 / neither 94.9
+# DIVERGENT variant: no grad clipping + lr 3e-3 + online targets -> max|Q| = 3.2e8 (real divergence captured)
