@@ -1,0 +1,30 @@
+# Evidence: phase4 lesson4.8 Markov games — live run 2026-09-08, numpy only, ~1.5 s
+# cmd: python phase4_hybrid/lesson4_8_markov_games.py
+(a) Shapley value iteration — pursuit game, gamma = 0.9
+   converged in 87 iterations
+   V(gap=0..4) = [10.     7.886  2.488 -0.433 -3.383]
+   V(0) = 10 = +1 annuity (caught); V falls with distance;
+   V(3) crosses 0: beyond gap 3 the pursuit loses value.
+
+(b) equilibrium policies (support of argmax/argmin):
+   gap 1: pursuer chases [-1, 0, 1] -> [0 0 1] | evader evades -> [0 0 1]
+   gap 2: pursuer chases [-1, 0, 1] -> [0 0 1] | evader evades -> [0 0 1]
+   gap 3: pursuer chases [-1, 0, 1] -> [0 0 1] | evader evades -> [0 0 1]
+   gap 4: pursuer chases [-1, 0, 1] -> [0 0 1] | evader evades -> [0 0 1]
+
+(c) Markov fictitious play — both players learning
+   policy drift from equilibrium: first 20 rounds 0.000 -> last 50 0.000
+   zero-sum + discounted: play settles toward the minimax
+   policies (Shapley 1953 / fictitious-play convergence).
+
+(d) mapping to our problems:
+   Kaggriculture = 2-player stochastic game, near-perfect info:
+   state = board, actions = move sets, transition includes the
+   opponent's simultaneous move — the max in Bellman becomes
+   max-min (or max over expected opponent, lesson 4.2).
+   Chista's opponent model = the frequency table; the MILP
+   tactical layer = best response given the model (lesson 4.3).
+
+# debugging notes:
+# - first game design was degenerate (deterministic evader mirrors pursuer -> V=[10,-10,-10,-10,-10]); fixed with stumble noise (0.25) + stochastic catch (0.35 adjacent) -> non-degenerate value ladder [10, 7.886, 2.488, -0.433, -3.383]
+# - FP v1 bug: evader best-responded over the PURSUER's action index (drift stuck at 0.8, 'evade' = +1 toward pursuer); fixed to per-player own-action indexing -> drift 0.000
