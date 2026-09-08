@@ -27,3 +27,7 @@ C. fitting P from a generated series (3 regimes, 20k days)
 
 # verification: direct MFPT vs Monte Carlo (60k runs each): m_02 sim=15.96 direct=16.00 | m_10 sim=4.67 direct=4.67 | m_21 sim=6.00 direct=6.00
 # verification: gambler ruin B[:,0] vs closed form max|diff| = 1.11e-16
+# figure data: lesson2.5 MFPT matrix + Kemeny check — live run 2026-09-08
+# M (first-step linear systems, MC-verified): bull->stagn 16.0, bear->stagn 14.0, stagn->bull 4.0, bear->bull 4.67, bull->bear 8.67, stagn->bear 6.0
+# Kemeny consistency: K = sum_j pi_j*m_ij ~ 5.2 for every start row (vision-review check)
+# return times 1/pi: [1.67, 3.33, 10.00]
