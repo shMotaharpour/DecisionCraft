@@ -26,3 +26,11 @@ exit=0
 
 # honest verdict: toy-scale DFS B&P is slower than HiGHS direct MILP and stalls at -2.33%
 # (branch fixes degenerate subproblems); the lesson is the architecture, not the timing.
+# figure data: lesson1.10 B&P node-budget sweep (for the stall curve)
+# budget nodes best
+# 100 100 397.60
+# 200 200 397.60
+# 400 400 397.60
+# 800 800 397.60
+# 1600 1600 397.60
+# 3200 3200 397.60
