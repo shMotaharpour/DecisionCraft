@@ -1,0 +1,29 @@
+# Evidence: phase4 lesson4.6 add-on A mini QR-DQN — live run 2026-09-08, torch 2.14 cpu, 400 episodes, 9 heads, ~3.5 min
+# cmd: python phase4_hybrid/lesson4_6a_qrdqn.py
+QR-DQN trained in 212s (400 episodes, N=9 heads)
+
+per-state quantile heads (state s=0, greedy action):
+  greedy action = 9
+  tau=0.06:   381.10  
+  tau=0.17:   543.41  ############
+  tau=0.28:   595.35  ################
+  tau=0.39:   632.39  ##################
+  tau=0.50:   658.00  ####################
+  tau=0.61:   707.40  ########################
+  tau=0.72:   722.22  #########################
+  tau=0.83:   743.05  ###########################
+  tau=0.94:   779.19  ##############################
+
+read-outs (state 0, greedy policy) vs empirical rollouts:
+  metric    QR-DQN heads  empirical
+  mean            640.23     302.75
+  VaR 5%          381.10     232.62
+  CVaR 5%         381.10     217.26
+
+(no re-training per risk level — the distribution IS the model,
+ and every risk measure is a lookup on it, as promised in §3.5)
+exit=0
+
+# honest finding: heads overestimate the empirical distribution (mean 640 vs 302, CVaR 381 vs 217)
+#   = DQN overestimation bias under distributional training; shape correct (monotone heads), calibration not
+#   → ties to lessons 3.6/4.7 (overestimation, Double-Q); exercise: selection/evaluation split

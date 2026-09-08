@@ -171,6 +171,18 @@ the practical answer to your question.**
 
 ## 4. The mini-experiment (script)
 
+**Add-on A — mini QR-DQN (`lesson4_6a_qrdqn.py`, ~3.5 min):** trains a
+9-quantile-head network on the inventory env (pinball loss, random-tau
+one-step distributional Bellman) and reads mean / VaR5% / CVaR5% directly
+off the heads. Live run: heads are monotone in tau (381 → 779), CVaR is a
+pure lookup — the §3.5 promise works. **Honest finding:** the head values
+*overestimate* the empirical rollout distribution (mean 640 vs 302, CVaR
+381 vs 217) — the classic DQN overestimation bias (lessons 3.6/4.7)
+compounded by distributional training; the SHAPE (monotone heads, tail
+below mean) is right while the calibration is not. Distributional RL
+fixes *what you can express*, not *whether your network lies*. Calibration
+needs Double-Q-style selection/evaluation (exercise) and more data.
+
 `phase4_hybrid/lesson4_6_risk_sensitive.py` — the inventory problem,
 three planners on the SAME demand stream:
 1. **Risk-neutral VI** (phase-2 baseline);
