@@ -44,6 +44,16 @@ Reading:
 - Crossover is problem-dependent, but 50–100 nodes for TSP-like structure is
   the honest ballpark on a real machine.
 
+![CP-SAT vs GLS across scale](../assets/phase1/lesson1_7_scale.png)
+
+*The scale experiment re-plotted (same seeds — note n=120's CP-SAT run
+lands on a slightly different FEASIBLE incumbent each run; the qualitative
+story is invariant). Left: quality — CP-SAT wins up to n=60, then the
+FEASIBLE annotation marks where optimality is lost and GLS pulls ahead at
+n=120. Right: what the answer costs — CP-SAT's wall time jumps 15× from
+n=60 to n=120 while GLS burns exactly its 5 s budget every time. Generated
+by `phase2_mdp/make_figures_17.py`.*
+
 ## 3. The decision guide (what to reach for)
 
 ```
