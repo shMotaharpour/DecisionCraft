@@ -7,6 +7,7 @@ numbers they visualize; conceptual diagrams go before the discussion.
 Run:  python phase2_mdp/make_figures.py
 """
 import os
+import sys
 
 import matplotlib
 matplotlib.use("Agg")
@@ -16,7 +17,9 @@ from scipy.stats import poisson
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "assets", "phase2")
+OUT_P1 = os.path.join(HERE, "..", "assets", "phase1")
 os.makedirs(OUT, exist_ok=True)
+os.makedirs(OUT_P1, exist_ok=True)
 
 HORIZON = 12
 MAX_STOCK = 15
@@ -106,5 +109,90 @@ def fig_markdown_ladder():
     print("saved:", os.path.relpath(path, HERE))
 
 
+# ------------------------------------------------------- lesson 1.6 figure
+def fig_crossover():
+    """Lesson 1.6 fig: exact MILP vs heuristic wall time + gap across n."""
+    import time
+    from scipy.optimize import milp, LinearConstraint, Bounds
+
+    def make_instance(n, seed=7):
+        rng = np.random.default_rng(seed)
+        w = rng.integers(2, 41, n)
+        p = rng.integers(5, 91, n)
+        return list(w), list(p), int(w.sum() // 3)
+
+    def solve_exact(w, p, cap):
+        n = len(w)
+        c = -np.array(p, dtype=float)
+        A = np.array(w, dtype=float).reshape(1, -1)
+        res = milp(c=c, constraints=LinearConstraint(A, -np.inf, cap),
+                   integrality=np.ones(n), bounds=Bounds(0, 1),
+                   options={"mip_rel_gap": 0.0})
+        return -res.fun if res.success else None
+
+    def local_search(w, p, cap, budget_s=0.5, seed=1):
+        rng = np.random.default_rng(seed)
+        bits = [0] * len(w)
+        tw = 0
+        order = sorted(range(len(w)), key=lambda i: -p[i] / w[i])
+        for i in order:
+            if tw + w[i] <= cap:
+                bits[i], tw = 1, tw + w[i]
+        val = sum(x for x, b in zip(p, bits) if b)
+        t0 = time.time()
+        while time.time() - t0 < budget_s:
+            i = int(rng.integers(len(bits)))
+            cand, cw = bits[:], tw
+            cand[i] = 1 - cand[i]
+            cw += w[i] * (1 if cand[i] else -1)
+            if cw <= cap:
+                cv = val + p[i] * (1 if cand[i] else -1)
+                if cv > val:
+                    bits, val = cand, cv
+        return val
+
+    ns = [50, 100, 200, 400, 800, 1600, 3200, 6400]
+    t_exact, t_heur, gaps = [], [], []
+    for n in ns:
+        w, p, cap = make_instance(n)
+        t0 = time.time()
+        opt = solve_exact(w, p, cap)
+        t_exact.append(time.time() - t0)
+        t0 = time.time()
+        hv = local_search(w, p, cap)
+        t_heur.append(time.time() - t0)
+        gaps.append(100 * (opt - hv) / opt)
+
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.2), dpi=150)
+    ax = axes[0]
+    ax.plot(ns, t_exact, "o-", color="#08519c", lw=1.6, label="scipy.milp exact (gap=0)")
+    ax.plot(ns, t_heur, "s-", color="#d94801", lw=1.6,
+            label="greedy + local search (0.5 s fixed)")
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    ax.set_xlabel("items n (log)")
+    ax.set_ylabel("wall time s (log)")
+    ax.set_title("knapsack: exact vs heuristic wall time")
+    ax.legend(fontsize=8)
+    ax.grid(alpha=0.3, which="both")
+
+    ax = axes[1]
+    ax.bar([str(n) for n in ns], gaps, color="#31a354", alpha=0.85)
+    for i, g in enumerate(gaps):
+        ax.text(i, g + 0.008, f"{g:.2f}", ha="center", fontsize=7)
+    ax.set_xlabel("items n")
+    ax.set_ylabel("optimality gap %")
+    ax.set_title("heuristic gap vs exact optimum (lower = better)")
+    ax.set_ylim(0, max(gaps) * 1.3)
+    ax.grid(alpha=0.3, axis="y")
+
+    fig.tight_layout()
+    path = os.path.join(OUT_P1, "lesson1_6_crossover.png")
+    fig.savefig(path, bbox_inches="tight")
+    print("saved:", os.path.relpath(path, HERE))
+
+
 if __name__ == "__main__":
     fig_markdown_ladder()
+    if len(sys.argv) > 1 and sys.argv[1] == "all":
+        fig_crossover()
