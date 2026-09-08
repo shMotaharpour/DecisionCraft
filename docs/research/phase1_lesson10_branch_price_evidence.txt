@@ -1,0 +1,28 @@
+# Evidence: phase1 lesson1.10 Branch-and-Price — live run 2026-09-08, scipy HiGHS
+# cmd: python phase1_milp/lesson1_10_branch_and_price.py
+instance: 6 blocks x 10 BINARY activities, 2 shared resources
+
+(a) direct MILP (ground truth):
+    optimum 407.100  (0.48 s)
+
+(b) direct LP relaxation (bound baseline):
+    LP bound 418.126  (integrality gap 2.71%)
+
+(c) DW master LP via column generation:
+    bound 410.205 after 12 rounds, 23 cols (0.51 s) — same bound as (b), fewer columns
+
+(d) naive rounding of the fractional λ solution:
+    rounded profit 417.9  feasible=False  gap vs optimum -2.7%
+
+(e) branch-and-price (DFS, pricing at every node):
+    best integer 397.600 after 400 nodes (11.2 s)
+    vs direct MILP optimum: -2.33%
+exit=0
+
+# deeper B&P probe (node budget sweep):
+node_budget=2000: best 397.600 in 2000 nodes (69.5s) — gap +2.33%
+node_budget=6000: best 397.600 in 6000 nodes (208.2s) — gap +2.33%
+exit=0
+
+# honest verdict: toy-scale DFS B&P is slower than HiGHS direct MILP and stalls at -2.33%
+# (branch fixes degenerate subproblems); the lesson is the architecture, not the timing.
