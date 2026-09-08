@@ -1,0 +1,19 @@
+# Evidence: phase3 lesson3.6 triad ablation — live run 2026-09-08, torch 2.14.0+cpu, 4 cores
+# cmd: python phase3_rl/lesson3_6_triad_ablation.py  (1m49s wall, 300 episodes, batch 32)
+exact (s,S) policy performance: 902.4
+
+variant                                       %exact  volatility
+linear-FA TD (on-policy, provably stable)      99.9%        2.44
+    policy: [np.int64(5), np.int64(8), np.int64(5), np.int64(2), np.int64(6), np.int64(2), np.int64(2), np.int64(2), np.int64(2), np.int64(0), np.int64(0)]
+full DQN (replay + target + Huber)            101.1%        2.37
+    policy: [np.int64(6), np.int64(6), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(0)]
+NO target net                                  95.3%        2.55
+    policy: [np.int64(5), np.int64(5), np.int64(8), np.int64(7), np.int64(5), np.int64(5), np.int64(4), np.int64(3), np.int64(2), np.int64(1), np.int64(0)]
+NO replay                                      94.9%        2.48
+    policy: [np.int64(8), np.int64(8), np.int64(8), np.int64(7), np.int64(6), np.int64(5), np.int64(4), np.int64(3), np.int64(2), np.int64(1), np.int64(0)]
+NEITHER (online moving targets)                94.9%        2.46
+    policy: [np.int64(8), np.int64(8), np.int64(8), np.int64(7), np.int64(6), np.int64(5), np.int64(4), np.int64(3), np.int64(2), np.int64(1), np.int64(0)]
+
+# NOTE first run with 1500 eps/batch 64 took 6m11s with same qualitative ranking:
+#   linear 99.3% / DQN 99.3% / no-target 96.1% / no-replay 94.9% / neither 94.8%
+# divergence demonstration (lr 3e-3, no clip) left as exercise - VM budget
