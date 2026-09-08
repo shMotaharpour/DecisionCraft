@@ -29,3 +29,12 @@ total runtime 86.3s
 # - v1 game had REST-cycling -> RecursionError; fixed with a 12-turn horizon (state-design lesson)
 # - game value is -2 for player 0 (second mover wins): benchmark switched to 'MCTS holds the win as player 1'
 # - guided MCTS v1 scored 0/40: value prior reported from the TO-MOVE player but backprop credits player_just_moved -> inverted outcomes; perspective fix -> 40/40 at 200 sims
+# figure data: lesson4.9 MCTS budget curve — live run 2026-09-08, 20 games per point
+sims    50: pure 17/20  guided 20/20
+sims   100: pure 15/20  guided 20/20
+sims   200: pure 18/20  guided 20/20
+sims   500: pure 20/20  guided 20/20
+sims  1000: pure 20/20  guided 20/20
+sims  2000: pure 20/20  guided 20/20
+saved: ../assets/phase4/lesson4_9_mcts_budget.png
+exit=0
