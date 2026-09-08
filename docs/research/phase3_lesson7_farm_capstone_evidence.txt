@@ -1,0 +1,19 @@
+# Evidence: phase3 lesson3.7 farm capstone — live run 2026-09-08, torch 2.14.0+cpu
+# cmd: python phase3_rl/lesson3_7_farm_capstone.py  (~13 min wall with 2000 DQN + 3000 PPO episodes)
+exact DP (backward induction, 19k states): V = 22.248 (0.1s)  <- the ceiling
+
+training DQN ...
+training PPO ...
+
+3000-episode evaluation (avg reward per 12-step episode):
+  exact DP (from V):  22.248  (analytic optimum)
+  rule-based     :  13.558
+  DQN            :   9.589
+  PPO            :  15.157
+
+last-100 training means: DQN 9.002  PPO 15.114
+exit=0
+
+# earlier smaller run (800 eps PPO): PPO 7.476 — below rule-based, confirming sample-efficiency cost
+# entropy ablation: 0.01 -> action collapse; 0.02 -> full behavior (in scratch runs)
+# DP: 19,344 states, lru_cache memoized, 0.1s
