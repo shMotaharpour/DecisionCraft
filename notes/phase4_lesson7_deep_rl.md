@@ -39,6 +39,24 @@ exists is a large, battle-tested engineering canon, organized below.
 
 ## 2. The architecture catalog (what to use, when)
 
+One decision flow to navigate the catalog below:
+
+```mermaid
+flowchart TD
+    Q0{Can you explore live?}
+    Q0 -- "no (real money, production)" --> OFF["OFFLINE RL<br/>CQL / BCQ / IQL / Decision Transformer"]
+    Q0 -- yes --> Q1{Actions?}
+    Q1 -- "continuous (prices, sizes)" --> PC["POLICY-BASED<br/>SAC / TD3 · PPO for discrete-ish<br/>overestimation fixes: twin critics"]
+    Q1 -- discrete --> Q2{Partial observability?}
+    Q2 -- yes --> MEM["+ MEMORY<br/>LSTM/GRU head, frame-stack<br/>(R2D2-style burn-in)"]
+    Q2 -- no --> Q3{Need risk read-outs<br/>or richest signal?}
+    Q3 -- yes --> DIST["DISTRIBUTIONAL<br/>C51 / QR-DQN (lesson 4.6)"]
+    Q3 -- no --> DQN["DQN family<br/>Double/Dueling + Rainbow extras"]
+    Q1 -- "combinatorial / planning-shaped" --> MB["MODEL-BASED / SEARCH<br/>MuZero, Dreamer; MCTS (lesson 4.9)"]
+    MEM --> DIST
+    MEM --> DQN
+```
+
 ### 2.1 Value-based family
 | Architecture | Idea | When |
 |--------------|------|------|
