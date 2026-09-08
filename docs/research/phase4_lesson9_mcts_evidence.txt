@@ -1,0 +1,31 @@
+# Evidence: phase4 lesson4.9 MCTS — live run 2026-09-08, numpy only, ~86 s
+# cmd: python phase4_hybrid/lesson4_9_mcts.py
+mini-farm duel: W=6, IRRIGATE=+2, last irrigator +3 bonus,
+higher score wins (+1/-1). Deterministic, perfect info.
+
+(a) minimax ground truth: game value -2 [0.0s]
+    (positive = player 0 can force a win with perfect play)
+
+(b) pure MCTS (random rollouts) vs the minimax player
+    The game value is -2 for player 0: the SECOND mover wins
+    under perfect play (last-irrigator bonus + tempo). So the
+    honest test: can MCTS (as player 1, the winning side) hold
+    the win? 40 games per budget:
+      100 sims/move: MCTS holds the win 31/40
+      500 sims/move: MCTS holds the win 40/40
+     2000 sims/move: MCTS holds the win 40/40
+
+(c) guided MCTS — value prior instead of random rollout
+    guided 200 sims/move: MCTS holds the win 40/40
+
+(d) root value-estimate quality (truth = -2)
+      100 sims: est -0.264 on move 'REST' (87 visits)
+      500 sims: est -0.260 on move 'IRRIGATE' (281 visits)
+     2000 sims: est -0.277 on move 'REST' (1104 visits)
+
+total runtime 86.3s
+
+# debugging notes:
+# - v1 game had REST-cycling -> RecursionError; fixed with a 12-turn horizon (state-design lesson)
+# - game value is -2 for player 0 (second mover wins): benchmark switched to 'MCTS holds the win as player 1'
+# - guided MCTS v1 scored 0/40: value prior reported from the TO-MOVE player but backprop credits player_just_moved -> inverted outcomes; perspective fix -> 40/40 at 200 sims
