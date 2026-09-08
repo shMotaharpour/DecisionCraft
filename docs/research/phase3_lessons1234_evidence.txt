@@ -1,0 +1,60 @@
+# Evidence: phase3 lessons 3.1/3.2/3.3 — live runs 2026-09-08, torch 2.14.0+cpu
+
+# cmd: python phase3_rl/lesson3_1_qlearning_inventory.py (~2 min)
+training 3 agents ...
+
+final greedy policy (order amount per inventory level 0..10):
+  exact DP  : [4 3 2 1 0 0 0 0 0 0 0]
+  MC         : [9 7 4 6 3 0 1 0 1 1 0]
+  SARSA      : [7 7 3 2 1 0 0 1 1 1 0]
+  Q-learning : [5 6 5 2 2 0 1 2 1 0 0]
+
+2000-episode evaluation (undiscounted, 50 steps, shared seed):
+  exact (s,S) policy:    902.4   (100%)
+  MC          policy:    921.3   (102.1% of exact)
+  SARSA       policy:    936.9   (103.8% of exact)
+  Q-learning  policy:    940.1   (104.2% of exact)
+
+# cmd: python phase3_rl/lesson3_2_exploration.py (~3 min)
+training 4 agents x 40000 episodes ...
+
+strategy                 eval perf  %exact  Q[10,0]  train reward
+constant eps=0.10            929.6  103.0%    399.4      36640722
+decayed  eps                 945.3  104.8%    399.3      36899537
+optimistic init Q0=40        331.2   36.7%     40.0      13249480
+UCB1 (c=2)                   821.1   91.0%      0.0      32819286
+
+# cmd: python phase3_rl/lesson3_3_dqn_inventory.py (~20 min on shared 4-core VM, 600 eps DQN)
+final loss (last 100 avg): 0.6012
+eps: start 1.00 -> end 0.05
+
+final greedy policy (order per inventory level 0..10):
+  exact DP : [4 3 2 1 0 0 0 0 0 0 0]
+  DQN      : [4 3 2 1 1 1 1 1 1 1 0]
+
+2000-episode evaluation:
+  exact DP:    902.4 (100%)
+  DQN     :    905.0 (100.3% of exact)
+exit=0
+
+# cmd: python phase3_rl/lesson3_4_ppo_gymnasium.py (~4 min)
+training REINFORCE ...
+training Actor-Critic ...
+training PPO ...
+
+final greedy policy:
+  exact DP : [4 3 2 1 0 0 0 0 0 0 0]
+  REINFORCE: [2 2 2 2 2 2 2 2 2 2 2]
+  A2C      : [ 6  6  6  6  6  6  6 10  5  5  7]
+  PPO      : [9 9 3 3 0 3 9 6 9 3 3]
+
+2000-episode evaluation (feasible-action clipped, like training env):
+  REINFORCE :    680.9 (  75.4% of exact)
+  A2C       :    859.2 (  95.2% of exact)
+  PPO       :    877.3 (  97.2% of exact)
+
+last-500-episode training means (variance visible):
+  REINFORCE :    68.06  (std   1.45)
+  A2C       :    86.04  (std   9.53)
+  PPO       :    86.83  (std   9.31)
+exit=0
