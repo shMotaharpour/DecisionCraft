@@ -7,22 +7,27 @@ one working system, mirroring the architecture that industrial projects
 
 ## 1. The canonical hybrid pattern
 
+```mermaid
+flowchart TB
+    subgraph STRAT["STRATEGIC LAYER — slow, adaptive"]
+        direction TB
+        S1["opponent / opportunity model<br/>(fictitious play, RL, forecasts)"]
+        S2["chooses TARGETS:<br/>budget split · markets · risk level"]
+        S1 --> S2
+    end
+    subgraph TACT["TACTICAL LAYER — fast, exact"]
+        direction TB
+        T1["MILP / DP:<br/>'given targets, execute optimally<br/>under hard constraints'"]
+        T2["returns feasibility + cost<br/>+ shadow prices (duals)"]
+        T1 --> T2
+    end
+    S2 -- "targets (parameters!)" --> T1
+    T2 -- "feedback: duals / infeasibility reason" --> S1
 ```
-┌─────────────────────────────────────────────────────────┐
-│  STRATEGIC LAYER (slow, adaptive)                       │
-│  - opponent/opportunity model (fictitious play, RL,     │
-│    forecasts)                                           │
-│  - chooses TARGETS: budget split, which markets, risk   │
-│    level                                                │
-└──────────────────────┬──────────────────────────────────┘
-                       │ targets (parameters!)
-┌──────────────────────▼──────────────────────────────────┐
-│  TACTICAL LAYER (fast, exact)                           │
-│  - MILP/DP solves "given targets, execute optimally     │
-│    under hard constraints"                              │
-│  - returns feasibility/cost feedback to strategy        │
-└─────────────────────────────────────────────────────────┘
-```
+
+The same diagram in five lines: strategy **sets parameters**, tactics
+**solve exactly inside them**, and the tactical layer's **dual variables
+flow back** as the strategy's learning signal.
 
 Why this decomposition works (and when it doesn't):
 - **Value of decomposition:** the strategic problem is huge & adaptive
