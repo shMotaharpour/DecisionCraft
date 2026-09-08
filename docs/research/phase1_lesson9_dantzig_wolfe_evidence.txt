@@ -22,3 +22,21 @@ instance: 6 blocks x 8 activities, 2 shared resources
 # - initial master INFEASIBLE with max-profit-only start columns (marginals=None) -> zero-plan fix
 # - sign bug: pi negated -> loop stalled at 393.64 while claiming convergence; correct: rc uses (profit + pi*gu) with scipy's raw marginals
 # - converged: |direct - DW| = 5.1e-13 in 10 rounds / 21 columns / 163 ms
+# Figure data: lesson1.9 DW scale experiment — live run 2026-09-08
+B=  4: direct  0.004s | DW  0.012s (1 rounds, 8 cols) | |diff| 7.4e-13
+B=  8: direct  0.003s | DW  0.182s (9 rounds, 24 cols) | |diff| 0.0e+00
+B= 12: direct  0.004s | DW  0.340s (12 rounds, 35 cols) | |diff| 1.0e-12
+B= 20: direct  0.005s | DW  0.668s (15 rounds, 54 cols) | |diff| 4.5e-13
+B= 30: direct  0.007s | DW  1.521s (22 rounds, 81 cols) | |diff| 4.5e-13
+B= 45: direct  0.010s | DW  3.609s (36 rounds, 125 cols) | |diff| 9.1e-13
+B= 60: direct  0.015s | DW  3.137s (24 rounds, 143 cols) | |diff| 1.8e-12
+saved: ../assets/phase1/lesson1_9_dw_scale.png
+exit=0
+
+# honest finding: at toy LP scale (B<=60, K=8) HiGHS direct wins everywhere;
+# DW-integer probe (B=40, K=12..64, integer subproblems): matched direct-MIP optimum with zero gap
+B=  4: direct-MIP    0.05s (    329.8) | DW-integer    0.06s (    329.8) | gap 0.00%
+B=  8: direct-MIP    0.15s (    631.3) | DW-integer    0.13s (    631.3) | gap -0.00%
+B= 16: direct-MIP    0.28s (   1266.8) | DW-integer    0.33s (   1266.8) | gap -0.00%
+B= 32: direct-MIP    0.46s (   2556.0) | DW-integer    0.77s (   2556.0) | gap 0.00%
+exit=0
