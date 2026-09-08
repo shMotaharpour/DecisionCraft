@@ -1,0 +1,21 @@
+# Evidence: phase3 lesson3.5 bandits — live run 2026-09-08, numpy only, 2.3 s wall
+# cmd: python phase3_rl/lesson3_5_bandits.py
+10-armed Bernoulli bandit, T=40,000 steps, mu* = 0.769, second-best 0.757
+policy                        total regret  pulls of worst arm
+eps const 0.10                      1265.9                 396
+eps decay 1/sqrt(t+1)                598.0                  34
+UCB1 c=2                            1003.4                  93
+Thompson                             102.6                  10
+
+regret at checkpoints (log-scale growth visible):
+   t=   100  t=  1000  t= 10000  t= 40000
+   eps const 0.10                 6.8     33.6    309.1   1265.9
+   eps decay 1/sqrt(t+1)          8.1     30.9    177.3    598.0
+   UCB1 c=2                      25.5    166.1    552.9   1003.4
+   Thompson                      16.6     46.2     76.4    102.6
+
+UCB1 pulls of the two WORST arms vs log T (Lai-Robbins cone):
+   t= 10000: pulls arm K-1 =  109, arm K-2 =  154, log2(T) = 13.3
+   t= 40000: pulls arm K-1 =  109, arm K-2 =  154, log2(T) = 15.3
+   (logarithmic growth = the proven optimal rate; linear-growth
+    constant-eps is exactly the gap the lower bound forbids.)
