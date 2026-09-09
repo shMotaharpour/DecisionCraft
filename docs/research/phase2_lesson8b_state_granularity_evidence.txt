@@ -1,0 +1,14 @@
+State granularity — inventory, gamma=0.95, evaluated over 20000 honest rollouts each
+
+exact    (21 levels)  |S|= 21  solve   40.9 ms  true perf=  386.71
+bin(3)   ( 7 levels)  |S|=  7  solve   13.9 ms  true perf=  384.63
+bin(10)  ( 3 levels)  |S|=  3  solve    6.0 ms  true perf=  377.55
+
+read:
+ - the coarse model's OWN value function is optimistic garbage
+   (projection error); only the lifted rollout tells the truth.
+ - bin(3) loses a few percent; bin(10) is visibly degraded —
+   the (s,S) structure needs enough resolution to place the
+   reorder point.
+ - rule of thumb: bin where the value function is FLAT, keep
+   resolution where it bends (the reorder region).

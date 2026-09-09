@@ -1,0 +1,24 @@
+Time granularity — same season, three clocks (42 days, fad decay, elasticity 0.35)
+
+weekly  epochs=  6  |S|=  147  V(s=15)=  145.78  solve   25.3 ms
+2-day   epochs= 12  |S|=  273  V(s=15)=  147.11  solve   49.7 ms
+daily   epochs= 42  |S|=  903  V(s=15)=  147.31  solve  187.5 ms
+
+value ordering check (must be non-decreasing in fineness):
+  weekly 145.78 <= 2-day 147.11 <= daily 147.31  -> OK
+
+read:
+ - a finer clock strictly enlarges the policy class -> value can
+   only improve; the price is |S| growth (linear here) and more
+   decisions to commit to.
+ - the weekly plan cannot reprice after a demand shock inside the
+   week; the daily plan pays for that option whether or not it
+   ever fires (option premium vs information value).
+ - rule of thumb: refine the clock until the marginal value of the
+   last refinement stops paying for its |S|/|A| cost.
+
+# methodological bug found & fixed during development:
+#  hold cost charged on END-of-epoch leftover undercharged coarse clocks
+#  (stock waits DURING the epoch); fixed to average inventory (s+leftover)/2
+#  at every clock -> value ordering weekly <= 2-day <= daily now holds
+#  (monotonicity = the theory's promise, verified live)
