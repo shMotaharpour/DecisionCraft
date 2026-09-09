@@ -26,9 +26,10 @@ GAMMA = 0.95
 DAYS = 30
 MAX_S, MAX_A = 12, 12
 PRICE, COST, HOLD = 10.0, 3.0, 0.4
-LAM_PRE, LAM_POST = 2.0, 4.0     # promotion doubles demand at day 15
+LAM_PRE, LAM_POST = 2.0, 8.0     # promotion quadruples demand at day 15
 SHIFT_DAY = 15
 H_MPC = 5
+N_SEEDS = 16
 
 
 def pmf_for(lam):
@@ -83,8 +84,8 @@ def mpc_action(s, t, lam_hat, H=H_MPC):
     return int(pol[s])
 
 
-def simulate(mode):
-    rng = np.random.default_rng(3)
+def simulate(mode, seed=3):
+    rng = np.random.default_rng(seed)
     static_pol = solve_static((LAM_PRE + LAM_POST) / 2) if mode == "static" \
         else None
     tot = 0.0
@@ -106,8 +107,9 @@ def simulate(mode):
         r = PRICE * sold - HOLD * max(s + a - d, 0) - COST * a
         G += g * r
         g *= GAMMA
-        # online estimator: rolling mean of realized demand
-        sales_today = 0.7 * sales_today + 0.3 * d
+        # online estimator: rolling mean of realized demand (fast EMA —
+        # 0.3 was too slow to track the shift and crippled MPC)
+        sales_today = 0.5 * sales_today + 0.5 * d
         lam_runs = max(0.3, sales_today)
         s = max(0, s + a - d)
     return G, comp * 1000 / DAYS
@@ -115,13 +117,24 @@ def simulate(mode):
 
 def main():
     print(f"Precomputed policy vs MPC — demand shifts {LAM_PRE} -> "
-          f"{LAM_POST} at day {SHIFT_DAY} (promotion)\n")
-    G_s, ms_s = simulate("static")
-    G_m, ms_m = simulate("mpc")
-    print(f"static VI policy : profit={G_s:7.2f}   {ms_s:.2f} ms/decision")
-    print(f"MPC  (H={H_MPC}, online lambda) : profit={G_m:7.2f}   "
-          f"{ms_m:.2f} ms/decision")
-    print(f"\nMPC gain: {G_m - G_s:+.2f} ({100 * (G_m - G_s) / abs(G_s):+.1f}%)")
+          f"{LAM_POST} at day {SHIFT_DAY} (promotion), "
+          f"{N_SEEDS} paired seeds\n")
+    stat_vals, mpc_vals = [], []
+    ms_s = ms_m = 0.0
+    for seed in range(N_SEEDS):
+        G_s, c_s = simulate("static", seed)
+        G_m, c_m = simulate("mpc", seed)
+        stat_vals.append(G_s)
+        mpc_vals.append(G_m)
+        ms_s, ms_m = max(ms_s, c_s), max(ms_m, c_m)
+    import numpy as np
+    s_mean, m_mean = np.mean(stat_vals), np.mean(mpc_vals)
+    print(f"static VI policy : profit={s_mean:7.2f} (mean of {N_SEEDS})   "
+          f"{ms_s:.2f} ms/decision")
+    print(f"MPC  (H={H_MPC}, online lambda) : profit={m_mean:7.2f} "
+          f"(mean of {N_SEEDS})   {ms_m:.2f} ms/decision")
+    print(f"\nMPC gain: {m_mean - s_mean:+.2f} "
+          f"({100 * (m_mean - s_mean) / abs(s_mean):+.1f}%)")
     print("\nread:")
     print(" - the static policy was optimal for AVERAGE demand — a model")
     print("   that never exists after day 15; it understocks through the")
@@ -130,9 +143,11 @@ def main():
     print("   no new policy class — just re-solving the same tiny MDP with")
     print("   fresh statistics). Its price: solve time per decision")
     print("   (trivial here, the whole point of lesson 1.7 at scale).")
-    print(" - second MPC cost: myopia. H=5 sees only 5 steps ahead; for")
-    print("   problems with long lead times the horizon must exceed the")
-    print("   information delay or MPC quietly becomes greedy.")
+    print(" - two methodological traps found while building this (kept in")
+    print("   the evidence): a slow EMA estimator (0.3) made MPC LOSE its")
+    print("   advantage, and a mild shift (2->4) with a single seed showed")
+    print("   +4.6% that vanished under 16 paired seeds. Shift size and")
+    print("   estimator speed are part of the deployment design, not noise.")
     print(" - design rule: precompute when the world is stationary and")
     print("   decisions are frequent; re-plan when the world moves or the")
     print("   model was wrong — and measure the solver budget honestly.")

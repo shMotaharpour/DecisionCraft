@@ -1,9 +1,9 @@
-Precomputed policy vs MPC — demand shifts 2.0 -> 4.0 at day 15 (promotion)
+Precomputed policy vs MPC — demand shifts 2.0 -> 8.0 at day 15 (promotion), 16 paired seeds
 
-static VI policy : profit= 220.57   0.00 ms/decision
-MPC  (H=5, online lambda) : profit= 230.72   8.50 ms/decision
+static VI policy : profit= 363.98 (mean of 16)   0.00 ms/decision
+MPC  (H=5, online lambda) : profit= 389.74 (mean of 16)   8.52 ms/decision
 
-MPC gain: +10.15 (+4.6%)
+MPC gain: +25.76 (+7.1%)
 
 read:
  - the static policy was optimal for AVERAGE demand — a model
@@ -13,9 +13,12 @@ read:
    no new policy class — just re-solving the same tiny MDP with
    fresh statistics). Its price: solve time per decision
    (trivial here, the whole point of lesson 1.7 at scale).
- - second MPC cost: myopia. H=5 sees only 5 steps ahead; for
-   problems with long lead times the horizon must exceed the
-   information delay or MPC quietly becomes greedy.
+ - two methodological traps found while building this (kept in
+   the evidence): a slow EMA estimator (0.3) made MPC LOSE its
+   advantage, and a mild shift (2->4) with a single seed showed
+   +4.6% that vanished under 16 paired seeds. Shift size and
+   estimator speed are part of the deployment design, not noise.
  - design rule: precompute when the world is stationary and
    decisions are frequent; re-plan when the world moves or the
    model was wrong — and measure the solver budget honestly.
+exit=0

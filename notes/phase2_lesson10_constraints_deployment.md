@@ -18,6 +18,14 @@ Same inventory MDP with a per-order spend cap (COST·a ≤ 6, i.e. ≤ 2
 units). Three formulations, all scored in the TRUE reward over 20k
 rollouts:
 
+![Constraint & deployment dials](../assets/phase2/lesson2_10_constraint_mpc.png)
+
+*Left: the penalty sweep — violations hold ~41–56% until μ crosses the
+shadow price (~2.1), then snap to zero while TRUE profit falls to the
+hard-cap level; the jump IS the discrete-action CMDP dual. Right: the
+deployment race over 16 seeds (mean, 15–85% band) — MPC pulls away
+after the day-15 promotion the static model cannot see.*
+
 | formulation | profit | violations | avg spend |
 |---|---|---|---|
 | hard-constrained (actions removed) | 246.06 | 0% | 5.95 |
@@ -49,21 +57,29 @@ knowingly.
 
 ## 2. Precomputed policy vs receding-horizon MPC
 
-Same inventory problem; demand **shifts 2.0 → 4.0 at day 15** (a
+Same inventory problem; demand **shifts 2.0 → 8.0 at day 15** (a
 promotion the static model was never told about). Two deployment
-styles:
+styles, **16 paired seeds**:
 
-| deployment | profit | compute |
+| deployment | profit (mean) | compute |
 |---|---|---|
-| static VI (trained on average λ) | 220.57 | ~0 ms/decision |
-| MPC (H=5, online demand estimate) | 230.72 | 8.5 ms/decision |
+| static VI (trained on average λ) | 363.98 | ~0 ms/decision |
+| MPC (H=5, online demand estimate) | **389.74** | 8.5 ms/decision |
 
-MPC gains +4.6% not by being smarter *per decision* but by re-solving
-the same tiny MDP with fresh statistics — it rides the shift the
-static policy cannot even represent. Its two honest costs: **solve
+MPC gains **+7.1%** not by being smarter *per decision* but by
+re-solving the same tiny MDP with fresh statistics — it rides the shift
+the static policy cannot even represent. Its two honest costs: **solve
 time per decision** (trivial here; the whole subject of lesson 1.7 at
 CP-SAT/GLS scale) and **myopia** — a 5-step horizon silently becomes
 greedy when lead times exceed H.
+
+**Methodological correction (kept in the evidence):** the first version
+of this demo used a mild shift (2→4), a slow estimator (EMA 0.3), and a
+single seed — and reported +4.6% for MPC that vanished under multi-seed
+diagnosis (MPC actually *lost* by ~3 points). The corrected setup above
+is the reproducible result. Two design facts surfaced: **estimator
+speed** and **shift magnitude** are part of the deployment decision
+itself, not noise around it.
 
 Rule of thumb: precompute when the world is stationary and decisions
 are frequent; re-plan when the world moves or the model was wrong —

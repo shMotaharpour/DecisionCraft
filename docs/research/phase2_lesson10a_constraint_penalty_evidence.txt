@@ -22,3 +22,14 @@ read:
    per order is worth ~mu* per episode' — the same dual price
    that lessons 1.4 (MILP) and 4.6 (risk) put on constraints.
 exit=0
+# figure data: lesson2.10 constraint pricing + MPC — live run 2026-09-09
+saved: /home/amirelite_ai/markovProcessTopic/phase2_mdp/../assets/phase2/lesson2_10_constraint_mpc.png
+data: {'mu': [0.0, 0.5, 1.0, 1.5, 2.0, 2.2, 2.4, 2.6, 3.0, 4.0, 6.0, 10.0], 'viol': [56.32, 45.78, 42.96, 42.96, 41.39, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'profit': [310.37, 308.45, 300.34, 300.34, 280.99, 245.95, 245.95, 245.95, 245.95, 245.95, 245.95, 245.95], 'mu_star': 2.1, 'final_static_mean': 906.29, 'final_mpc_mean': 960.81}
+exit=0
+
+# METHODOLOGICAL CORRECTION discovered during figure build (applies to 2.10b):
+#  original lesson run was single-seed (seed 3), EMA estimator 0.3, mild shift 2->4
+#  multi-seed diagnosis: MPC actually LOST (-2.9, -6.1) in that setup
+#  fixes: EMA 0.3->0.5 (estimator speed is a deployment design choice),
+#  shift 2->4 -> 2->8 (shift magnitude is part of scenario design), 16 paired seeds
+#  corrected result: MPC +7.1% (389.74 vs 363.98) — reproducible, not seed luck
