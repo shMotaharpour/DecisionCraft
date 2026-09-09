@@ -21,3 +21,9 @@ read (honest, matched to the numbers above):
  - design rule: shape through potentials derived from real costs
    (here Phi = -HOLD*stock), never through invented bonuses.
 exit=0
+# figure data: lesson2.9 reward+terminal — live run 2026-09-09
+training took 67s
+saved: /home/amirelite_ai/markovProcessTopic/phase2_mdp/../assets/phase2/lesson2_9_reward_terminal.png
+data: {'terminal': 'see left', 'reward': [('sparse', 312.35), ('naive shaped', 312.6), ('potential', 315.73)], 'exact': 316.77}
+exit=0
+# visual review: clean (labels clear, only tight-but-ok gap between 315.7 label and exact line)
