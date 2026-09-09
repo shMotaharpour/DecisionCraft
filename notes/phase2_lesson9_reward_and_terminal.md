@@ -18,6 +18,14 @@ Same inventory MDP, same Q-learning agent, three reward signals; every
 learned policy is scored on the **true (sparse) reward** — the only
 honest score:
 
+![Reward & terminal dials](../assets/phase2/lesson2_9_reward_terminal.png)
+
+*Left: the terminal convention bends the last week of the policy —
+zero winds down (6→5→4), liquidate holds the useful level, carryover
+jumps to the stock cap on the final days. Right: true performance of
+the three trained policies against the exact optimum (dashed) —
+potential-based lands nearest.*
+
 | signal | true perf | greedy orders s=0..5 |
 |---|---|---|
 | sparse (true) | 312.35 | [6, 4, 4, 3, 1, 3] |
