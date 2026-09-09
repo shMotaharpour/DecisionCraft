@@ -51,7 +51,8 @@ Practical equivalences (all *proven* results): finite-horizon with large T
 γ→1 with the right scaling (Blackwell optimality). The **episodic trick**:
 add an artificial absorbing "game over" state to convert any episode into
 an infinite-horizon problem — that's exactly how Kaggriculture's 24-step
-days map onto this math.
+days map onto this math. Lesson 2.8 turns the *time dial itself* into a
+measurement: the same season solved at three clock granularities.
 
 ## Axis 4 — What do we know about the dynamics?
 

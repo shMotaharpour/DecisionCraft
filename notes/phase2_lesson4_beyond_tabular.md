@@ -102,4 +102,6 @@ highspy/scipy and compares the optimal policy to PI's.
   constraints = CMDP risk control.
 - LFA/ALP trade exactness for scale with provable error bounds — the
   honest, mathematically grounded middle ground before neural RL.
-- MPC/rollout is the practitioner's default for big episodic problems.
+- MPC/rollout is the practitioner's default for big episodic problems —
+  measured against a precomputed policy in lesson 2.10 (the deployment
+  dial of the design-trilogy).

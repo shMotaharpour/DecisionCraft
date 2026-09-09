@@ -96,3 +96,5 @@ Verified pitfalls (both hit live):
    "average budget" reading now matches `Σx·a(1−γ)`.
 4. Add a second constraint (no more than one order every 3 days) and
    interpret the two dual variables.
+5. Lesson 2.10 makes the CMDP dual concrete: bisection finds the budget's
+   shadow price μ\* and the hard/penalty formulations are scored honestly.
