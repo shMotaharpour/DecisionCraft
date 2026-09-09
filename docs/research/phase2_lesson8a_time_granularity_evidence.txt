@@ -22,3 +22,18 @@ read:
 #  (stock waits DURING the epoch); fixed to average inventory (s+leftover)/2
 #  at every clock -> value ordering weekly <= 2-day <= daily now holds
 #  (monotonicity = the theory's promise, verified live)
+# figure data: lesson2.8 resolution dials — live run 2026-09-09
+clock epochs= 3: V=141.60 |S|=84
+clock epochs= 6: V=145.78 |S|=147
+clock epochs= 7: V=146.33 |S|=168
+clock epochs=14: V=147.11 |S|=315
+clock epochs=21: V=147.24 |S|=462
+state bins= 3 (step 10): true perf=377.55
+state bins= 5 (step  5): true perf=379.87
+state bins= 7 (step  3): true perf=384.63
+state bins=11 (step  2): true perf=386.05
+state bins=21 (step  1): true perf=386.71
+saved: /home/amirelite_ai/markovProcessTopic/phase2_mdp/../assets/phase2/lesson2_8_resolution.png
+data: {'time': [(3, np.float64(141.6), 84), (6, np.float64(145.78), 147), (7, np.float64(146.33), 168), (14, np.float64(147.11), 315), (21, np.float64(147.24), 462)], 'state': [(3, 377.55), (5, 379.87), (7, 384.63), (11, 386.05), (21, 386.71)]}
+exit=0
+# visual review pass 1: right-panel annotation collided with x-ticks -> moved above curve; pass 2: clean
