@@ -24,6 +24,18 @@ production Routing engine reached 329 — its internal LNS destroys/repairs
 single-fragment, better-only version doesn't. Same idea, 60 years of
 engineering.
 
+**The name of what we just built:** with multiple destroy operators
+(random fragment, worst-edge fragment, time-window fragment) and a
+*learned* rule for picking which operator to use next, this becomes
+**ALNS — Adaptive Large Neighborhood Search** (Ropke & Pisinger 2006),
+the de-facto industrial standard for rich VRP variants (and the engine
+inside most commercial routing solvers). Our toy uses ONE operator with
+uniform choice — the adaptive weighting over several operators is the
+upgrade exercise below. Lesson 1.5's Routing metaheuristics
+(`LocalSearchMetaheuristic.GUIDED_LOCAL_SEARCH` etc.) are exactly this
+machinery production-tuned — read 1.5's parameter table again after
+this lesson and the enums stop being magic.
+
 ## 2. Where exact stops winning (measured)
 
 `lesson1_7b` solves the same TSP family with CP-SAT (AddCircuit, 30 s cap)
@@ -100,3 +112,9 @@ metaheuristic without a bound.
    repair quality keeps the outer loop converging?
 4. Run lesson 1.7b at n=90 with CP-SAT 10 min (background) and find the true
    crossover on this machine.
+5. **ALNS upgrade:** add a second destroy operator (remove the 6 nodes with
+   the longest edges in the tour) plus roulette-wheel adaptive weighting
+   (Ropke & Pisinger 2006); measure whether operator adaptation beats
+   uniform choice at 5 s. Then re-read lesson 1.5's
+   `LocalSearchMetaheuristic` table — you now know what the engine is
+   doing under the enum.

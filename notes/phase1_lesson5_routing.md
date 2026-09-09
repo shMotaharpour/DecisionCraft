@@ -140,3 +140,7 @@ depending on the pair — see table in the evidence file. Workhorse combo:
 3. Break P&D intentionally (drop the CumulVar order constraint) and show the
    library then allows delivery-before-pickup.
 4. Run the 40-node TSP with GLS at 2 s vs 30 s; plot convergence.
+5. After lesson 1.7: rebuild the CVRP's GLS loop by hand (destroy & repair
+   fragments with CP-SAT) and race it against the library enum on the same
+   instance — see exactly what the production engine adds (parallel
+   operators, adaptive weights, sideways moves).
