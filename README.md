@@ -4,7 +4,7 @@ Hands-on mastery of **MILP**, **Markov Decision Processes (MDP)**, and
 **Reinforcement Learning (RL)** — with applications in finance, asset/risk
 management, workforce & inventory planning, and game theory.
 
-This repo backs a guided, compact course (34 lessons): each concept first
+This repo backs a guided, compact course (35 lessons): each concept first
 appears as a tiny from-scratch (miniature) implementation, then graduates
 to standard industrial tooling on realistic scenarios. Every lesson has a
 runnable demo; claims that can be measured are measured (evidence files
@@ -44,6 +44,7 @@ under `docs/research/`).
 | 2.6 | Finite-horizon backward induction (seasonal markdown) | `lesson2_6_finite_horizon.py` |
 | 2.7 | MC/TD policy evaluation vs exact V; CMDP occupancy LP | `lesson2_7_mc_td_cmdp.py` |
 | 2.8 | Design tradeoffs I: time & state resolution, measured | `lesson2_8a_time_granularity.py`, `lesson2_8b_state_granularity.py` |
+| 2.9 | Design tradeoffs II: reward shaping & terminal value | `lesson2_9a_reward_design.py`, `lesson2_9b_terminal_value.py` |
 
 ### Phase 3 — Reinforcement Learning
 

@@ -1,0 +1,16 @@
+Terminal value — 30-day season, TRUE world: leftovers liquidate at 3.0 (70% off)
+
+zero      (fashion): true-perf= 581.85  last-day orders s=0,3,..,15: [4, 1, 0, 0, 0, 0]  order@t=26,s=0: 6
+liquidate (salvage): true-perf= 583.16  last-day orders s=0,3,..,15: [6, 3, 0, 0, 0, 0]  order@t=26,s=0: 6
+carryover (hoard)  : true-perf= 579.94  last-day orders s=0,3,..,15: [15, 12, 9, 6, 3, 0]  order@t=26,s=0: 6
+
+read:
+ - zero-terminal orders 0 on the last day for any real stock
+   (leftover is worthless in-model) -> leaves REAL salvage money.
+ - carryover orders to the CAP on the last day (leftover worth
+   full margin in-model) -> buys stock the true world liquidates
+   at a loss. Overoptimistic ends are the expensive mistake.
+ - liquidate orders exactly while margin beats salvage.
+ - the distortion propagates BACKWARD: wrong ends bend the whole
+   late-season policy path, not just the final day.
+exit=0

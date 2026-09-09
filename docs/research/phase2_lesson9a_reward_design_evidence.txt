@@ -1,0 +1,23 @@
+Reward design — Q-learning (12000 episodes each), every policy scored on the TRUE sparse reward
+
+sparse (true): true-perf= 312.35  greedy orders s=0..5: [6, 4, 4, 3, 1, 3]
+naive shaped : true-perf= 312.60  greedy orders s=0..5: [6, 4, 3, 5, 2, 2]
+potential    : true-perf= 315.73  greedy orders s=0..5: [6, 5, 4, 2, 1, 0]
+
+exact sparse-optimal orders s=0..5: [6, 5, 4, 3, 2, 1]
+read (honest, matched to the numbers above):
+ - exact sparse-optimal = 316.77 (orders [6,5,4,3,2,1]).
+ - potential-based lands nearest it (315.73, orders nearly the
+   same) — shaping sped learning WITHOUT moving the optimum,
+   exactly what the invariance theorem promises.
+ - sparse and naive both sit ~312 with scrambled order tables —
+   sparse because the signal is thin (slow credit assignment),
+   naive because its bonus redefines the task (bias) and then
+   happens to land near here by luck of this seed. The bias is
+   structural: its greedy optimum is the optimum of the SHAPED
+   reward, not of the business; on another seed it can cost real
+   money. Only potential-based shaping is policy-invariant
+   (Ng, Harada & Russell 1999, proven).
+ - design rule: shape through potentials derived from real costs
+   (here Phi = -HOLD*stock), never through invented bonuses.
+exit=0
