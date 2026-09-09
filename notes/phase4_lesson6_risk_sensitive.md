@@ -57,15 +57,20 @@ equivalently the optimal value of the Rockafellar–Uryasev program:
      with the running CVaR level `z_t`. This is the correct dynamic object.
   3. Distributional RL (§4): learn Z, compute any CVaR afterward.
 
-### 2.3 Exponential utility — the only clean dynamic family
+### 2.3 Exponential utility — the cleanest dynamically consistent family
 `ρ(G) = −(1/θ)·log E[exp(−θG)]`, θ > 0 risk-averse.
 
 - **The miracle (proven):** the entropy-like structure *is* dynamically
   consistent — Bellman survives, in the multiplicative form
   `V(s) = −(1/θ)·log Σ_{s'} P(s'|s,a)·exp(−θ·(r + V(s')))` per action.
-  Risk-sensitive VI/PI converge under the same contraction logic
-  (in the duality-transformed space).
-- θ→0 recovers risk-neutrality (Taylor expansion); θ↑ crushes the tail.
+  Risk-sensitive VI/PI converge under the same contraction logic.
+  **Scope note:** "cleanest" here means *no extra state and no nesting*:
+  exponential utility is the only risk measure in this catalog whose DP
+  keeps the ORIGINAL state space. Markovian coherent-risk DP (e.g.
+  nested CVaR, Ruszczyński 2010) and rectangular robust MDPs also admit
+  exact dynamic programs — but both pay with an augmented/inner
+  optimization (§2.2/§2.4). Nothing here is DP-free; it is DP-at-what-cost.
+ - θ→0 recovers risk-neutrality (Taylor expansion); θ↑ crushes the tail.
 - In LQR this becomes exactly **H∞ control** — robust control and
   risk-sensitive DP are the same theorem in two costumes.
 

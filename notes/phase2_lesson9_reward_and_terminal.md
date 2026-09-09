@@ -37,13 +37,17 @@ Reference: exact sparse-optimal = **316.77**, orders [6, 5, 4, 3, 2, 1].
 Reads: potential-based shaping (Φ(s) = −HOLD·stock, derived from a real
 cost) lands nearest the exact optimum with nearly the same order table —
 shaping sped learning **without moving the optimum**, exactly what the
-invariance theorem (Ng, Harada & Russell 1999, *proven*) promises: only
-potential-based shaping preserves the optimal policy. The naive shaped
-run scores deceptively well on this seed, but its optimum is the
-optimum of the *shaped* reward — the sales bonus makes holding look
-cheaper than it is — a structural bias that on other seeds costs real
-money. Sparse learns slowly (thin signal, slow credit assignment) but
-never lies.
+invariance theorem (Ng, Harada & Russell 1999, *proven*) promises.
+**Scoping, stated honestly:** the *if-and-only-if* form of the theorem
+covers *universal* invariance — the same F preserving the optimum for
+every transition/reward pair and every policy horizon. For ONE fixed
+MDP, other shaping functions can accidentally preserve this MDP's
+optimum (they just have no guarantee to). Potential-based shaping is
+the *only* form you can use blind. The naive shaped run here scores
+deceptively well on this seed, but its optimum is the optimum of the
+*shaped* reward — the sales bonus makes holding look cheaper than it
+is — a structural bias that on other seeds costs real money. Sparse
+learns slowly (thin signal, slow credit assignment) but never lies.
 
 Rule of thumb: **shape through potentials derived from real costs,
 never through invented bonuses.** And always score shaped-reward
