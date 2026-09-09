@@ -20,6 +20,13 @@ Poisson demand, price menu {7, 10, 13}): the planner picks a price per
 epoch; demand accrues daily inside it. Three clocks: weekly (6 epochs),
 2-day (12), daily (42). Exact backward induction each:
 
+![Resolution dials](../assets/phase2/lesson2_8_resolution.png)
+
+*Left: the time dial swept live (3→21 epochs) — value saturates
+(141.6 → 147.2) while |S| grows linearly (84 → 462); the plateau is
+where refinement stops paying. Right: the state dial swept by lifted
+rollouts (3→21 bins) — 377.6 → 386.7, flat near exact from ~11 bins.*
+
 | clock | epochs | \|S\| | V(s=15) | solve |
 |---|---|---|---|---|
 | weekly | 6 | 147 | 145.78 | 25 ms |
