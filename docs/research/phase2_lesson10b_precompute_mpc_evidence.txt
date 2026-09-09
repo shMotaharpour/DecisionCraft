@@ -1,0 +1,21 @@
+Precomputed policy vs MPC — demand shifts 2.0 -> 4.0 at day 15 (promotion)
+
+static VI policy : profit= 220.57   0.00 ms/decision
+MPC  (H=5, online lambda) : profit= 230.72   8.50 ms/decision
+
+MPC gain: +10.15 (+4.6%)
+
+read:
+ - the static policy was optimal for AVERAGE demand — a model
+   that never exists after day 15; it understocks through the
+   promotion and pays the whole season for its blindness.
+ - MPC with an online estimator rides the shift (no retraining,
+   no new policy class — just re-solving the same tiny MDP with
+   fresh statistics). Its price: solve time per decision
+   (trivial here, the whole point of lesson 1.7 at scale).
+ - second MPC cost: myopia. H=5 sees only 5 steps ahead; for
+   problems with long lead times the horizon must exceed the
+   information delay or MPC quietly becomes greedy.
+ - design rule: precompute when the world is stationary and
+   decisions are frequent; re-plan when the world moves or the
+   model was wrong — and measure the solver budget honestly.

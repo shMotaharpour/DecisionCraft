@@ -1,0 +1,24 @@
+Constraint vs penalty — spend cap 6.0 (= 2 units/order max)
+
+hard-constrained : profit= 246.06  violations=  0.00%  avg spend=5.95
+penalty mu=  1.0 : profit= 300.52  violations= 43.01%  avg spend=8.00 (under-deters)
+penalty mu=  2.0 : profit= 281.14  violations= 41.44%  avg spend=7.20 (under-deters)
+penalty mu=  5.0 : profit= 246.06  violations=  0.00%  avg spend=5.95 (binds)
+penalty mu= 30.0 : profit= 246.06  violations=  0.00%  avg spend=5.95 (binds)
+CMDP dual mu* in [2.03, 2.03] (clean at 2.03) : profit= 246.06  violations=  0.00%  avg spend=5.95
+
+read:
+ - mu=1/2 under-deter: the policy happily breaks the budget
+   because the fine is cheaper than the profit it unlocks.
+ - mu=30 over-deters risk is real: past the jump, the penalty
+   policy collapses to the hard-cap solution (here they coincide
+   because the discrete jump is sharp; with richer actions an
+   over-priced mu buys LESS spend than the cap allows).
+ - mu* is the constraint's shadow price (CMDP dual / LP duality):
+   the smallest fine that makes the budget bind. With discrete
+   actions it lands in a bracket, not a point — the violation
+   rate JUMPS at the critical mu.
+ - mu* is a readable business number: 'one more unit of budget
+   per order is worth ~mu* per episode' — the same dual price
+   that lessons 1.4 (MILP) and 4.6 (risk) put on constraints.
+exit=0
