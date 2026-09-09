@@ -4,7 +4,7 @@ Hands-on mastery of **MILP**, **Markov Decision Processes (MDP)**, and
 **Reinforcement Learning (RL)** — with applications in finance, asset/risk
 management, workforce & inventory planning, and game theory.
 
-This repo backs a guided, compact course (36 lessons): each concept first
+This repo backs a guided, compact course (37 lessons): each concept first
 appears as a tiny from-scratch (miniature) implementation, then graduates
 to standard industrial tooling on realistic scenarios. Every lesson has a
 runnable demo; claims that can be measured are measured (evidence files
@@ -21,6 +21,7 @@ under `docs/research/`).
 | 1.2b | Ordered selection + symmetry breaking + alternative optima | `lesson1_2b_order_symmetry.py` |
 | 1.2c | General integer variables; parameter vs variable | `lesson1_2c_integer_vars.py` |
 | 1.3 | Capstone: portfolio + warehouse MILP, shared budget | `lesson1_3_capstone.py` |
+| 1.3b | Task assignment: Hungarian vs MILP, skills, min-max fairness | `lesson1_3b_task_assignment.py` |
 | 1.4 | OR-Tools pywraplp API tour (7 categories) | `lesson1_4_ortools_api_tour.py` |
 | 1.4b | CP-SAT complete constraint reference (8 categories) | `lesson1_4b_cpsat_tour.py` |
 | 1.4c | Callbacks + constraint cost hierarchy | `lesson1_4c_callbacks_cost.py` |

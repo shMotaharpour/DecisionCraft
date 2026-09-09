@@ -1,0 +1,24 @@
+Generalized task assignment — 8 workers × 12 tasks, capacity 2, skills + fairness
+
+square core (8×8, one task per worker):
+  Hungarian  : obj=  46.0        21 µs
+  MILP SCIP  : obj=  46.0     15.36 ms
+  CP-SAT     : obj=  46.0     13.49 ms
+generalized (8 workers, 12 tasks, cap 2): obj=  57.0  12.51 ms
+(a) skills (56 blocked pairs): obj=  83.0 (+26.0 vs no-skill)  11.39 ms
+(b) min-max hours: worst 7 h (min-cost plan: 12 h); total cost 159 (+102.0 vs cheapest)  46.85 ms
+
+LP relaxation (square core) = 46.000000 vs integer 46.0 -> gap 0.0000% (totally unimodular, proven)
+
+read:
+ - Hungarian is ~1000x faster but answers ONE square question;
+   the MILP absorbs skills/capacity/fairness with 2-line edits.
+ - every realistic upgrade left the polynomial world: capacity
+   (generalized assignment, NP-hard), skills (feasibility risk),
+   min-max (changed objective — the fair plan pays a measured
+   cost premium).
+ - square assignment's LP relaxation is EXACT (totally
+   unimodular, proven): the one class where duality gives
+   integer answers free — the bridge to lesson 1.4's duals.
+ - this is the model under Chista's crew-to-quadrant assignment
+   and every shift-scheduling core.
