@@ -58,3 +58,9 @@ secant (measured above); non-separable coupling -> Lagrangian
 #  (c) first version MAXimized the Lagrangian dual — wrong direction; L(mu) is convex PW-linear, the dual is MINIMIZED (subgradient descent, overuse raises mu).
 #  after fix: bound 141.25 vs MILP 140 -> duality gap 0.89% (was 39%).
 #  (a) envelope F(P) has plateaus: any minimizer is optimal; printout now shows the plateau.
+
+# figure data: lesson1.9b Lagrangian dual landscape — live run
+# standalone instance (fresh rng(19); lesson part-c consumed rng earlier so its draw differs)
+# milp=171.00 (use 14.0)  dual_opt=173.50 at mu*=8.50  gap=1.46%
+# walk: 300 iters, best L=173.50 (within 2% of grid optimum, asserted), final mu=8.324
+# visual review: annotation moved to empty region (2 fixes), final pass clean
