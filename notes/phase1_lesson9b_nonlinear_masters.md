@@ -86,6 +86,15 @@ decide locally, measure the bound.
 
 - Upstream: 1.4 (duals as prices), 1.9 (the CG loop), 1.10 (integer
   masters and branching on columns).
+
+![Lagrangian dual](../assets/phase1/lesson1_9b_lagrangian.png)
+
+*Left: the dual function L(μ) — convex, piecewise-linear, minimized at
+μ\*≈8.5 giving bound 173.5, only 1.46% above the MILP optimum 171.0
+(dashed). Right: the subgradient walk — L(μ_t) oscillates with decaying
+amplitude while the price μ_t settles at μ\*. The figure uses its own
+seeded instance (the lesson script's part-c draw differs; both are in
+the evidence).*
 - Downstream: 2.10's CMDP shadow price is the MDP-side twin of μ here;
   4.3's hybrid capstone prices the shared tactical budget exactly this
   way; 4.2's fictitious play is a best-response loop with the same
