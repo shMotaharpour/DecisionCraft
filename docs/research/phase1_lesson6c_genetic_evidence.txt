@@ -1,0 +1,33 @@
+# Phase 1 — Lesson 1.6c evidence: Genetic Algorithm vs the single-solution trio
+
+Live run 2026-09-09, python 3.11, same 40-node TSP (seed 7), same 4 s
+budget per engine as lesson 1.6a — numbers directly comparable.
+
+```
+  simulated annealing (1.6a)        :    713
+  iterated local search (1.6a)      :    713
+  OR-Tools GLS (1.6a)               :    639
+
+GA population sweep (same 4 s total, OX + swap-mut + tournament + elite-2):
+  GA pop=   8                    :    665  (91104 tour evals)
+  GA pop=  32                    :    667  (84352 tour evals)
+  GA pop= 128                    :    668  (81664 tour evals)
+
+  GRASP (greedy-randomized multistart):    768
+```
+
+Findings (honest, some counter to GA folklore):
+- **GA beats SA and ILS here** (665 vs 713) — the population's parallel
+  2-opt-free search escapes the local-optimum basin that traps both
+  single-solution engines at this instance size. GA loses to production
+  GLS (639) by 4% — 60 years of engineering vs a 60-line toy.
+- **Population size is nearly free in outcome** (665/667/668 across 8→128)
+  but costs evaluations: pop=8 does 91104 evals, pop=128 only 81664 —
+  more diversity, fewer generations. The dial is real but flat here;
+  crossover (not population size) carries the search.
+- **GRASP loses (768)** — randomized greedy construction without a local
+  search phase is not competitive; its real power needs the pairing with
+  2-opt (exercise).
+- Development note: OX crossover chosen over one-point BECAUSE one-point
+  breaks permutation validity (duplicate cities) — the first bug hit in
+  development, fixed before any run; documented per course honesty rules.

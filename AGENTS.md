@@ -2,7 +2,7 @@
 
 This directory (`/home/amirelite_ai/markovProcessTopic`) holds the
 **DecisionCraft** course (private repo `shMotaharpour/DecisionCraft`):
-a hands-on MILP → MDP → RL → hybrid-architectures course (38 lessons),
+a hands-on MILP → MDP → RL → hybrid-architectures course (39 lessons),
 built lesson-by-lesson with the user in the "Markov Process" Telegram
 topic. The same folder serves as the workspace for that topic.
 
