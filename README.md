@@ -4,7 +4,7 @@ Hands-on mastery of **MILP**, **Markov Decision Processes (MDP)**, and
 **Reinforcement Learning (RL)** — with applications in finance, asset/risk
 management, workforce & inventory planning, and game theory.
 
-This repo backs a guided, compact course (37 lessons): each concept first
+This repo backs a guided, compact course (38 lessons): each concept first
 appears as a tiny from-scratch (miniature) implementation, then graduates
 to standard industrial tooling on realistic scenarios. Every lesson has a
 runnable demo; claims that can be measured are measured (evidence files
@@ -31,6 +31,7 @@ under `docs/research/`).
 | 1.7 | LNS (destroy & repair); CP-SAT vs GLS scale test | `lesson1_7a_lns.py`, `lesson1_7b_scale_cpsat_vs_routing.py` |
 | 1.8 | Scheduling (CP-SAT intervals), flows, bin packing | `lesson1_8a_scheduling.py`, `lesson1_8b_flows.py`, `lesson1_8c_binpacking.py` |
 | 1.9 | Dantzig-Wolfe decomposition & column generation | `lesson1_9_dantzig_wolfe.py` |
+| 1.9b | Nonlinear masters: convex/KKT pricing, concave secant trap, Lagrangian | `lesson1_9b_nonlinear_masters.py` |
 | 1.10 | Branch-and-Price (CG inside branch-and-bound) | `lesson1_10_branch_and_price.py` |
 
 ### Phase 2 — Markov Chains & MDP

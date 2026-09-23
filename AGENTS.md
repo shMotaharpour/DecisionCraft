@@ -2,7 +2,7 @@
 
 This directory (`/home/amirelite_ai/markovProcessTopic`) holds the
 **DecisionCraft** course (private repo `shMotaharpour/DecisionCraft`):
-a hands-on MILP → MDP → RL → hybrid-architectures course (37 lessons),
+a hands-on MILP → MDP → RL → hybrid-architectures course (38 lessons),
 built lesson-by-lesson with the user in the "Markov Process" Telegram
 topic. The same folder serves as the workspace for that topic.
 
@@ -46,3 +46,7 @@ topic. The same folder serves as the workspace for that topic.
   waited on via the process tools.
 - When adding a lesson or figure: script → run → evidence file → note
   embed → README row if new lesson → commit+push individually.
+
+## Agent commits (mandatory)
+
+Every commit by the agent MUST use `~/.local/bin/agent-commit -m "..."` — it appends the Co-authored-by: Hermes trailer. Never plain `git commit`.

@@ -1,0 +1,60 @@
+====================================================================
+(a) CONVEX MASTER — congestion cost (rho/2)P^2, KKT pricing
+====================================================================
+enumeration optimum: 64.2000  plans=(20,16)  P=4
+CG (1-D envelope + per-block KKT pricing): 64.2000  plans=(20,16)  P*=16.0000
+  envelope at the enumeration pair's P: 64.2000 plans=(20,16) — same plateau
+|CG - enumeration| = 0.00e+00
+KKT: min reduced cost per block = 0.00e+00, 0.00e+00 (both >= 0, zero at chosen plans)
+read: the LP duals are gone; the pricing costs carry the
+GRADIENT of the congestion term, and the convergence proof is
+KKT (zero reduced costs), not LP duality. Exactness survives.
+
+====================================================================
+(b) CONCAVE MASTER — fixed charge f(k)=F*1[k>0]+c*k, level columns
+====================================================================
+
+demand=10.0: integer opt = f(10) = 70.00
+  LP-CG over level columns = 55.00  mix=[(20, np.float64(0.5))]
+  fractional mix used: True
+  LP vs integer: -21.43%  (LP underestimates — fixed-charge fractionality)
+  secant check: chord(0,20) slope = 5.50/unit vs true marginal after fixed charge = 4.00/unit
+
+demand=10.5: integer opt = f(11) = 74.00
+  LP-CG over level columns = 57.75  mix=[(20, np.float64(0.525))]
+  fractional mix used: True
+  LP vs integer: -21.96%  (LP underestimates — fixed-charge fractionality)
+  secant check: chord(0,20) slope = 5.50/unit vs true marginal after fixed charge = 4.00/unit
+
+read: with a concave master, 'price = dual' breaks TWICE — the
+fixed charge is fractionally shared in the LP (under-bidding the
+true cost), and between knots the LP's implied per-unit price is
+the secant, not the marginal. Remedies: keep it integer (B&P),
+perspective reformulation (Frangioni-Gentile), or discretize the
+usage levels into separate columns and pay the size.
+
+====================================================================
+(c) LAGRANGIAN — shared-machine coupling, subgradient bound
+====================================================================
+direct MILP optimum: 140.0 (total use 14.0 of cap 14)
+Lagrangian dual best bound: 141.25  (>= MILP by weak-duality theory)
+duality gap vs MILP: 0.89%
+best feasible from repair: 121.0 -> optimality gap 13.57%
+subgradient iterations: 300  final mu=6.4304
+read: the coupling row broke block separability — DW cannot see
+this structure. Lagrangian IS the master here: mu is the resource
+price, each block prices its own jobs, and the bound quality is
+measured, not assumed (gap printed above). This is exactly the
+Chista opponent-model shape: price the shared machine, let blocks
+decide locally.
+
+summary table (see note): linear->LP duals; fixed-charge/integer
+-> B&P; convex -> KKT pricing (verified here by enumeration);
+concave -> level columns + integer master, LP price lies on the
+secant (measured above); non-separable coupling -> Lagrangian
+(bound + gap measured above).
+
+# development bugs found & fixed (kept for honesty):
+#  (c) first version MAXimized the Lagrangian dual — wrong direction; L(mu) is convex PW-linear, the dual is MINIMIZED (subgradient descent, overuse raises mu).
+#  after fix: bound 141.25 vs MILP 140 -> duality gap 0.89% (was 39%).
+#  (a) envelope F(P) has plateaus: any minimizer is optimal; printout now shows the plateau.
