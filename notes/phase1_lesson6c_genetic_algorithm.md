@@ -22,6 +22,13 @@ every number reads against 1.6a's table directly.
 
 ## 2. Measured (4 s budget each, seed 7, 40 nodes)
 
+![GA vs the trio](../assets/phase1/lesson1_6c_ga_vs_trio.png)
+
+*Bar comparison at the shared 4 s budget (seed 7): SA/ILS 713, GA
+pop=8/32/128 clustered at 665–668, GRASP-no-local-search 768, and the
+production GLS line at 639. The GA population-sweep bars are nearly
+level — the population-size dial is flat on this instance.*
+
 - SA (1.6a): 713 · ILS (1.6a): 713 · OR-Tools GLS: 639
 - **GA pop=8: 665** · pop=32: 667 · pop=128: 668 (91104 / 84352 / 81664
   tour evals respectively)

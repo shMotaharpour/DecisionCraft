@@ -35,6 +35,13 @@ see the evidence file for the failed first attempts).
 
 ## 3. Upgrade (b) — fairness (min-max workload)
 
+![Assignment upgrades](../assets/phase1/lesson1_3b_assignment_upgrades.png)
+
+*The two upgrades as cost bars against the no-upgrade baseline: skills
+push 57 → 83 (+46%), min-max fairness pushes 57 → 159 (+179%) while
+cutting the worst worker load 12 h → 7 h. The prices of realism,
+measured.*
+
 Tasks carry 1–7 hours; workers hold up to 2 tasks. Two objectives:
 
 | objective | worst worker load | total cost |
