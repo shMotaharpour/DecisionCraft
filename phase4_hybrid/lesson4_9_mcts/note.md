@@ -1,6 +1,6 @@
 # Phase 4 — Lesson 4.9: Monte Carlo Tree Search — Planning With a Simulator
 
-Evidence: `docs/research/phase4_lesson9_mcts_evidence.txt` (live run, ~86 s).
+Evidence: `evidence/phase4_lesson9_mcts_evidence.txt` (live run, ~86 s).
 Demo: `phase4_hybrid/lesson4_9_mcts.py`.
 
 Named four times in this course (2.3, 3.5, 4.2, 4.7) — never built. This

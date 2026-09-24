@@ -1,6 +1,6 @@
 # Phase 3 — Lesson 3.6: The Deadly Triad, Experimentally (DQN Ablations)
 
-Evidence: `docs/research/phase3_lesson6_triad_evidence.txt` (live run,
+Evidence: `evidence/phase3_lesson6_triad_evidence.txt` (live run,
 1500 episodes, batch 64, ~10 min wall on 4 cores). Demo:
 `phase3_rl/lesson3_6_triad_ablation.py`.
 

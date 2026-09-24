@@ -1,6 +1,6 @@
 # Phase 1 — Lesson 1.8: Scheduling, Flows & Bin Packing — the rest of the OR-Tools toolbox
 
-Evidence: `docs/research/phase1_lesson8_toolbox_evidence.txt` (live run,
+Evidence: `evidence/phase1_lesson8_toolbox_evidence.txt` (live run,
 ortools 9.15). Demos: `phase1_milp/lesson1_8a_scheduling.py`,
 `lesson1_8b_flows.py`, `lesson1_8c_binpacking.py`.
 

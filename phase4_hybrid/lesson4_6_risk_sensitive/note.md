@@ -207,7 +207,7 @@ Findings: Thompson beats the point planner by 3.4pp (sampling hedges
 instead of committing to a λ); **robust wins this run** — in a small MDP
 the insurance premium is cheap; and the 8–13% gap to the oracle *is the
 quantified price of model uncertainty*, the number §2.6 exists to
-justify. Evidence: `docs/research/phase4_lesson6b_bayes_evidence.txt`.
+justify. Evidence: `evidence/phase4_lesson6b_bayes_evidence.txt`.
 
 `phase4_hybrid/lesson4_6_risk_sensitive.py` — the inventory problem,
 three planners on the SAME demand stream:

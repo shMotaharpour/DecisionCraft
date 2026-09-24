@@ -1,6 +1,6 @@
 # Phase 3 — Lesson 3.7: Capstone — RL vs Rule-Based vs Exact DP on a Tiny Farm
 
-Evidence: `docs/research/phase3_lesson7_farm_capstone_evidence.txt` (live run).
+Evidence: `evidence/phase3_lesson7_farm_capstone_evidence.txt` (live run).
 Demo: `phase3_rl/lesson3_7_farm_capstone.py`.
 
 The phase-3 finale: a MINIATURE of Kaggriculture (the game the Chista agent

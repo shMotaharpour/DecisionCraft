@@ -1,6 +1,6 @@
 # Phase 1 — Lesson 1.9b: Nonlinear Masters — Column Generation beyond the LP Master
 
-Evidence: `docs/research/phase1_lesson9b_nonlinear_masters_evidence.txt`
+Evidence: `evidence/phase1_lesson9b_nonlinear_masters_evidence.txt`
 (live run). Demo: `phase1_milp/lesson1_9b_nonlinear_masters.py`.
 
 Lesson 1.9's master is an LP; 1.10's is integer over columns. This lesson

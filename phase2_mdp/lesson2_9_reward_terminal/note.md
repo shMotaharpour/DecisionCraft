@@ -7,7 +7,7 @@ worth when the horizon ends) both quietly redefine the optimum; only
 one form of each is safe. Lesson 2.8 measured the resolution dials;
 2.10 closes the trilogy with constraints and deployment.
 
-Evidence: `docs/research/phase2_lesson9a_reward_design_evidence.txt`
+Evidence: `evidence/phase2_lesson9a_reward_design_evidence.txt`
 and `...9b_terminal_value_evidence.txt` (live runs).
 Demos: `phase2_mdp/lesson2_9a_reward_design.py`,
 `phase2_mdp/lesson2_9b_terminal_value.py`.

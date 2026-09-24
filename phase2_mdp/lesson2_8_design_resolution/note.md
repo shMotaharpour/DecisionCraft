@@ -8,7 +8,7 @@ costs |S|·|A| (and money)**. This lesson measures both dials on live
 models; lessons 2.9 (reward & terminal design) and 2.10 (constraints &
 deployment) continue the design-tradeoff trilogy.
 
-Evidence: `docs/research/phase2_lesson8a_time_granularity_evidence.txt`
+Evidence: `evidence/phase2_lesson8a_time_granularity_evidence.txt`
 and `...8b_state_granularity_evidence.txt` (live runs).
 Demos: `phase2_mdp/lesson2_8a_time_granularity.py`,
 `phase2_mdp/lesson2_8b_state_granularity.py`.

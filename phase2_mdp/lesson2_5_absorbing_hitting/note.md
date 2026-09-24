@@ -1,6 +1,6 @@
 # Phase 2 — Lesson 2.5: Absorbing Chains, Hitting Times & Fitting P from Data
 
-Evidence: `docs/research/phase2_lesson5_absorbing_evidence.txt` (live run).
+Evidence: `evidence/phase2_lesson5_absorbing_evidence.txt` (live run).
 Demo: `phase2_mdp/lesson2_5_absorbing_fit.py`.
 
 Lesson 2.1 answered "where does the chain END UP?" (π\*). This lesson answers

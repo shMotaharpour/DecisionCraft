@@ -1,6 +1,6 @@
 # Phase 1 — Lesson 1.6: Metaheuristics — from scratch, then inside OR-Tools
 
-Evidence: `docs/research/phase1_lesson6_metaheuristic_evidence.txt` (live run,
+Evidence: `evidence/phase1_lesson6_metaheuristic_evidence.txt` (live run,
 ortools 9.15). Demos: `phase1_milp/lesson1_6a_metaheuristics.py` (from-scratch
 engines on the 40-node TSP + 0/1 knapsack), `lesson1_6b_bignumber_milp.py`
 (scalability experiment).

@@ -1,6 +1,6 @@
 # Phase 1 — Lesson 1.10: Branch-and-Price — CG Inside Branch-and-Bound
 
-Evidence: `docs/research/phase1_lesson10_branch_price_evidence.txt` (live run).
+Evidence: `evidence/phase1_lesson10_branch_price_evidence.txt` (live run).
 Demo: `phase1_milp/lesson1_10_branch_and_price.py`.
 
 Lesson 1.9 ended with a doorway: *integer* blocks break DW's optimality

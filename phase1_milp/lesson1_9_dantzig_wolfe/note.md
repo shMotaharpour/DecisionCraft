@@ -1,6 +1,6 @@
 # Phase 1 — Lesson 1.9: Dantzig-Wolfe Decomposition & Column Generation
 
-Evidence: `docs/research/phase1_lesson9_dantzig_wolfe_evidence.txt` (live run).
+Evidence: `evidence/phase1_lesson9_dantzig_wolfe_evidence.txt` (live run).
 Demo: `phase1_milp/lesson1_9_dantzig_wolfe.py`.
 
 Two earlier lessons asked "what if the problem is too big?" and answered

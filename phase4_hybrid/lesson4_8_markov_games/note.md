@@ -1,6 +1,6 @@
 # Phase 4 — Lesson 4.8: Markov Games & Learning Opponents
 
-Evidence: `docs/research/phase4_lesson8_markov_games_evidence.txt` (live run).
+Evidence: `evidence/phase4_lesson8_markov_games_evidence.txt` (live run).
 Demo: `phase4_hybrid/lesson4_8_markov_games.py`.
 
 Lessons 4.1–4.2 treated competition as one-shot or repeated stage games;

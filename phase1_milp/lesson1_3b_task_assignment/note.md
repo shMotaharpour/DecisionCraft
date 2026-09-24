@@ -1,6 +1,6 @@
 # Phase 1 — Lesson 1.3b: Task Assignment — the little model with big-model teeth
 
-Evidence: `docs/research/phase1_lesson3b_task_assignment_evidence.txt`
+Evidence: `evidence/phase1_lesson3b_task_assignment_evidence.txt`
 (live run). Demo: `phase1_milp/lesson1_3b_task_assignment.py`.
 
 The Assignment Problem is the smallest model that still carries every

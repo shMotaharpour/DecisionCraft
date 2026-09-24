@@ -1,6 +1,6 @@
 # Phase 3 — Lesson 3.5: Bandits — Regret Theory Without States
 
-Evidence: `docs/research/phase3_lesson5_bandits_evidence.txt` (live run, 2.3 s
+Evidence: `evidence/phase3_lesson5_bandits_evidence.txt` (live run, 2.3 s
 total). Demo: `phase3_rl/lesson3_5_bandits.py`.
 
 Strip the MDP down to one state and you get the **multi-armed bandit** — the

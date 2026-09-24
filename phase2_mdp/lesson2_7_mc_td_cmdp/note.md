@@ -1,6 +1,6 @@
 # Phase 2 — Lesson 2.7: From Samples to Values (MC/TD) & the CMDP Bridge
 
-Evidence: `docs/research/phase2_lesson7_mc_td_cmdp_evidence.txt` (live run).
+Evidence: `evidence/phase2_lesson7_mc_td_cmdp_evidence.txt` (live run).
 Demo: `phase2_mdp/lesson2_7_mc_td_cmdp.py`.
 
 Lessons 2.2/2.4 evaluated policies **from P**. When P is unknown (the phase-3

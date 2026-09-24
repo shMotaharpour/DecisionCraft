@@ -1,6 +1,6 @@
 # Phase 1 — Lesson 1.7: Large Neighborhood Search & the "too big for exact" decision
 
-Evidence: `docs/research/phase1_lesson7_lns_scale_evidence.txt` (live run,
+Evidence: `evidence/phase1_lesson7_lns_scale_evidence.txt` (live run,
 ortools 9.15). Demos: `phase1_milp/lesson1_7a_lns.py`,
 `phase1_milp/lesson1_7b_scale_cpsat_vs_routing.py`.
 

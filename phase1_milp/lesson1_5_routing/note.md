@@ -1,6 +1,6 @@
 # Phase 1 — Lesson 1.5: The OR-Tools Routing Library (TSP, VRP & friends)
 
-Evidence: `docs/research/phase1_lesson5_routing_evidence.txt` (live run,
+Evidence: `evidence/phase1_lesson5_routing_evidence.txt` (live run,
 ortools 9.15, all outputs quoted there). Demo: `phase1_milp/lesson1_5a_routing_tour.py`,
 instance: `data/cvrp_15node.json`.
 

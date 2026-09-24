@@ -7,7 +7,7 @@ constraint vs priced penalty) and how the policy runs after training
 measured objective design; this one closes the trilogy with the
 constraints that survive contact with operations.
 
-Evidence: `docs/research/phase2_lesson10a_constraint_penalty_evidence.txt`
+Evidence: `evidence/phase2_lesson10a_constraint_penalty_evidence.txt`
 and `...10b_precompute_mpc_evidence.txt` (live runs).
 Demos: `phase2_mdp/lesson2_10a_constraint_penalty.py`,
 `phase2_mdp/lesson2_10b_precompute_mpc.py`.

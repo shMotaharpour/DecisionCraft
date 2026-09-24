@@ -1,6 +1,6 @@
 # Phase 2 — Lesson 2.6: Finite Horizon — Backward Induction & the Value of Time-Dependence
 
-Evidence: `docs/research/phase2_lesson6_finite_horizon_evidence.txt` (live run).
+Evidence: `evidence/phase2_lesson6_finite_horizon_evidence.txt` (live run).
 Demo: `phase2_mdp/lesson2_6_finite_horizon.py`.
 
 Lesson 2.3's Axis 3 listed four horizon formulations; only the discounted

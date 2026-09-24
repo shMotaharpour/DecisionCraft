@@ -1,6 +1,6 @@
 # Phase 1 — Lesson 1.6c: Population-Based Search — GA on the same TSP
 
-Evidence: `docs/research/phase1_lesson6c_genetic_evidence.txt` (live run).
+Evidence: `evidence/phase1_lesson6c_genetic_evidence.txt` (live run).
 Demo: `phase1_milp/lesson1_6c_genetic_algorithm.py`.
 
 Lesson 1.6's four engines are all **single-solution** searches: one tour,
