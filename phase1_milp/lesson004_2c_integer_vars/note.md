@@ -55,3 +55,12 @@ cleaner (fewer variables).
 that is *data* is a parameter. Moving a number between the two roles only
 changes where it appears (objective/constraints vs input data), not the
 structure of the model.
+
+## Exercises
+
+1. Add a variable that must be a multiple of 5 (model via `x = 5·k`);
+   solve and report how the feasible set shrinks.
+2. Replace a continuous variable with an integer one and measure the
+   solve-time jump — the first taste of MILP's price.
+3. Prove (by solving) that rounding the LP solution does NOT give the
+   integer optimum for this model — the reason branch & bound exists.

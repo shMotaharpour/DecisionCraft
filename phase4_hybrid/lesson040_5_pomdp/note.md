@@ -156,3 +156,12 @@ dies out exactly as theory says).
   PWLC value functions (Smallwood–Sondik 1973); PBVI error bounds;
   non-negativity of optimal value of information; censoring bias in
   demand estimation; recurrent-policy expressiveness for POMDPs.
+
+## Exercises
+
+1. Shorten the belief update's window; watch the censoring bias grow —
+   the trap, parameterized.
+2. Replace the exact belief update with a particle filter; compare the
+   belief trajectories (approximate POMDP solving, intro level).
+3. Give the agent the TRUE regime for one week (oracle bits); measure
+   the value of information in k$.

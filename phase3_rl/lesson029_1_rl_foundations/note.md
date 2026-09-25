@@ -99,3 +99,12 @@ rule from lesson 2.2.
   policy gradients and PPO is lesson 3.4.
 - The phase lands on its capstone, lesson 3.7: RL on a mini farm game,
   graded against exact DP.
+
+## Exercises
+
+1. Raise γ to 0.99 in the Q-learning agent; does the (s,S) shape
+   survive, and how do the policy's order levels shift?
+2. Evaluate the learned policies with a DIFFERENT evaluation seed;
+   report the variance of the 102–104% numbers (measurement honesty).
+3. Implement optimistic initialization (Q₀ = +500) and compare with
+   ε-greedy on final performance.

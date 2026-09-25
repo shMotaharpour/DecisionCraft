@@ -119,3 +119,12 @@ horizon formulations; Blackwell optimality (γ→1); contraction/convergence
 only where γ<1 (average-reward needs different proofs); minimax values of
 zero-sum stochastic games exist and are computable by value iteration
 (Shapley 1953).
+
+## Exercises
+
+1. Classify 3 real problems you know on all 6 axes; check each against
+   the tables (the taxonomy is a skill, practice it).
+2. Take the inventory lesson's MDP and re-state it under each Axis-3
+   formulation; note which table row each maps to.
+3. Find one axis where the Kaggriculture problem is ambiguous and
+   argue both rows — the taxonomy's edge cases are the lesson.

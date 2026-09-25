@@ -105,3 +105,12 @@ highspy/scipy and compares the optimal policy to PI's.
 - MPC/rollout is the practitioner's default for big episodic problems —
   measured against a precomputed policy in lesson 2.10 (the deployment
   dial of the design-trilogy).
+
+## Exercises
+
+1. Halve the RBF width in the ALP; measure how the policy degrades
+   vs the exact V (approximation quality vs feature choice).
+2. Run MPC with a shorter horizon on the same problem; the horizon-
+   quality tradeoff, numeric.
+3. Compare ALP's solve time vs tabular VI's at the same state count —
+   where does the LP approach win?

@@ -94,3 +94,12 @@ swap beats it.
   optimal LP answer unconditionally. For MILP, branch & bound convergence
   to proven optimality is also proven (given exact arithmetic and enough
   time).
+
+## Exercises
+
+1. Add a third asset with its own return/volume and re-solve; verify the
+   optimum stays at a vertex (the LP geometry lesson, self-checked).
+2. Tighten the budget by 10% and report which binding constraint moves
+   the vertex — your first sensitivity analysis (duals come in 1.4).
+3. Re-solve with scipy instead of OR-Tools and diff the objectives;
+   they must agree to solver tolerance.

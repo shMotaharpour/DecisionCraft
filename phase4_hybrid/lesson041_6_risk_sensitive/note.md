@@ -281,3 +281,12 @@ layer.** Cost, honestly: ~8 s of sampling per refresh vs microseconds for
 the conjugate update — pay it only when the model truly needs it.
 
 Evidence: `evidence/phase4_lesson6c_pymc_posterior_evidence.txt`.
+
+## Exercises
+
+1. Sweep the CVaR confidence level α ∈ {0.01, 0.05, 0.2}; report how
+   the optimal order quantity moves as risk aversion tightens.
+2. Add Double-Q selection/evaluation to add-on A's QR-DQN (the note's
+   stated fix); does the overestimation gap close?
+3. Raise the mixture model's burst probability to 0.5 in add-on B;
+   does robust's win over point-estimate survive the regime change?

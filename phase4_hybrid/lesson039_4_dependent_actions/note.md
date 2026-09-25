@@ -108,3 +108,12 @@ Three miniature demos, one per family:
 - **Proven results cited:** potential-based reward shaping preserves
   optimality (Ng, Harada, Russell 1999); masking preserves the MDP's
   optimal policy (it only removes actions outside A(s)).
+
+## Exercises
+
+1. Add a masking rule that forbids two *specific* actions co-occurring;
+   verify each family (MILP, CP-SAT, RL mask) enforces it.
+2. Measure the RL agent's learning speed with vs without the mask —
+   masking as prior knowledge, quantified.
+3. Add a dependency chain (action B requires action A earlier); which
+   family expresses it most naturally, and why?

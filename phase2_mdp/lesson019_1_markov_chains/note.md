@@ -88,3 +88,12 @@ empirically recovers P, (b) answers the 3 questions via linear algebra,
   `π_0 P^k → π*`; and the Perron-Frobenius theorem backing eigenvalue 1.
 - Everything here is NumPy-only. No solver, no library magic — this is the
   foundation the MDP (lesson 2.2+) adds *actions* to.
+
+## Exercises
+
+1. Double the chain's mixing (make rows more similar) and measure how
+   P^k converges faster — the spectral gap, seen numerically.
+2. Start from a non-uniform distribution and verify the stationary
+   distribution is reached regardless of the start (ergodicity).
+3. Fit P from simulated transitions and compare the stationary vector
+   of the fitted chain vs the true one (sampling error made visible).

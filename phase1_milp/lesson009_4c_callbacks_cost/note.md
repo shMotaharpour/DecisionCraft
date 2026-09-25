@@ -128,3 +128,12 @@ and post-process afterwards.
 callback aggregating all solutions of a small model, (b) an early-stopping
 callback, (c) the same counting model with a var×var product vs pure linear
 — showing the objective/bound gap and runtime difference.
+
+## Exercises
+
+1. Add a callback that stops the search when the incumbent is within
+   1% of a known bound; measure time saved vs quality lost.
+2. Log every improving solution with a callback and plot the incumbent
+   trajectory — the anytime behavior, made visible.
+3. Use a callback to forbid the current incumbent as a constraint
+   (no-good cut) and enumerate the 5 best solutions.

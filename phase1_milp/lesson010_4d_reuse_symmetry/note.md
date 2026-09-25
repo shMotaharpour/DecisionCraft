@@ -142,3 +142,12 @@ gains there). The measurement that matters is yours: compare
   after tightening lb to 3 → still 5.0, status OPTIMAL).
 - CP-SAT build cost: 500 vars/501 constraints ≈ 6 ms (measured, mean of
   200 runs); build+solve ≈ 104 ms.
+
+## Exercises
+
+1. Re-solve the same model object 100× with changed demand; measure
+   per-solve time vs rebuild-from-scratch time (the reuse win, numeric).
+2. Add a second symmetry class (two groups of interchangeable
+   warehouses) and compose the ordering constraints.
+3. Verify that symmetry breaking does NOT change the objective value —
+   only the solution chosen — across 50 random seeds.

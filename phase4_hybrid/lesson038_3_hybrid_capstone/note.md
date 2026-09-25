@@ -95,3 +95,12 @@ uv run python phase4_hybrid/lesson4_3_capstone_hybrid.py
 - Nisan et al., *Algorithmic Game Theory* (ch. 1–4, 9 for this phase).
 - Boyd & Vandenberghe, *Convex Optimization* (duality depth).
 - For CP-SAT mastery: the OR-Tools docs + Perron's workshop slides.
+
+## Exercises
+
+1. Replace the rival's fixed aggression with the fictitious-play
+   estimate from 4.2; does the hybrid's P&L improve?
+2. Tighten the tactical MILP's risk budget; watch the strategic MDP
+   absorb the change — the information loop, run in reverse.
+3. Break the loop (freeze the MDP's reward) and measure the P&L loss
+   vs the full closed loop — the price of not adapting.

@@ -102,3 +102,12 @@ PPO's stability.
 - Phase-3 capstone: lesson 3.7 (RL vs rule-based vs exact DP on a mini
   farm game) — and lesson 4.9 replays the same duel with MCTS planning:
   read both for the learning-vs-planning contrast.
+
+## Exercises
+
+1. Add a baseline (mean return) to REINFORCE; measure the variance
+   reduction in the gradient estimates (the classic A2C motivator).
+2. Halve PPO's clip range; report the stability/sample-efficiency
+   change on the same env.
+3. Plot the entropy of the policy over training; verify it decays as
+   the policy sharpens — and spot premature collapse if any.

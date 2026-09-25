@@ -60,3 +60,13 @@ uv run python phase1_milp/lesson1_3_capstone.py
   y=1 with x=0 (harmless to the objective but wrong business-wise).
   Every activation binary deserves BOTH an upper (big-M) and a lower
   (minimum ticket) tie to its continuous variable.
+
+## Exercises
+
+1. Tighten the shared budget by 20% and report which sub-model's
+   decision degrades first — the capstone's tension made numeric.
+2. Add a risk cap (max loss per warehouse) as a new row; re-solve and
+   identify which constraint became binding.
+3. Decompose the model greedily (solve each warehouse alone, then fix
+   and resolve) and measure the optimality loss vs the joint solve —
+   the cost of not modeling interactions.

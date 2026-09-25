@@ -171,3 +171,12 @@ Demonstrations (kept small enough to run on CPU):
 4. **LSTM memory for POMDP**: the censored-demand env (lesson 4.5), now
    solved by a GRU policy over observation history vs a memoryless MLP —
    showing learned belief beats forgetting.
+
+## Exercises
+
+1. Add Double-Q (selection/evaluation split) to the DQN demo; measure
+   the overestimation gap before/after (the 3.6 canon, applied).
+2. Swap the GRU for an MLP on the crisis task and quantify the belief-
+   inference loss (the demo's headline, reproduced your way).
+3. Run the stability canon ablations yourself: remove ONE item
+   (Huber→MSE, target→none, replay→none) and report which hurts most.
