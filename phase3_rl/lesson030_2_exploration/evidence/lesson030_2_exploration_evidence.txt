@@ -1,0 +1,12 @@
+# Evidence: phase3_rl/lesson030_2_exploration — live run 2026-09-25, python 3.11
+
+## output: ev_32.log
+```
+training 4 agents x 40000 episodes ...
+
+strategy                 eval perf  %exact  Q[10,0]  train reward
+constant eps=0.10            929.6  103.0%    399.4      36640722
+decayed  eps                 945.3  104.8%    399.3      36899537
+optimistic init Q0=40        331.2   36.7%     40.0      13249480
+UCB1 (c=2)                   821.1   91.0%      0.0      32819286
+```

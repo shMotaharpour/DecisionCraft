@@ -4,6 +4,11 @@ A Gymnasium-native environment wrapping the familiar inventory problem,
 then three policy-gradient agents trained from scratch (no SB3), all
 graded against the exact (s,S) policy from Value Iteration.
 """
+import os as _os
+import sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)),
+                                  "..", "lesson029_1_rl_foundations"))
+
 import random
 from collections import deque
 

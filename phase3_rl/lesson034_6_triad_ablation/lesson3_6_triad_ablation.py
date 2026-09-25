@@ -12,6 +12,11 @@ Reports: % of exact policy performance + training-curve volatility.
 Runtime: ~90 s total on 4 CPU cores.
 Run:  python lesson3_6_triad_ablation.py
 """
+import os as _os
+import sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)),
+                                  "..", "lesson029_1_rl_foundations"))
+
 import random
 
 import numpy as np

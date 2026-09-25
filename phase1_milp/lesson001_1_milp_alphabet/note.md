@@ -1,5 +1,7 @@
 # Phase 1 — MILP: The Modeling Alphabet (Lesson 1.1)
 
+Evidence: `evidence/lesson001_1_milp_alphabet_evidence.txt` (live run).
+
 ## 1. What is an optimization model?
 
 Every optimization model has three parts:

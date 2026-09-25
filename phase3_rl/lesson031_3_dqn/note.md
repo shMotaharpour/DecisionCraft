@@ -1,5 +1,7 @@
 # Phase 3 — Lesson 3.3: Function Approximation & DQN
 
+Evidence: `evidence/lesson031_3_dqn_evidence.txt` (live run).
+
 ## 1. Why the table must die
 
 Tabular Q has one parameter per `(s, a)` pair. Count the cells:

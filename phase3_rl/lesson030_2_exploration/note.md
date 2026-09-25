@@ -1,5 +1,7 @@
 # Phase 3 — Lesson 3.2: Exploration — The Explore/Exploit Dilemma
 
+Evidence: `evidence/lesson030_2_exploration_evidence.txt` (live run).
+
 ## 1. The dilemma, stated sharply
 
 An agent that always exploits freezes on the first good-looking action and

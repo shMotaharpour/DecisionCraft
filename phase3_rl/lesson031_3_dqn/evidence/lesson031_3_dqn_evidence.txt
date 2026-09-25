@@ -1,0 +1,15 @@
+# Evidence: phase3_rl/lesson031_3_dqn — live run 2026-09-25, python 3.11
+
+## output: ev_33.log
+```
+final loss (last 100 avg): 0.6012
+eps: start 1.00 -> end 0.05
+
+final greedy policy (order per inventory level 0..10):
+  exact DP : [4 3 2 1 0 0 0 0 0 0 0]
+  DQN      : [4 3 2 1 1 1 1 1 1 1 0]
+
+2000-episode evaluation:
+  exact DP:    902.4 (100%)
+  DQN     :    905.0 (100.3% of exact)
+```

@@ -5,6 +5,11 @@ Four strategies train the SAME Q-learning setup; we compare:
   - Q estimate at the rarely visited state s=10 (true DP value ~= 400)
   - total training reward (regret proxy)
 """
+import os as _os
+import sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)),
+                                  "..", "lesson029_1_rl_foundations"))
+
 import numpy as np
 
 from lesson3_1_qlearning_inventory import (

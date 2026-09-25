@@ -1,5 +1,7 @@
 # Phase 2 — Lesson 2.2: MDP — Adding Actions to the Chain
 
+Evidence: `evidence/lesson020_2_mdp_bellman_evidence.txt` (live run).
+
 ## 1. From chain to decision problem
 
 A Markov chain evolves passively. An **MDP** gives *you* a lever: at each

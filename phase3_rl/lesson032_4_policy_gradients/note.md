@@ -1,5 +1,7 @@
 # Phase 3 — Lesson 3.4: Policy Gradients — REINFORCE → Actor-Critic → PPO
 
+Evidence: `evidence/lesson032_4_policy_gradients_evidence.txt` (live run).
+
 ## 1. Why value-based methods hit a wall
 
 DQN needs `max_a Q(s,a)`. That breaks in two real cases:

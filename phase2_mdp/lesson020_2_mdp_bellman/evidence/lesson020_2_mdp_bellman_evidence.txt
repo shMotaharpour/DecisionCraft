@@ -1,0 +1,24 @@
+# Evidence: phase2_mdp/lesson020_2_mdp_bellman — live run 2026-09-25, python 3.11
+
+## output: ev_22.log
+```
+Value Iteration: converged in 462 sweeps
+Policy Iteration: converged in 2 iterations
+|V_vi - V_pi| max = 1.84e-08  (same V*)
+
+Optimal policy (s -> order up to s+a):
+  inv= 0 -> order  5  (target level  5)  V=  373.40
+  inv= 1 -> order  4  (target level  5)  V=  376.40
+  inv= 2 -> order  3  (target level  5)  V=  379.40
+  inv= 3 -> order  2  (target level  5)  V=  382.40
+  inv= 4 -> order  1  (target level  5)  V=  385.40
+  inv= 5 -> order  0  (target level  5)  V=  388.40
+  inv= 6 -> order  0  (target level  6)  V=  391.39
+  inv= 7 -> order  0  (target level  7)  V=  393.98
+  inv= 8 -> order  0  (target level  8)  V=  396.33
+  inv= 9 -> order  0  (target level  9)  V=  398.49
+  inv=10 -> order  0  (target level 10)  V=  400.45
+
+(s,S) rule check: order-up-to levels used: [np.int64(5)]
+Reorder point s*: smallest s with order > 0 = 0
+```

@@ -1,0 +1,24 @@
+# Evidence: phase3_rl/lesson032_4_policy_gradients — live run 2026-09-25, python 3.11
+
+## output: ev_34.log
+```
+training REINFORCE ...
+training Actor-Critic ...
+training PPO ...
+
+final greedy policy:
+  exact DP : [4 3 2 1 0 0 0 0 0 0 0]
+  REINFORCE: [2 2 2 2 2 2 2 2 2 2 2]
+  A2C      : [ 7 10 10 10 10 10 10  8  8  8  8]
+  PPO      : [9 9 3 3 0 3 9 6 9 3 3]
+
+2000-episode evaluation (feasible-action clipped, like training env):
+  REINFORCE :    680.9 (  75.4% of exact)
+  A2C       :    857.0 (  95.0% of exact)
+  PPO       :    877.3 (  97.2% of exact)
+
+last-500-episode training means (variance visible):
+  REINFORCE :    68.06  (std   1.45)
+  A2C       :    86.16  (std   9.48)
+  PPO       :    86.83  (std   9.31)
+```

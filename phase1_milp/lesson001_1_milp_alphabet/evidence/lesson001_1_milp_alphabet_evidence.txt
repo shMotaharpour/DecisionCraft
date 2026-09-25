@@ -1,0 +1,21 @@
+# Evidence: phase1_milp/lesson001_1_milp_alphabet — live run 2026-09-25, python 3.11
+
+## output: ev_11s.log
+```
+Status: Optimization terminated successfully. (HiGHS Status 7: Optimal)
+Objective = 1,600.00
+  x_A              = 0.0000
+  x_B              = 5,000.0000
+  y_B (B switch)   = 1.0000
+  x_C (invest C)   = 1.0000
+```
+
+## output: ev_11o.log
+```
+Status: OPTIMAL
+Objective = 1,600.00
+  x_A              = 0.0000
+  x_B              = 5,000.0000
+  y_B              = 1.0000
+  x_C              = 1.0000
+```

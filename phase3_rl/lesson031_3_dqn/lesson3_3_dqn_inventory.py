@@ -5,6 +5,11 @@ tabular-sized so DQN can be graded against the exact Value Iteration
 policy. Components demonstrated: replay buffer, target network,
 Huber loss, eps-greedy decay, one-hot state encoding.
 """
+import os as _os
+import sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)),
+                                  "..", "lesson029_1_rl_foundations"))
+
 import random
 from collections import deque
 
