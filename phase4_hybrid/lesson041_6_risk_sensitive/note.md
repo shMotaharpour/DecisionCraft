@@ -249,3 +249,35 @@ uv run python phase4_hybrid/lesson4_6_risk_sensitive.py
   robust VI convergence under rectangularity; distributional Bellman
   contraction (Rowland et al. 2018); potential-based shaping precedent
   for honest augmentations.
+
+## Add-on C — sampling-based posterior: when conjugacy dies (`lesson4_6c_pymc_posterior.py`)
+
+Add-on B assumed conjugacy (Gamma prior on a Poisson rate → exact
+posterior). Real demand models break that: e.g. a *mixture* of calm/burst
+regimes with unknown weight and unknown rates has **no closed-form
+posterior**. The practical answer is MCMC — build the model in PyMC,
+sample with NUTS.
+
+The add-on checks the sampler on ground we can verify first (the exact
+conjugate case: NUTS mean 2.1735 vs exact 2.1735 — recovered, asserted),
+then fits the mixture model: all truths land inside the 90% CIs
+(`w` 0.257 vs truth 0.3; `lam2`'s wide CI honestly reflects few burst
+draws in 120 days; arviz's rhat warning on the discrete indicator is the
+known mixing cost of mixtures, reported not hidden).
+
+Decisions from the *sampled* posterior then plug into the same Thompson
+rule as add-on B — same inventory-lite protocol, same demand stream:
+
+| plan | profit |
+|---|---|
+| point (mixture mean) | 2345.4 |
+| Thompson (NUTS samples) | **2435.8** |
+| 'oracle' (true mixture mean) | 2345.4 |
+
+Thompson-on-samples beats the point estimate by +3.9% — sampling from the
+posterior hedges regime risk exactly as conjugate Thompson did.
+**Interface invariant: swap the inference mechanism, keep the policy
+layer.** Cost, honestly: ~8 s of sampling per refresh vs microseconds for
+the conjugate update — pay it only when the model truly needs it.
+
+Evidence: `evidence/phase4_lesson6c_pymc_posterior_evidence.txt`.

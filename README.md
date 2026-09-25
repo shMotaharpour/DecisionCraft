@@ -71,7 +71,7 @@ under `docs/research/`).
 | 4.3 | Capstone: strategic MDP + tactical MILP + opponent model | `phase4_hybrid/lesson038_3_hybrid_capstone/lesson4_3_capstone_hybrid.py` |
 | 4.4 | Dependent/parallel actions: masking across all families | `phase4_hybrid/lesson039_4_dependent_actions/lesson4_4_dependent_actions.py` |
 | 4.5 | POMDPs: belief states, censored-demand trap | `phase4_hybrid/lesson040_5_pomdp/lesson4_5_pomdp.py` |
-| 4.6 | Risk-sensitive & distributional RL (CVaR policy selection) | `phase4_hybrid/lesson041_6_risk_sensitive/lesson4_6_risk_sensitive.py`, `phase4_hybrid/lesson041_6_risk_sensitive/lesson4_6a_qrdqn.py`, `phase4_hybrid/lesson041_6_risk_sensitive/lesson4_6b_bayes.py` |
+| 4.6 | Risk-sensitive & distributional RL; Bayesian posterior add-ons | `phase4_hybrid/lesson041_6_risk_sensitive/lesson4_6_risk_sensitive.py`, `phase4_hybrid/lesson041_6_risk_sensitive/lesson4_6a_qrdqn.py`, `phase4_hybrid/lesson041_6_risk_sensitive/lesson4_6b_bayes.py`, `phase4_hybrid/lesson041_6_risk_sensitive/lesson4_6c_pymc_posterior.py` |
 | 4.7 | Deep RL architecture catalog + stabilization canon | `phase4_hybrid/lesson042_7_deep_rl/lesson4_7_deep_rl_demos.py` |
 | 4.8 | Markov games: Shapley VI, Markov fictitious play | `phase4_hybrid/lesson043_8_markov_games/lesson4_8_markov_games.py` |
 | 4.9 | Monte Carlo Tree Search from scratch (the AlphaGo engine) | `phase4_hybrid/lesson044_9_mcts/lesson4_9_mcts.py` |

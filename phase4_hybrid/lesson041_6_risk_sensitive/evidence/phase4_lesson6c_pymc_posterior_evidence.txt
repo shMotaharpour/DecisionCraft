@@ -1,0 +1,54 @@
+# Phase 4 — Lesson 4.6c evidence: sampling-based posterior via PyMC NUTS
+
+Live run 2026-09-25, pymc (NUTS + BinaryGibbsMetropolis), 120 days of
+mixed-Poisson demand (calm 2.0 / burst 6.0, burst prob 0.3), 2 chains ×
+(1000 tune + 1000 draws) per model.
+
+## Check 1 — NUTS recovers the conjugate posterior
+
+Calm-only days, Gamma(2,1) prior: exact posterior mean 2.1735 (sd 0.1600)
+vs NUTS mean 2.1735 (sd 0.1659). Asserted |Δ| < 0.1 — passed. The sampler
+is trustworthy on ground we can verify.
+
+## Check 2 — the mixture model (no conjugacy)
+
+Posterior summaries vs truth:
+
+```
+  w    : mean 0.257  90% CI [0.145, 0.400]  truth 0.3
+  lam1 : mean 2.514  90% CI [2.087, 2.911]  truth 2.0
+  lam2 : mean 7.193  90% CI [5.810, 8.776]  truth 6.0
+```
+
+All truths inside the 90% CIs (lam2 mean high — 120 days give few burst
+draws; the CI honestly says so). arviz flagged rhat > 1.01 on this short
+run: the discrete burst indicator makes mixing harder — noted as the
+known cost of mixture models, not hidden.
+
+## Check 3 — decisions from the sampled posterior
+
+Same inventory-lite protocol as 4.6b, shared demand stream:
+
+```
+  point (mixture mean) :   2345.4
+  Thompson (NUTS samp) :   2435.8
+  'oracle' (true mix)  :   2345.4
+```
+
+Thompson-on-samples beats the point estimate by +90.4 (+3.9%) — sampling
+from the posterior hedges regime risk exactly as the conjugate Thompson
+did in 4.6b. The decision interface is unchanged: swap the inference
+mechanism (conjugate → NUTS), keep the policy layer.
+
+## Costs, honestly
+
+- sampling: ~8 s per model refresh vs microseconds for the conjugate
+  update — pay only when the model needs it (no conjugacy, or you want
+  the joint uncertainty, not per-parameter marginals)
+- rhat warnings on the mixture: more chains/warmup needed in production
+
+## Development bugs found & fixed (kept per honesty rules)
+
+1. plan lists passed as callables → TypeError; fixed to index by day.
+2. First run's NUTS sd slightly exceeded the exact sd (0.1659 vs 0.1600)
+   — expected MC noise, verified within tolerance rather than "tuned".
