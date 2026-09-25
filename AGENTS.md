@@ -8,16 +8,17 @@ topic. The same folder serves as the workspace for that topic.
 
 ## Layout
 
-- `phase1_milp/`, `phase2_mdp/`, `phase3_rl/`, `phase4_hybrid/` — lesson
-  scripts, one runnable demo per lesson, plus seeded `make_figures*.py`
-  generators next to the lesson that owns each figure.
-- `notes/` — one compact theory digest per lesson (applied, no proofs;
-  theorems labeled *proven*). Figures are embedded after the numbers
-  they illustrate.
+- `phase1_milp/`, `phase2_mdp/`, `phase3_rl/`, `phase4_hybrid/` — one
+  DIRECTORY PER LESSON (`lesson<PPP>_<minor><slug>/` (PPP = zero-padded phase, e.g. `lesson001_1_milp_alphabet`, `lesson002_10_constraints_deployment`)) containing everything that
+  belongs to that lesson:
+  - `note.md` — the theory digest (applied, no proofs; theorems labeled
+    *proven*), figures embedded after the numbers they illustrate
+  - `lesson*.py` — runnable demo scripts
+  - `make_figures*.py` — seeded figure generators (output to
+    `assets/phase{N}/`)
+  - `evidence/` — raw live outputs backing every measured claim
 - `assets/phase{1..4}/` — generated PNGs (all seeded/reproducible);
   Mermaid diagrams live inline in the notes.
-- `docs/research/` — evidence files: raw live outputs backing every
-  measured claim in a note.
 - `data/` — shared datasets (e.g. `cvrp_15node.json`).
 - `pyproject.toml` / `uv.lock` — environment (uv-managed).
 
@@ -44,8 +45,9 @@ topic. The same folder serves as the workspace for that topic.
 - Verify every command by running it before writing it into a note.
 - Long runs (>2 min) go to background with output to `/tmp` and are
   waited on via the process tools.
-- When adding a lesson or figure: script → run → evidence file → note
-  embed → README row if new lesson → commit+push individually.
+- When adding a lesson or figure: script → run → evidence file (inside
+  the lesson's `evidence/`) → note embed → README row if new lesson →
+  commit+push individually.
 
 ## Agent commits (mandatory)
 
