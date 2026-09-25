@@ -95,7 +95,7 @@ Three miniature demos, one per family:
 
 ## 4. Key takeaways
 
-![lesson4_4_masking](assets/phase4/lesson4_4_masking.png)
+![lesson4_4_masking](./assets/lesson4_4_masking.png)
 
 *One mask spec M(s), four enforcement points: MILP row, CP-SAT bool, RL logits, MDP A(s) — the unifying claim drawn.*
 

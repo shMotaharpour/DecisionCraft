@@ -81,7 +81,7 @@ visited states (the Q-error at s=10), and total regret vs the exact policy.
 
 ## 5. Key takeaways
 
-![lesson3_2_schedules](assets/phase3/lesson3_2_schedules.png)
+![lesson3_2_schedules](./assets/lesson3_2_schedules.png)
 
 *The exploration dial over training: fixed, exponential decay, and step schedules — what the sweep compares.*
 
