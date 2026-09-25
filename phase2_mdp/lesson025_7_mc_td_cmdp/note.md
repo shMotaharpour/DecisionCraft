@@ -19,7 +19,7 @@ the linear-system evaluation: V(s=0) = 373.40.
 | (b) First-visit MC | 2M steps (thinned ×1000) | 1.610 | unbiased, noisy |
 | (c) TD(0) | 400k steps, α=0.02 | 1.145 | bootstrapped, low variance |
 
-![MC vs TD convergence](../../assets/phase2/lesson2_7_mc_td.png)
+![MC vs TD convergence](./assets/lesson2_7_mc_td.png)
 
 *Left: error vs environment steps (log-log) on the same data stream — TD(0)
 (sampling path here differs from the table's 400k-step run, hence its own

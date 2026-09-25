@@ -87,7 +87,7 @@ decide locally, measure the bound.
 - Upstream: 1.4 (duals as prices), 1.9 (the CG loop), 1.10 (integer
   masters and branching on columns).
 
-![Lagrangian dual](../../assets/phase1/lesson1_9b_lagrangian.png)
+![Lagrangian dual](./assets/lesson1_9b_lagrangian.png)
 
 *Left: the dual function L(μ) — convex, piecewise-linear, minimized at
 μ\*≈8.5 giving bound 173.5, only 1.46% above the MILP optimum 171.0

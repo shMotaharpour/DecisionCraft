@@ -22,7 +22,7 @@ every number reads against 1.6a's table directly.
 
 ## 2. Measured (4 s budget each, seed 7, 40 nodes)
 
-![GA vs the trio](../../assets/phase1/lesson1_6c_ga_vs_trio.png)
+![GA vs the trio](./assets/lesson1_6c_ga_vs_trio.png)
 
 *Bar comparison at the shared 4 s budget (seed 7): SA/ILS 713, GA
 pop=8/32/128 clustered at 665–668, GRASP-no-local-search 768, and the

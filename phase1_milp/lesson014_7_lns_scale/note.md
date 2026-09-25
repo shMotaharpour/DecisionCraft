@@ -56,7 +56,7 @@ Reading:
 - Crossover is problem-dependent, but 50–100 nodes for TSP-like structure is
   the honest ballpark on a real machine.
 
-![CP-SAT vs GLS across scale](../../assets/phase1/lesson1_7_scale.png)
+![CP-SAT vs GLS across scale](./assets/lesson1_7_scale.png)
 
 *The scale experiment re-plotted (same seeds — note n=120's CP-SAT run
 lands on a slightly different FEASIBLE incumbent each run; the qualitative

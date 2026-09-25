@@ -23,8 +23,8 @@ from lesson2_9a_reward_design import (GAMMA, MAX_S, PMF, PRICE, COST, HOLD,
                                      true_reward)
 from lesson2_9b_terminal_value import SALVAGE_TRUE, solve, true_eval
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "phase2",
-                   "lesson2_9_reward_terminal.png")
+OUT = os.path.join(os.path.dirname(__file__), "assets", "lesson2_9_reward_terminal.png")
+os.makedirs(os.path.dirname(OUT), exist_ok=True)
 
 
 def main():

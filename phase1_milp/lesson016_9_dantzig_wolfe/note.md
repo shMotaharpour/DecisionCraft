@@ -111,7 +111,7 @@ shared water/labor = coupling rows.
 - This is the last exact tool of phase 1 — and the mathematical skeleton
   that phase 4's hybrid capstone hangs on.
 
-![DW scale experiment](../../assets/phase1/lesson1_9_dw_scale.png)
+![DW scale experiment](./assets/lesson1_9_dw_scale.png)
 
 *The scale experiment, reported honestly. Left: at THIS toy scale the
 direct LP wins everywhere (HiGHS presolve eats small systems; DW pays

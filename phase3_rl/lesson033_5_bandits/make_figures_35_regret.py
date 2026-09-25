@@ -9,7 +9,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "..", "..", "assets", "phase3", "lesson3_5_regret.png")
+OUT = os.path.join(HERE, "assets", "lesson3_5_regret.png")
+os.makedirs(os.path.dirname(OUT), exist_ok=True)
 
 # Same setup as lesson3_5_bandits.py: 10-arm bandit, seeded
 rng = np.random.default_rng(7)

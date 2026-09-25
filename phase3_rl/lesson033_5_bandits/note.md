@@ -49,7 +49,7 @@ Three verified readings:
    problem, a well-decayed heuristic is strong; the theory's advantage
    (principled per-arm uncertainty) shows on harder instances.
 
-![Bandit regret tournament](../../assets/phase3/lesson3_5_regret.png)
+![Bandit regret tournament](./assets/lesson3_5_regret.png)
 
 *The tournament above, as curves. Left: cumulative regret — constant-ε
 climbs linearly forever (~1,260), Thompson flattens near ~100. Right:

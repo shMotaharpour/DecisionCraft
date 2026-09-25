@@ -35,7 +35,7 @@ see the evidence file for the failed first attempts).
 
 ## 3. Upgrade (b) — fairness (min-max workload)
 
-![Assignment upgrades](../../assets/phase1/lesson1_3b_assignment_upgrades.png)
+![Assignment upgrades](./assets/lesson1_3b_assignment_upgrades.png)
 
 *The two upgrades as cost bars against the no-upgrade baseline: skills
 push 57 → 83 (+46%), min-max fairness pushes 57 → 159 (+179%) while

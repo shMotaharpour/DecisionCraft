@@ -19,8 +19,8 @@ import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "phase1",
-                   "lesson1_9b_lagrangian.png")
+OUT = os.path.join(os.path.dirname(__file__), "assets", "lesson1_9b_lagrangian.png")
+os.makedirs(os.path.dirname(OUT), exist_ok=True)
 
 NB, NJ, CAP, LOCAL = 2, 10, 14, 4
 rng = np.random.default_rng(19)

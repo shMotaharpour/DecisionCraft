@@ -21,7 +21,7 @@ what breaks** — the difference between being told the theory and watching it.
 
 ## 2. The three verified findings
 
-![Triad ablation curves](../../assets/phase3/lesson3_6_triad_curves.png)
+![Triad ablation curves](./assets/lesson3_6_triad_curves.png)
 
 *Left (policy-level symptom): smoothed episode returns of full DQN vs
 no-replay vs the divergent config — nearly indistinguishable (final 869 vs

@@ -18,7 +18,7 @@ Same inventory MDP with a per-order spend cap (COST·a ≤ 6, i.e. ≤ 2
 units). Three formulations, all scored in the TRUE reward over 20k
 rollouts:
 
-![Constraint & deployment dials](../../assets/phase2/lesson2_10_constraint_mpc.png)
+![Constraint & deployment dials](./assets/lesson2_10_constraint_mpc.png)
 
 *Left: the penalty sweep — violations hold ~41–56% until μ crosses the
 shadow price (~2.1), then snap to zero while TRUE profit falls to the

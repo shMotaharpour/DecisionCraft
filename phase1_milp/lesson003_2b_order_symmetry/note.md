@@ -74,7 +74,7 @@ the prefix constraint (without it, the solver happily skips item 1 and
 takes item 3 — proving `Σ` alone ignores order), plus a symmetry-breaking
 pair demonstrating identical interchangeable optima.
 
-![Symmetry breaking](../../assets/phase1/lesson1_2b_symmetry.png)
+![Symmetry breaking](./assets/lesson1_2b_symmetry.png)
 
 *The symmetry half, drawn: B = 4 identical warehouses, choose 2 — all
 C(4,2) = 6 selections form one symmetry orbit (same profit, six distinct

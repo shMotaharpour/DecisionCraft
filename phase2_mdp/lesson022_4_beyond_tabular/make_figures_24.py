@@ -16,7 +16,7 @@ import numpy as np
 from scipy.sparse import csr_matrix
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "..", "..", "assets", "phase2")
+OUT = os.path.join(HERE, "assets")
 os.makedirs(OUT, exist_ok=True)
 
 GAMMA = 0.95

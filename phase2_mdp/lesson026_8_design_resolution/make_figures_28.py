@@ -22,8 +22,8 @@ from lesson2_8a_time_granularity import (DAYS, MAX_STOCK, solve_clock,
                                         START_STOCK)
 from lesson2_8b_state_granularity import lift_and_evaluate, solve
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "phase2",
-                   "lesson2_8_resolution.png")
+OUT = os.path.join(os.path.dirname(__file__), "assets", "lesson2_8_resolution.png")
+os.makedirs(os.path.dirname(OUT), exist_ok=True)
 
 
 def main():

@@ -10,7 +10,8 @@ import numpy as np
 from scipy.stats import poisson
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "..", "..", "assets", "phase2", "lesson2_6_ladder.png")
+OUT = os.path.join(HERE, "assets", "lesson2_6_ladder.png")
+os.makedirs(os.path.dirname(OUT), exist_ok=True)
 
 HORIZON = 12
 MAX_STOCK = 15

@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "..", "..", "assets", "phase1")
+OUT = os.path.join(HERE, "assets")
 os.makedirs(OUT, exist_ok=True)
 
 N = 4

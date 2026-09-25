@@ -56,7 +56,7 @@ have one.
 
 ## 5. Run it
 
-![Tabular RL learning curves](../../assets/phase3/lesson3_1_learning_curves.png)
+![Tabular RL learning curves](./assets/lesson3_1_learning_curves.png)
 
 *The three agents' smoothed training returns (seed 7, moving average
 k=2000) against the exact (s,S) policy's evaluated performance (dashed,

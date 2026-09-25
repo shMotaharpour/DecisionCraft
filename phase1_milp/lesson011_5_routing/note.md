@@ -50,7 +50,7 @@ time), `capacity`/`vehicle_capacities`, `fix_start_cumul_to_zero` (True for
 load — start empty; False for time), name (then `GetDimensionOrDie(name)`).
 Verified: K=2, cap=100 on our data → vehicle loads 100+34, objective 383.
 
-![CVRP routes](../../assets/phase1/lesson1_5_cvrp_routes.png)
+![CVRP routes](./assets/lesson1_5_cvrp_routes.png)
 
 *The part-B solution drawn as a map: two vehicles (blue/orange) leaving and
 returning to the black depot square; each gray marker is a customer, sized

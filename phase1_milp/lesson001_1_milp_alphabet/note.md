@@ -15,7 +15,7 @@ is a **Linear Program (LP)**. If some variables must be integers (often
 
 ## 2. The miniature problem (portfolio, 3 assets)
 
-![LP geometry](../../assets/phase1/lesson1_1_lp_geometry.png)
+![LP geometry](./assets/lesson1_1_lp_geometry.png)
 
 *The picture under every LP (2-asset cut of the portfolio: maximize
 15x + 12y under budget, exposure and min-holding constraints). Left: the

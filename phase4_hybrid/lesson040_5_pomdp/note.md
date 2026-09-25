@@ -33,7 +33,7 @@ from censored data systematically underestimates demand (a *proven*
 statistical phenomenon — censoring bias), and policies built on it
 chronically under-order.
 
-![Demand censoring](../../assets/phase4/lesson4_5_censoring.png)
+![Demand censoring](./assets/lesson4_5_censoring.png)
 
 *Censoring with Poisson(4) demand and a stock of 10. Left: the observed
 sales histogram piles up at the stock ceiling while the demand mass above

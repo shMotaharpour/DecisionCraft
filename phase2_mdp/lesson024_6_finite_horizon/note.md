@@ -39,7 +39,7 @@ Force ONE price for all 12 weeks (best stationary choice): always-P16
 yields **239.81**. Optimal time-dependent policy: **261.78**.
 **Value of time-dependence = 21.97 = +9.2%** — measured, not asserted.
 
-![Markdown price ladder](../../assets/phase2/lesson2_6_ladder.png)
+![Markdown price ladder](./assets/lesson2_6_ladder.png)
 
 *Left: the optimal price ladder the backward induction discovered — high
 price P20–P24 while time is plentiful, cascading to P12 fire-sales in the

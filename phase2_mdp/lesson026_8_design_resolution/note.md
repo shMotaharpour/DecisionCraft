@@ -20,7 +20,7 @@ Poisson demand, price menu {7, 10, 13}): the planner picks a price per
 epoch; demand accrues daily inside it. Three clocks: weekly (6 epochs),
 2-day (12), daily (42). Exact backward induction each:
 
-![Resolution dials](../../assets/phase2/lesson2_8_resolution.png)
+![Resolution dials](./assets/lesson2_8_resolution.png)
 
 *Left: the time dial swept live (3→21 epochs) — value saturates
 (141.6 → 147.2) while |S| grows linearly (84 → 462); the plateau is

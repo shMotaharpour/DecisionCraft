@@ -24,8 +24,8 @@ from lesson2_10b_precompute_mpc import (DAYS, LAM_POST, LAM_PRE, N_SEEDS,
                                        SHIFT_DAY, mpc_action, pmf_for,
                                        solve_static)
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "phase2",
-                   "lesson2_10_constraint_mpc.png")
+OUT = os.path.join(os.path.dirname(__file__), "assets", "lesson2_10_constraint_mpc.png")
+os.makedirs(os.path.dirname(OUT), exist_ok=True)
 
 
 def main():

@@ -18,7 +18,7 @@ from ortools.constraint_solver import pywrapcp, routing_enums_pb2
 from ortools.sat.python import cp_model
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "..", "..", "assets", "phase1")
+OUT = os.path.join(HERE, "assets")
 os.makedirs(OUT, exist_ok=True)
 
 

@@ -9,7 +9,7 @@ on where I am now, not on how I got here" — the **Markov property**.
 
 ## 2. The definition
 
-![Market-regime Markov chain](../../assets/phase2/lesson2_1_chain.png)
+![Market-regime Markov chain](./assets/lesson2_1_chain.png)
 
 *Left: the chain as a graph — each arrow is a transition probability
 (self-loops = staying), and each node carries its stationary share π\*.

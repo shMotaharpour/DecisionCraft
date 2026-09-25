@@ -49,7 +49,7 @@ under perfect play. Two design lessons from building it:
 | pure MCTS, 2000 sims/move | 40/40 |
 | **guided MCTS (value prior), 200 sims/move** | **40/40** |
 
-![MCTS budget curve](../../assets/phase4/lesson4_9_mcts_budget.png)
+![MCTS budget curve](./assets/lesson4_9_mcts_budget.png)
 
 *Left: win rate vs simulation budget (20 games per point) — the guided
 curve (value prior) is perfect from 50 simulations while pure MCTS wobbles

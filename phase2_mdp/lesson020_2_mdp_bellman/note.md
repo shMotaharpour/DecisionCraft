@@ -36,7 +36,7 @@ choose which row family to be in.
 
 ## 3. The Bellman equation — the heart of everything
 
-![Bellman machinery](../../assets/phase2/lesson2_2_bellman.png)
+![Bellman machinery](./assets/lesson2_2_bellman.png)
 
 *Left: the contraction promise, kept — the per-sweep error falls along the
 geometric ×γ line for ~460 sweeps (γ = 0.95 prices patience literally).

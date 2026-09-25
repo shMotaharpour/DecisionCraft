@@ -75,7 +75,7 @@ trivial greedy* — the classic tuning failure, measured.
 | 1600 | 0.99 | 0.00 % |
 | 6400 | 3.16 | 0.00 % (equal) |
 
-![Exact vs heuristic crossover](../../assets/phase1/lesson1_6_crossover.png)
+![Exact vs heuristic crossover](./assets/lesson1_6_crossover.png)
 
 *Left: wall time — the exact solver's curve bends upward while the
 heuristic is pinned at its 0.5 s budget; the curves cross near n ≈ 1000.

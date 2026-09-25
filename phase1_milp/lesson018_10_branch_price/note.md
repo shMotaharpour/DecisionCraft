@@ -26,7 +26,7 @@ Five methods, one table:
 
 ## 2. The two traps, verified live
 
-![Branch-and-Price numbers](../../assets/phase1/lesson1_10_branch_price.png)
+![Branch-and-Price numbers](./assets/lesson1_10_branch_price.png)
 
 *Left: the stall made visible — B&P's best integer value stays flat at
 397.6 across node budgets 100→3200 while the direct MILP proves 407.1 in

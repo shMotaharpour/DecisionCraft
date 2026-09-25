@@ -17,7 +17,7 @@ from scipy.stats import poisson
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
-OUT = os.path.join(ROOT, "assets", "phase2")
+OUT = os.path.join(ROOT, "assets")
 os.makedirs(OUT, exist_ok=True)
 
 MAX_INV = 10

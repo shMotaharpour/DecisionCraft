@@ -15,7 +15,7 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
-OUT = os.path.join(ROOT, "assets", "phase3")
+OUT = os.path.join(ROOT, "assets")
 os.makedirs(OUT, exist_ok=True)
 sys.path.insert(0, os.path.join(ROOT, "phase3_rl"))
 

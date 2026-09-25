@@ -38,7 +38,7 @@ does NOT break contraction — that is the theorem.
 Equilibrium policies are pure here (both chase/flee at full speed), which
 the fictitious-play experiment then rediscovers from *interaction alone*.
 
-![Shapley VI convergence](../../assets/phase4/lesson4_8_shapley_vi.png)
+![Shapley VI convergence](./assets/lesson4_8_shapley_vi.png)
 
 *Left: the max-min value estimates per gap over VI iterations — every
 curve settles within ~20–30 steps (the loop runs to 87 for the tolerance);

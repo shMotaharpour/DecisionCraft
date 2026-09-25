@@ -145,7 +145,7 @@ L_i = E[ ρ_τi (G − θ_i(s,a)) ],  ρ_τ(u) = u·(τ − 1[u<0]),  τ_i = (2i
   becomes a lookup, not an optimizer); also: **mean over the worst heads**;
   no re-training to switch risk measure.
 
-![Mean vs CVaR](../../assets/phase4/lesson4_6_cvar.png)
+![Mean vs CVaR](./assets/lesson4_6_cvar.png)
 
 *Why the risk measure picks the policy. Left: two return distributions
 with the **same mean** (dashed) but different left tails — the green

@@ -5,7 +5,7 @@ taxonomy leaves the toy regime, and the exact mathematics that survives.
 
 ## 1. The curse of dimensionality — concrete numbers
 
-![Curse of dimensionality](../../assets/phase2/lesson2_4_curse.png)
+![Curse of dimensionality](./assets/lesson2_4_curse.png)
 
 *The lesson-1 table, turned into a measurement (this machine, sparse
 transitions with 8 nonzeros per (s,a) row, 5 actions): one VI sweep from

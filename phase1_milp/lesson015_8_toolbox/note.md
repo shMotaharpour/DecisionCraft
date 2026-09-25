@@ -19,7 +19,7 @@ iv_opt = model.NewOptionalIntervalVar(s, d, e, present_lit, "op")  # optional
 
 Measured on a 4-job × 3-machine job-shop (live):
 
-![Scheduling constraint ladder](../../assets/phase1/lesson1_8_gantt.png)
+![Scheduling constraint ladder](./assets/lesson1_8_gantt.png)
 
 *The ladder as Gantt charts (one panel per variant): without precedence
 the operations float and pile at 5; chaining jobs stretches the makespan

@@ -37,7 +37,7 @@ Finance mapping: stake = remaining capital, ruin = stop-loss hit, target =
 take-profit; B[:, 0] is the "blow-up probability curve" of a doubling-down
 strategy. Same math for time-to-default, time-to-sell-out, time-to-hire.
 
-![Gambler's ruin](../../assets/phase2/lesson2_5_ruin.png)
+![Gambler's ruin](./assets/lesson2_5_ruin.png)
 
 *Left: ruin probability from the fundamental matrix vs the closed form —
 the markers coincide (max |diff| = 1.1e-16), and the curve falls
@@ -67,7 +67,7 @@ The two lessons are one theory.
 Practical reading: hitting times are the "expected time between regimes" —
 the horizon over which a regime-based trading policy must re-forecast.
 
-![Mean first-passage matrix](../../assets/phase2/lesson2_5_mfp.png)
+![Mean first-passage matrix](./assets/lesson2_5_mfp.png)
 
 *Left: the MFPT matrix as a heatmap — darkest cell is bull→stagnant (16
 months), lightest stagnant→bull (4 months): leaving stagnation for a bull

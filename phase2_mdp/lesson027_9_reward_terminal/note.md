@@ -18,7 +18,7 @@ Same inventory MDP, same Q-learning agent, three reward signals; every
 learned policy is scored on the **true (sparse) reward** — the only
 honest score:
 
-![Reward & terminal dials](../../assets/phase2/lesson2_9_reward_terminal.png)
+![Reward & terminal dials](./assets/lesson2_9_reward_terminal.png)
 
 *Left: the terminal convention bends the last week of the policy —
 zero winds down (6→5→4), liquidate holds the useful level, carryover
