@@ -9,7 +9,7 @@ topic. The same folder serves as the workspace for that topic.
 ## Layout
 
 - `phase1_milp/`, `phase2_mdp/`, `phase3_rl/`, `phase4_hybrid/` — one
-  DIRECTORY PER LESSON (`lesson<id>_<slug>/`) containing everything that
+  DIRECTORY PER LESSON (`lesson<PPP>_<minor><slug>/` (PPP = zero-padded phase, e.g. `lesson001_1_milp_alphabet`, `lesson002_10_constraints_deployment`)) containing everything that
   belongs to that lesson:
   - `note.md` — the theory digest (applied, no proofs; theorems labeled
     *proven*), figures embedded after the numbers they illustrate

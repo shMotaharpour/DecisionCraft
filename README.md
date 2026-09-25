@@ -16,7 +16,7 @@ under `docs/research/`).
 
 | Lesson | Topic | Script |
 |---|---|---|
-| 1.1 | The modeling alphabet — toy portfolio | `phase1_milp/lesson1_1_milp_alphabet/lesson1_1_portfolio_ortools.py`, `phase1_milp/lesson1_1_milp_alphabet/lesson1_1_scipy.py` |
+| 1.1 | The modeling alphabet — toy portfolio | `phase1_milp/lesson001_1_milp_alphabet/lesson1_1_portfolio_ortools.py`, `phase1_milp/lesson001_1_milp_alphabet/lesson1_1_scipy.py` |
 | 1.2 | Logic → linear constraints (fixed costs, cardinality) | `lesson1_2_logic_*.py` |
 | 1.2b | Ordered selection + symmetry breaking + alternative optima | `phase1_milp/lesson1_2b_order_symmetry/lesson1_2b_order_symmetry.py` |
 | 1.2c | General integer variables; parameter vs variable | `phase1_milp/lesson1_2c_integer_vars/lesson1_2c_integer_vars.py` |
@@ -87,7 +87,7 @@ Evidence: `docs/research/` — one file per measured batch (19 files).
 ```
 DecisionCraft/
 ├── phase1_milp/              # Phase 1 — MILP
-│   └── lesson1_1_milp_alphabet/   # ONE DIRECTORY PER LESSON:
+│   └── lesson001_1_milp_alphabet/   # ONE DIRECTORY PER LESSON:
 │       ├── note.md               #     the theory digest (compact, applied)
 │       ├── lesson*.py            #     runnable demos
 │       ├── make_figures*.py      #     seeded figure generators
@@ -122,4 +122,4 @@ uv sync
 uv run python phase1_milp/lesson1_1_portfolio_ortools.py   # lesson 1.1 demo
 ```
 
-Each lesson lives in `phase<N>_<area>/lesson<id>_<slug>/` with `note.md`, its scripts, figure generators, and evidence side by side; start at phase1_milp/lesson1_1_milp_alphabet and follow the bridges each note ends with.
+Each lesson lives in `phase<N>_<area>/lesson<id>_<slug>/` with `note.md`, its scripts, figure generators, and evidence side by side; start at phase1_milp/lesson001_1_milp_alphabet and follow the bridges each note ends with.
