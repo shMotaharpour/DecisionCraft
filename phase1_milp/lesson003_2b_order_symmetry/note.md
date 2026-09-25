@@ -1,5 +1,7 @@
 # Phase 1 — Lesson 1.2b: Ordered Selection & Alternative Optima
 
+Evidence: `evidence/lesson003_2b_order_symmetry_evidence.txt` (live run).
+
 Two subtle modeling issues that appear constantly in real MILP work.
 
 ## 1. "Take the first n items of a queue" — order matters

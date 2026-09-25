@@ -1,0 +1,8 @@
+# Evidence: phase1_milp/lesson004_2c_integer_vars — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_12c.log
+```
+Objective = 450
+  y (overtime allowed) = 1
+  m (number of shifts) = 3  <- general integer, not binary
+```

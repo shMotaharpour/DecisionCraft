@@ -1,0 +1,20 @@
+# Evidence: phase1_milp/lesson010_4d_reuse_symmetry — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_14d.log
+```
+=== (a) pywraplp: mutate in place, re-solve ===
+  v1: x=5.0 b=1
+  v2 (x<=4, x<=2b): x=0.0 b=-0
+
+=== (b) CP-SAT: parameterized rebuild with changing budget ===
+  budget= 100: status=OPTIMAL  obj=140
+  budget= 150: status=OPTIMAL  obj=220
+  budget=  90: status=OPTIMAL  obj=130
+
+=== (c) CP-SAT build-cost micro-benchmark (500 vars, 501 constraints) ===
+  build only: 5.54 ms average over 50 runs
+
+=== (d) symmetry: identical binaries, choose 4 of 16 ===
+  manual_break=False: OPTIMAL  branches=      0 conflicts=     0 wall=     4.1 ms
+  manual_break=True : OPTIMAL  branches=      0 conflicts=     0 wall=     3.4 ms
+```

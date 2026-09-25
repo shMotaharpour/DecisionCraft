@@ -1,0 +1,31 @@
+# Evidence: phase1_milp/lesson008_4b_cpsat_reference — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_14b.log
+```
+Status: OPTIMAL
+  risk         start=9:00 analyst=0 runs=True
+  rebal        start=10:00 analyst=1 runs=True
+  compliance   start=12:00 analyst=0 runs=False
+Objective = 17.60, bound = 17.60
+CpSolverResponse summary:
+status: OPTIMAL
+objective: 17.6
+best_bound: 17.6
+integers: 6
+booleans: 42
+conflicts: 0
+branches: 254
+propagations: 1806
+integer_propagations: 454
+restarts: 0
+lp_iterations: 0
+walltime: 0.0378436
+usertime: 0.0378436
+deterministic_time: 0.000799721
+gap_integral: 0.000316798
+solution_fingerprint: 0xa7657d3071a6b0c2
+
+
+--- All solutions of x+y=1, x,y binary ---
+All solutions: [(False, True), (True, False)]
+```

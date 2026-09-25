@@ -1,0 +1,18 @@
+# Evidence: phase4_hybrid/lesson037_2_repeated_games — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_42.log
+```
+repeated market-entry, 5000 rounds
+
+(a) fictitious play vs three opponents:
+FP vs fixed-High                   last-1k avg payoff =  3.000   action mix (Low,High) = (1.00, 0.00)
+FP vs adaptive Q-learner           last-1k avg payoff =  7.664   action mix (Low,High) = (0.00, 1.00)
+FP vs FP (self-play)               last-1k avg payoff =  3.500   action mix (Low,High) = (0.50, 0.50)
+
+(b) Exp3 (no-regret) vs the non-stationary Q-learner:
+Exp3 vs adaptive Q-learner         last-1k avg payoff =  7.570   action mix (Low,High) = (0.05, 0.95)
+
+Reference: zero-sum variant value = 3.0 at (Low, High) — lesson 4.1.
+FP vs fixed-High should learn to play Low (payoff 3 vs 1).
+Against a Low-heavy opponent the best response is High (8 vs 6).
+```

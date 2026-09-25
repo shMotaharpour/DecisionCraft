@@ -13,7 +13,7 @@ import torch.nn as nn
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "phase3_rl" / "lesson3_1_rl_foundations"))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "phase3_rl" / "lesson029_1_rl_foundations"))
 from lesson3_1_qlearning_inventory import (
     InventoryEnv, valid_actions, MAX_INV, N_STATES, N_ACTIONS, EP_LEN,
     evaluate, policy_exact, exact_solution,

@@ -1,5 +1,7 @@
 # Phase 4 — Lesson 4.3: Hybrid Architectures & Course Capstone
 
+Evidence: `evidence/lesson038_3_hybrid_capstone_evidence.txt` (live run).
+
 The culmination: combining all three pillars — **MILP (exact tactics) +
 MDP/DP (sequential uncertainty) + RL/opponent models (adaptation)** — into
 one working system, mirroring the architecture that industrial projects

@@ -1,5 +1,7 @@
 # Phase 1 — Lesson 1.4: Complete OR-Tools pywraplp Reference (Category 0)
 
+Evidence: `evidence/lesson007_4_ortools_reference_evidence.txt` (live run).
+
 Category 0 lists ALL command categories with their numbering; categories 1–7
 then document every command in each category.
 

@@ -1,5 +1,7 @@
 # Phase 4 — Lesson 4.1: Game Theory Foundations — From Optimization to Interaction
 
+Evidence: `evidence/lesson036_1_game_theory_evidence.txt` (live run).
+
 ## 1. The conceptual jump
 
 Phases 1–3 optimized against *nature* (probabilities). Game theory

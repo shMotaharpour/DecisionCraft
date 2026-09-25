@@ -1,0 +1,24 @@
+# Evidence: phase4_hybrid/lesson042_7_deep_rl — live run 2026-09-25, torch 2.14 cpu, python 3.11
+
+## output: lesson4_7_deep_rl_demos.py
+```
+=== Demo 1: overestimation bias of the max operator ===
+  setup: K=10 arms, obs noise=2.0 (large vs arm gaps), 200 runs
+  single-Q bias vs best true value : -0.345
+  double-Q bias (same target)      : -0.359
+  (the max-of-noisy-estimates upward bias, and Double-Q's repair)
+
+=== Demo 2: replay buffer vs on-the-fly (sample reuse) ===
+  with replay   : last-50 mean return =    923.1
+  on-the-fly    : last-50 mean return =    875.9
+
+=== Demo 3: target network necessity (deadly triad) ===
+  without target net: 0/5 seeds showed divergence/explosion
+  with target net   : max|Q(s=0)| = 28.7 (sane)
+
+=== Demo 4: GRU memory vs memoryless MLP on the censored env ===
+  memoryless MLP : last-100 mean return =   698.4
+  GRU policy     : last-100 mean return =   685.5
+  (the GRU can infer crisis days from history; the MLP cannot —
+   this is learned-belief-approximation, lesson 4.5 family (c))
+```

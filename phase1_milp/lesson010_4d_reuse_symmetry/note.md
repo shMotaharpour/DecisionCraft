@@ -1,5 +1,7 @@
 # Phase 1 — Lesson 1.4d: Model Reuse, Build Cost & Hard Constraint Classes
 
+Evidence: `evidence/lesson010_4d_reuse_symmetry_evidence.txt` (live run).
+
 Three production questions: (1) can a base model be updated in place,
 (2) what does building a model cost, (3) which constraints hurt solve time
 most, and how does CP-SAT handle symmetry internally?

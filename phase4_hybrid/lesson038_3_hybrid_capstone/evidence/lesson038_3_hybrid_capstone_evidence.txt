@@ -1,0 +1,39 @@
+# Evidence: phase4_hybrid/lesson038_3_hybrid_capstone — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_43.log
+```
+day | regime | risk budget | daily P&L (k$) | rival aggression est.
+  0 | calm  |       50.0 |            3.0 | 0.5
+  1 | calm  |       50.0 |            3.0 | 0.33
+  2 | hot   |       50.0 |            4.0 | 0.5
+  3 | calm  |       50.0 |            3.0 | 0.4
+  4 | calm  |       50.0 |            3.0 | 0.33
+  5 | calm  |       50.0 |            3.0 | 0.29
+  6 | hot   |       50.0 |            4.0 | 0.25
+  7 | hot   |       50.0 |            4.0 | 0.22
+  8 | hot   |       50.0 |            4.0 | 0.2
+  9 | hot   |       50.0 |            4.0 | 0.18
+ 10 | hot   |       50.0 |            4.0 | 0.17
+ 11 | hot   |       50.0 |            4.0 | 0.23
+ 12 | calm  |       50.0 |            3.0 | 0.21
+ 13 | calm  |       50.0 |            3.0 | 0.2
+ 14 | calm  |       50.0 |            3.0 | 0.19
+ 15 | calm  |       50.0 |            3.0 | 0.18
+ 16 | calm  |       50.0 |            3.0 | 0.17
+ 17 | calm  |       50.0 |            3.0 | 0.21
+ 18 | calm  |       50.0 |            3.0 | 0.2
+ 19 | calm  |       50.0 |            3.0 | 0.19
+ 20 | calm  |       50.0 |            3.0 | 0.18
+ 21 | calm  |       50.0 |            3.0 | 0.17
+ 22 | calm  |       50.0 |            3.0 | 0.17
+ 23 | calm  |       50.0 |            3.0 | 0.16
+ 24 | calm  |       50.0 |            3.0 | 0.15
+ 25 | calm  |       50.0 |            3.0 | 0.19
+ 26 | calm  |       50.0 |            3.0 | 0.18
+ 27 | hot   |       50.0 |            4.0 | 0.17
+ 28 | hot   |       50.0 |            4.0 | 0.17
+ 29 | calm  |       50.0 |            3.0 | 0.16
+
+total P&L = 99.00 k$ over 30 days
+fictitious play converged rival estimate: 0.5
+```

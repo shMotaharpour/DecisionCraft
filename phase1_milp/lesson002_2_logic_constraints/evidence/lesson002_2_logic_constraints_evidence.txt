@@ -1,0 +1,21 @@
+# Evidence: phase1_milp/lesson002_2_logic_constraints — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_12o.log
+```
+Status: OPTIMAL
+Total cost = 1,170.00
+  supplier 1: x =    0.0 units, y = 0 (fee skipped)
+  supplier 2: x =    0.0 units, y = 0 (fee skipped)
+  supplier 3: x =   70.0 units, y = 1 (fee paid)
+  supplier 4: x =   30.0 units, y = 1 (fee paid)
+```
+
+## output: ev_12s.log
+```
+Status: Optimization terminated successfully. (HiGHS Status 7: Optimal)
+Total cost = 1,170.00
+  supplier 1: x =    0.0 units, y = -0 (fee skipped)
+  supplier 2: x =    0.0 units, y = -0 (fee skipped)
+  supplier 3: x =   70.0 units, y = 1 (fee paid)
+  supplier 4: x =   30.0 units, y = 1 (fee paid)
+```

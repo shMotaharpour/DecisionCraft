@@ -1,5 +1,7 @@
 # Phase 4 — Lesson 4.4: Action Spaces That Depend on State, History & Other Actions
 
+Evidence: `evidence/lesson039_4_dependent_actions_evidence.txt` (live run).
+
 The missing lesson — you spotted a real gap. "Can I buy this item?" depends
 on the agent's level, wallet, and previous purchases. Almost no textbook
 makes this explicit; every real environment has it.

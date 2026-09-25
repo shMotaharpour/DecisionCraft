@@ -1,5 +1,7 @@
 # Phase 1 — Lesson 1.4b: CP-SAT Complete Constraint Reference
 
+Evidence: `evidence/lesson008_4b_cpsat_reference_evidence.txt` (live run).
+
 `ortools.sat.python.cp_model` is OR-Tools' second, more modern solver.
 Where `pywraplp` (lesson 1.4) wraps classic MILP solvers (SCIP/CBC/GLOP),
 **CP-SAT is a SAT-based constraint solver**: it natively handles logic,

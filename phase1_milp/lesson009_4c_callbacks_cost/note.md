@@ -1,5 +1,7 @@
 # Phase 1 — Lesson 1.4c: Callbacks in CP-SAT & Constraint Cost / Best Practices
 
+Evidence: `evidence/lesson009_4c_callbacks_cost_evidence.txt` (live run).
+
 Two follow-ups from lesson 1.4b: (1) the callback object model, (2) the
 computational cost of different constraints and how to build fast models.
 

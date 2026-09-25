@@ -1,0 +1,12 @@
+# Evidence: phase1_milp/lesson003_2b_order_symmetry — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_12b.log
+```
+Demo 1 — take exactly 2 of queue [9, 8, 7, 1]:
+  without prefix constraint : items [1, 2]  (obj=16.97)
+  with prefix chain y_i>=y_i+1: items [1, 2] (obj=16.97)
+
+Demo 2 — two identical suppliers, demand 5:
+  without symmetry breaking: x=( 2, 2 )  cost=50  (one of 6 equal optima)
+  with x1 >= x2             : x=( 5, -0 )  cost=50  (canonical one)
+```

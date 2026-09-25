@@ -1,5 +1,7 @@
 # Phase 1 — Lesson 1.2c: Variable Types & Parameters vs Variables
 
+Evidence: `evidence/lesson004_2c_integer_vars_evidence.txt` (live run).
+
 Two clarifications that came up in discussion after lesson 1.2b.
 
 ## 1. Discrete variables are NOT only 0/1

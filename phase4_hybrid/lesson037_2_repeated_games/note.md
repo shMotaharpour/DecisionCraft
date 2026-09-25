@@ -1,5 +1,7 @@
 # Phase 4 — Lesson 4.2: Repeated & Stochastic Games — Learning in Games
 
+Evidence: `evidence/lesson037_2_repeated_games_evidence.txt` (live run).
+
 ## 1. Why one-shot analysis is not enough
 
 Lesson 4.1 solved a single simultaneous move. Real competition is

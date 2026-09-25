@@ -1,0 +1,22 @@
+# Evidence: phase4_hybrid/lesson039_4_dependent_actions — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_44.log
+```
+=== Demo 1: DQN masking vs error-penalty (300 episodes each) ===
+masked   : illegal actions taken during training =     0
+unmasked : illegal actions taken during training =  1777
+masked   policy (wallet 0..6): [0, 0, 0, 3, 3, 3, 3]
+unmasked policy (wallet 0..6): [0, 1, 2, 2, 2, 3, 3]
+  (0=work, 1..4=buy item; sensible: work until rich enough, then buy best item)
+
+=== Demo 2: CP-SAT — action domains from state ===
+  state: wallet=3, level=2
+  legal action domain: [1, 2, 3, 0]  (0=work; item actions filtered by wallet)
+  -> per-step domains make illegal actions structurally impossible
+
+=== Demo 3: masked softmax (policy gradient style) ===
+  wallet=2, legal mask = [True, True, True, False, False]
+  raw   probs : [0.062 0.168 0.037 0.456 0.277]
+  masked probs: [0.231 0.629 0.14  0.    0.   ]  (illegal -> 0)
+  log_prob of sampled (feasible) actions stays exact; entropy fine
+```

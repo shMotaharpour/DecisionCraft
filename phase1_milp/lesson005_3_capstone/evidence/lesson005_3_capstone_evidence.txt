@@ -1,0 +1,16 @@
+# Evidence: phase1_milp/lesson005_3_capstone — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_13.log
+```
+Status: OPTIMAL   Objective = -89.200 (k$)
+
+Portfolio (thousand $):
+  asset 1: invest =   16.00  active = 1
+
+Warehouses:
+  wh 1: OPEN, throughput =   50.0 / capacity 60
+  wh 2: OPEN, throughput =   50.0 / capacity 50
+  wh 3: closed
+
+Capital check: portfolio = 16.00 + fixed wh costs = 70.00  <=  150
+```

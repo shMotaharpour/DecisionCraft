@@ -1,0 +1,19 @@
+# Evidence: phase4_hybrid/lesson036_1_game_theory — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_41.log
+```
+(a) best-response analysis (general-sum market entry)
+    profile (Low ,Low ) payoffs (6,6)
+    profile (Low ,High) payoffs (3,8)  <-- NASH
+    profile (High,Low ) payoffs (8,3)  <-- NASH
+    profile (High,High) payoffs (1,1)
+
+(b) zero-sum variant: M = row payoff only
+[[6. 3.]
+ [8. 1.]]
+row player's maximin (LP): value = 3.0000, p* = [1. 0.]
+col player's minimax (LP): value = 3.0000, q* = [0. 1.]
+
+(c) von Neumann check: maximin == minimax? True (|diff| = 0.00e+00)
+expected payoff of (p*, q*): 3.0
+```

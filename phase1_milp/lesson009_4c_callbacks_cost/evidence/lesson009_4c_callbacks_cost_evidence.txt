@@ -1,0 +1,14 @@
+# Evidence: phase1_milp/lesson009_4c_callbacks_cost — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_14c.log
+```
+(a) all solutions of exactly-3-of-5 binaries:
+    collected 10 solutions (expect 10), e.g. [(0, 1, 1, 1, 0), (0, 0, 1, 1, 1), (0, 1, 0, 1, 1)]
+
+(b) early stopping after 2 improving solutions:
+    improving solution #1: y_0=0, y_1=10, y_2=20, y_3=20 obj=710
+    Solve() returned OPTIMAL (FEASIBLE = stopped early, best kept; OPTIMAL = found optimum first)
+
+(c) linear            : status=OPTIMAL  obj=9 branches=    0 conflicts=   0 wall=   2.1 ms
+(c) with x*y product  : status=OPTIMAL  obj=1 branches=    0 conflicts=   0 wall=   3.0 ms
+```

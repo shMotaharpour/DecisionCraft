@@ -1,5 +1,7 @@
 # Phase 4 — Lesson 4.5: POMDPs — Deciding Under Hidden State (Deep Dive)
 
+Evidence: `evidence/lesson040_5_pomdp_evidence.txt` (live run).
+
 The most complete treatment in this course. Partial observability is the
 rule, not the exception, in real systems: the market's true regime, the
 opponent's hand, the exact demand you *lost* because stock ran out — none

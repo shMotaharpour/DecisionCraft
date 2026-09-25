@@ -1,5 +1,7 @@
 # Phase 1 — Lesson 1.2: Logic → Linear Constraints
 
+Evidence: `evidence/lesson002_2_logic_constraints_evidence.txt` (live run).
+
 The core *modeling* skill of MILP: translating business rules ("if X then Y",
 "choose at most 3", "pay a fixed cost only if used") into linear constraints
 over binary variables.

@@ -1,0 +1,26 @@
+# Evidence: phase4_hybrid/lesson040_5_pomdp — live run 2026-09-25, ortools 9.15 / scipy, python 3.11
+
+## output: ev_45.log
+```
+(a) Bayesian belief tracking under censoring
+  day | sales | posterior mean of λ
+    0 |     2 | 5.909
+    9 |     3 | 4.532
+   29 |     3 | 4.237
+   59 |     3 | 4.568
+  (true λ = 4.0; posterior converges despite censoring)
+
+(b) head-to-head on identical demand streams (seed-matched)
+  naive MLE agent : total P&L =   2581.0, stockouts = 174
+  belief agent    : total P&L =   3142.0, stockouts = 153
+  belief advantage: +561.0 (+21.7%)
+
+(c) value of information: advantage shrinks as censoring shrinks
+  refill | naive P&L | belief P&L | advantage
+       0 |    2581.0 |     3142.0 | +561.0
+       2 |    3978.0 |     4458.0 | +480.0
+       4 |    6941.0 |     6942.0 | +1.0
+       8 |    6629.5 |     6657.5 | +28.0
+  (more exogenous supply -> fewer stock-outs -> less censored data
+   -> the hidden-state information advantage decays, as theory predicts)
+```

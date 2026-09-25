@@ -1,5 +1,7 @@
 # Phase 4 — Lesson 4.7: Deep Learning Meets RL/MDP/POMDP — The Full Story
 
+Evidence: `evidence/lesson042_7_deep_rl_evidence.txt` (live run).
+
 Why neural networks changed RL, why they also broke it, and the complete
 toolkit — architectures, instabilities, and tricks — that makes Deep RL
 work in practice. This is the bridge lesson between "tabular with

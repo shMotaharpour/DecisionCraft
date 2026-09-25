@@ -1,5 +1,7 @@
 # Phase 1 — Lesson 1.3 (Capstone): Portfolio + Warehouse Allocation
 
+Evidence: `evidence/lesson005_3_capstone_evidence.txt` (live run).
+
 The phase-1 project combines everything from 1.1–1.2 into one realistic
 model, solved with OR-Tools/SCIP: `phase1_milp/lesson1_3_capstone.py`.
 
