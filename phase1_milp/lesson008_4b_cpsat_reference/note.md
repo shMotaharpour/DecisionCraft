@@ -175,3 +175,14 @@ The killer feature for workforce/resource scheduling:
 completeness (proves INFEASIBLE or finds a solution) rests on the
 completeness of SAT resolution — a proven result. Optimality claims come
 with proven bounds just like B&B (`BestObjectiveBound`).
+
+## Exercises
+
+1. Add `AddNoOverlap` with optional intervals (task can be dropped at a
+   penalty) and find the penalty threshold where the schedule collapses.
+2. Encode a cumulative resource (2 machines, capacity 2) and compare
+   makespan vs the single-machine lesson result (5→?).
+3. Use `AddMultiplicationEquality` for a variable×variable product and
+   report how much slower the solve gets vs linear-only constraints.
+4. Benchmark `num_workers = 1/4/8` on the lesson model; CP-SAT is
+   parallel — verify the scaling and where it flattens.

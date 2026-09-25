@@ -69,3 +69,14 @@ prices need branch-and-bound beyond this lesson.
 - Downstream: 1.4 (duals = worker reservation prices), 1.5 (VRP is
   assignment + routing), 2.10/4.6 (the same fairness/pricing logic
   under uncertainty), 4.4 (masking = blocked skill pairs in RL).
+
+## Exercises
+
+1. Add a third upgrade — per-worker *skill level* multiplier on cost —
+   and measure how the min-max-fair plan's premium changes.
+2. Change the fairness objective to min-max *delay* (hours = demand
+   arrival date − service date) and compare which tasks get bumped.
+3. Replace scipy Hungarian with a Lagrangian relaxation of the
+   assignment rows; verify you recover the same 46.0 optimum.
+4. Prove the LP-relaxation gap stays 0% for any square cost matrix by
+   testing 100 random seeds — then break it by adding one fixed cost.

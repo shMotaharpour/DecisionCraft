@@ -70,3 +70,17 @@ minimizes total cost?
 - The LP relaxation (dropping integrality) gives a *bound*, not the answer:
   with continuous y, the solver could "half-pay" fees. Integer variables make
   the model business-true — this is exactly why we need MILP instead of LP.
+
+## Exercises
+
+1. Add a second vehicle-type row (different fixed cost, different
+   per-unit cost) to the fixed-charge model; measure how much cheaper
+   the split-sourcing optimum is vs single-sourcing.
+2. Break the cardinality row deliberately (`<= 3` → `<= 5`) and verify
+   the LP relaxation stays integral — then explain in one sentence why
+   totality unimodularity survives this change but not a fixed cost.
+3. Encode "supplier 2 offers a 10% discount above 50 units" as
+   piecewise-linear cost; compare the MILP objective vs the flat-price
+   optimum.
+4. Prove to yourself the fee `y` is needed: remove it, re-solve, and
+   report why the optimum becomes cheaper-but-illegal (unpaid fees).

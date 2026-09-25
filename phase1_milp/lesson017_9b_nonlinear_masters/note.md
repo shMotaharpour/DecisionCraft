@@ -104,3 +104,15 @@ the evidence).*
   perspective reformulation and verify it recovers the integer optimum's
   cost at fractional demand; (3) part (a): two shared resources → KKT
   with a 2-D multiplier vector; does per-block pricing still converge?
+
+## Exercises
+
+1. Swap part (c)'s count caps for true knapsack caps per block; re-run
+   subgradient and report the new duality gap.
+2. Implement the perspective reformulation for part (b)'s fixed charge
+   (Frangioni–Gentile); verify it recovers the integer optimum's cost at
+   fractional demand 10.5 (the LP's 57.75 underbid).
+3. Two shared resources instead of one in part (a): KKT now needs a 2-D
+   multiplier vector — does per-block pricing still converge?
+4. Replace subgradient descent in part (c) with the bundle method
+   (Kelley cuts on L(μ)); compare iterations-to-bound.

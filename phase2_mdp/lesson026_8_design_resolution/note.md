@@ -98,3 +98,15 @@ the moments decisions matter, bins where value is flat.
 - Downstream: 2.9 continues with reward & terminal-value design (the
   *what are we optimizing* dials); 2.10 closes with constraint-vs-
   penalty and precompute-vs-recompute (the *how it runs* dials).
+
+## Exercises
+
+1. Add epochs=21 (3-day clock) to the time-dial sweep; does the value
+   ordering weekly <= 2-day <= daily still hold with the (s+leftover)/2
+   hold convention?
+2. Bin by *value* instead of by stock level (flat-V binning per the
+   rule of thumb): does bin(7) improve on bin(3)'s −0.54%?
+3. Halve the hold cost and re-run both dials; which one's plateau moves
+   more — time or state resolution?
+4. Lift-and-evaluate bin(3) with 10× fewer rollouts; how much does the
+   −0.54% number wobble (MC noise on measured tradeoffs)?

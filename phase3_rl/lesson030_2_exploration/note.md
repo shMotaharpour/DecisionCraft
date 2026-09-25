@@ -92,3 +92,14 @@ visited states (the Q-error at s=10), and total regret vs the exact policy.
   precisely a rational research budget.
 - **Proven results cited:** Lai–Robbins lower bound (1985); UCB1 log-regret
   (Auer et al. 2002); Hoeffding's inequality backing the bonus term.
+
+## Exercises
+
+1. Add ε=0.001 (nearly greedy) to the sweep; where does it land in the
+   final-performance vs Q-estimate-quality table?
+2. Implement ε-decay from 0.3→0.01; does it beat fixed ε=0.1 on final
+   performance AND on the s=10 estimate?
+3. UCB1's c=2 is theory's constant; sweep c∈{0.5,1,2,4} and find the
+   empirically best one for this MDP.
+4. Count state-visit entropy for each strategy: which explores *most
+   uniformly*, and is that the one with the best Q-estimates?

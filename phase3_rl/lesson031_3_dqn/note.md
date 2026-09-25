@@ -85,3 +85,15 @@ uv run python phase3_rl/lesson3_3_dqn_inventory.py
 - Next lesson (3.4): when actions are continuous or combinatorial,
   `max_a Q` itself becomes infeasible → policy gradients compute the
   gradient *with respect to the policy directly*.
+
+## Exercises
+
+1. Remove the target network entirely; measure the return curve's
+   variance (lesson 3.6 says divergence — verify on this instance).
+2. Double the replay buffer 50k→100k; does the 100.3% improve or is it
+   already saturated?
+3. Swap Huber back to MSE; watch for instability in the last 50
+   episodes and quantify it.
+4. Increase N_STATES by raising MAX_INV; at what state-space size does
+   DQN stop reaching 100% of exact within the budget (the tabular→deep
+   crossover, lesson 2.4's curve in RL clothing)?

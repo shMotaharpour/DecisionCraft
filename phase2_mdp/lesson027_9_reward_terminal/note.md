@@ -92,3 +92,16 @@ variant with an invariance guarantee when one exists.
   backward induction supplies the terminal-value slot).
 - Downstream: 2.10 closes the trilogy — constraint vs penalty (the
   deployment dial) and precompute vs recompute (the MPC dial).
+
+## Exercises
+
+1. Change the shaping potential to Φ(s) = +HOLD·s (wrong sign); verify
+   policy invariance still holds — invariance is about the FORM, not
+   the sign.
+2. Add a second naive shaping term (+1 per order placed); measure how
+   far the shaped-optimum drifts from the true one.
+3. Set salvage = full margin in the terminal value (that IS carryover);
+   now simulate a *second* season with the leftovers — does the
+   carryover policy finally win?
+4. Sweep the burst probability in the mixture model; at what demand
+   variance does naive shaping's bias become expensive?

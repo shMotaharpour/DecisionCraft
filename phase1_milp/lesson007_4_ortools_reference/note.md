@@ -160,3 +160,15 @@ for LP, branch & bound for MILP); the wrapper only translates your natural
 syntax into matrix form. Choosing GLOP vs SCIP changes only *speed and
 capabilities* (SCIP handles integers), never correctness of the two
 algorithms' outputs.
+
+## Exercises
+
+1. Rebuild the API tour with a **lazy constraint**: solve, add a violated
+   subtour-elimination row, re-solve; count rounds until clean.
+2. Change every `solver.Add(...)` to a `Constraint` object held in a list,
+   then free and rebuild the model 100× — measure build cost per iteration
+   (bridges to 1.4d's reuse numbers).
+3. Port the tour's model to CP-SAT and diff the constraint vocabulary:
+   which pywraplp rows have no direct CP-SAT translation?
+4. Deliberately mis-scale one big-M and report the solve-time degradation
+   (the lesson's "big-M harms LP bounds" claim, verified by you).

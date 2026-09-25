@@ -72,3 +72,14 @@ uv run python phase4_hybrid/lesson4_2_repeated_games.py
 - **Proven results cited:** folk theorems; fictitious-play convergence
   (zero-sum/potential); Exp3 √T regret; no-regret pairs converge in
   zero-sum (via minimax + regret decomposition).
+
+## Exercises
+
+1. Add a third strategy (Prober) that defects first then cooperates if
+   punished; which of TFT/Grudger/Exp3 loses most against it?
+2. Sweep the discount factor; below what δ does cooperation collapse
+   in the IPD?
+3. Run Exp3 with η 10× too large; verify the regret degrades and
+   explain via the update overshoot.
+4. Match the lesson's fictitious-play convergence on a 3×3 game and
+   report whether cycles appear (best-response cycling).

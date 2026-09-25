@@ -103,3 +103,14 @@ shifted worlds (2.10).
 - Downstream: 4.3's hybrid architecture is exactly these choices made
   deliberately (MILP tactical layer = hard constraints + μ\* prices;
   MDP strategic layer = precomputed, re-solved at day boundaries).
+
+## Exercises
+
+1. Sweep μ on a fine grid (0.1 steps) between 2.0 and 2.5; pin down
+   the violation JUMP location to within one grid step.
+2. Replace the hard cap with a *soft* cap enforced 90% of days
+   (stochastic constraint); does the penalty price change?
+3. Raise MPC's horizon H from 5 to 12; does the myopia cost vanish, and
+   what does ms/decision become?
+4. Give the static policy the TRUE post-shift λ (re-solve at day 15);
+   how much of MPC's +7.1% was adaptation vs model error?

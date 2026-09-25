@@ -73,3 +73,14 @@ beats the toy trio, not the tuned library.
   (3) implement VNS by cycling neighborhoods in `hill_climb`; (4) run
   the pop sweep at 20 s — does the flat ranking survive a bigger
   budget?
+
+## Exercises
+
+1. Replace swap mutation with 2-opt mutation (the trio's operator); does
+   GA close on GLS's 639? Report the gap.
+2. Add a local-search phase to GRASP (true GRASP per Feo & Resende) and
+   re-measure; how much of the 768→639 hole does it close?
+3. Run the population sweep at 20 s budget; does the flat 665/667/668
+   ranking survive 5× the budget, or does pop=128 pull ahead?
+4. Implement VNS by cycling swap → 2-opt → or-opt neighborhoods in the
+   trio's `hill_climb`; race it against GA at 4 s.

@@ -80,3 +80,14 @@ uv run python phase4_hybrid/lesson4_1_games_lp.py
   front-runners.
 - Von Neumann → Shapley → Nash is the same mathematical thread that phase
   2's minimax MDP sits on.
+
+## Exercises
+
+1. Add a third pure strategy to each player; verify the LP still finds
+   a mixed equilibrium and report the new support size.
+2. Prove the equilibrium value is invariant to adding a *strictly
+   dominated* row; then verify numerically.
+3. Change one payoff by +1 and watch the equilibrium strategy shift;
+   is the value continuous in payoffs (it should be)?
+4. Match pennies with payoff (1,−1): verify the equilibrium is uniform
+   50/50 — the LP's symmetry check.

@@ -101,3 +101,15 @@ prints the resulting ordering rule.
   to *learn from interaction*. That's RL.
 - Bellman's curse of dimensionality: state space grows exponentially with
   dimensions. All of approximate RL lives in that shadow.
+
+## Exercises
+
+1. Change γ from 0.95 to 0.99 and re-run VI; count sweeps-to-1e-9
+   (contraction factor worsens 0.95→0.99 — measure it).
+2. Add a fixed ordering cost K=5 to the (s,S) model; does the optimal
+   policy stay (s,S) or become (s,S) with a different shape?
+3. Run policy iteration instead of VI on the same MDP; count sweeps and
+   compare against VI's 463.
+4. Verify the discovered policy's V(s=0) against the exact solution by
+   evaluating it with 20k rollouts — the lesson's honesty check, yours
+   to reproduce.

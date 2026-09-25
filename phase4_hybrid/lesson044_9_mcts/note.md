@@ -95,8 +95,8 @@ always smoke-test the guidance against unguided MCTS.
 
 1. Sweep UCB `c ∈ {0.2, 0.5, 1.4, 3}` at 200 sims; find the exploration
    sweet spot and tie it to the bandit constant lesson of 3.5.
-2. Play guided-vs-guided (both 200 sims): does the first/second mover
-   advantage survive? Report the score.
+2. Play guided-vs-guided (both 200 sims): report the score and state
+   whether the first-mover advantage survives when both sides search.
 3. Increase W to 10 and watch the minimax cache blow past memory —
    MCTS doesn't care. That asymmetry IS MCTS's reason to exist.
 4. Use visits-per-child at the root as a learned policy target (the
