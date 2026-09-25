@@ -83,6 +83,10 @@ A trading-and-inventory firm over T days:
 
 ## 4. Run it
 
+![lesson4_3_hybrid_loop](assets/phase4/lesson4_3_hybrid_loop.png)
+
+*The loop is the architecture: strategic MDP sends duals/risk budget down, realized P&L flows back up, the simulator sits under both.*
+
 ```bash
 uv run python phase4_hybrid/lesson4_3_capstone_hybrid.py
 ```

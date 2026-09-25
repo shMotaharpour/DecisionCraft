@@ -74,6 +74,10 @@ uv run python phase3_rl/lesson3_3_dqn_inventory.py
 
 ## 6. Key takeaways
 
+![lesson3_3_dqn](assets/phase3/lesson3_3_dqn.png)
+
+*Ablation bars at the shared budget: full DQN 100.3% of exact, no-target 71.2%, no-replay 63.8%, MSE 88.4% — each stabilization item earns its keep (0.3% above the line is evaluation noise).*
+
 - FA buys generalization at the price of the deadly triad; DQN = replay +
   target net + clipping, each patch mapped to a specific failure mode.
 - **Linear FA + on-policy is provably safe** — when you can afford it

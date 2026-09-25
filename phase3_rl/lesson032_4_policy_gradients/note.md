@@ -90,6 +90,10 @@ PPO's stability.
 
 ## 6. Key takeaways
 
+![lesson3_4_ppo_loop](assets/phase3/lesson3_4_ppo_loop.png)
+
+*The PPO loop as data flow: frozen old policy for the batch, clipped ratio, GAE advantages feeding the loss, updated policy returning to rollout.*
+
 - Value-based (DQN) breaks on continuous/combinatorial actions;
   policy gradients remove the argmax — **the proven Policy Gradient
   Theorem is the license**.

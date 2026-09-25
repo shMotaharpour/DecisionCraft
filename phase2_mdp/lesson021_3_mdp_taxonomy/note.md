@@ -96,6 +96,10 @@ measurement: the same season solved at three clock granularities.
 
 ## Where Kaggriculture sits on every axis (worked classification)
 
+![lesson2_3_taxonomy](assets/phase2/lesson2_3_taxonomy.png)
+
+*Six axes, one worked classification: each axis names its row and the verdict box ties them to 3.7's measured verdict (DP/MILP beats RL here because Axis-4 is known).*
+
 | Axis | Kaggriculture answer |
 |------|---------------------|
 | State | finite but combinatorial (tiles × crops × resources) → factored |
