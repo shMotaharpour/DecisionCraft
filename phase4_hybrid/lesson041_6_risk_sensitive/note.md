@@ -290,3 +290,35 @@ Evidence: `evidence/phase4_lesson6c_pymc_posterior_evidence.txt`.
    stated fix); does the overestimation gap close?
 3. Raise the mixture model's burst probability to 0.5 in add-on B;
    does robust's win over point-estimate survive the regime change?
+
+## Add-on D — CFaR: Cash Flow at Risk (`lesson4_6d_cfar.py`)
+
+CVaR came from portfolio *returns*; corporate finance transplants the
+same tail-mean logic to **operating cash flow** and calls it **Cash
+Flow at Risk (CFaR)** — the treasurer's question: *with confidence α,
+how bad can the cash position get by day T?* The add-on measures it on
+the course's own P&L stream (20000 simulated paths × 60 days under the
+4.6c mixture demand), comparing E / VaR_95 / CFaR_95 for two plans:
+
+| plan | E[cash flow] | VaR_95 | CFaR_95 |
+|---|---|---|---|
+| point-estimate (order mean daily) | 1091.0 | 830.2 | 733.2 |
+| buffer hedge (order 4 when stock<2) | **1137.7** | 834.4 | **731.2** |
+
+Reads: CFaR_95 ≤ VaR_95 always — the quantile hides ~97 units of tail
+severity that CFaR prices. The buffer hedge **dominates** on this
+instance (higher mean AND lower CFaR): its extra orders only land on
+burst runs that sell anyway. That dominance is a *measured outcome*,
+not a law — with pricier stock it would flip, which is exactly why the
+chain E→VaR→CFaR is computed rather than assumed. First development
+version used a *randomized* hedge and showed the hedge worse on both
+axes — randomization is not a hedge; the state-dependent buffer rule
+replaced it (logged in the evidence).
+
+**Fractional nod** (the other CFaR in the literature — Conditional
+*Fractional* at Risk): the same tail-mean integral with a *relative*
+denominator (% of expected flow) — the normalization risk committees
+quote across business scales. Not a new measure; the same one,
+re-denominated.
+
+Evidence: `evidence/phase4_lesson6d_cfar_evidence.txt`.

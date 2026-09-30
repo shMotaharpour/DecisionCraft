@@ -1,0 +1,42 @@
+# Phase 4 — Lesson 4.6d evidence: CFaR (Cash Flow at Risk) on the course P&L
+
+Live run 2026-09-25, numpy only, 20000 simulated paths × 60 days.
+Demand: Poisson mixture (calm 2.0 / burst 6.0, burst prob 0.3) — the
+4.6c model. Plans compared: point-estimate (order mixture mean = 3
+daily) vs buffer hedge (order 4 when stock < 2, else 3).
+
+```
+point-estimate plan:
+  E[total cash flow] =   1091.0
+  VaR_95             =    830.2   (quantile only)
+  CFaR_95            =    733.2   (mean shortfall beyond)
+  tail severity (VaR→CFaR) =  -97.0
+
+buffer hedge (order 4 when stock<2):
+  E[total cash flow] =   1137.7
+  VaR_95             =    834.4   (quantile only)
+  CFaR_95            =    731.2   (mean shortfall beyond)
+  tail severity (VaR→CFaR) = -103.2
+```
+
+Readings:
+- CFaR_95 ≤ VaR_95 always: the quantile hides tail severity; CFaR
+  prices it (~97 units of hidden tail in the point plan).
+- The buffer hedge DOMINATES on this instance (higher mean AND slightly
+  lower CFaR): reordering when stock<2 only spends extra on burst runs
+  that sell anyway. Dominance is a measured outcome, not a law — it
+  would flip with pricier stock or a tighter market.
+- Fractional nod (Conditional Fractional at Risk): the same tail-mean
+  logic with a relative denominator (% of expected flow) — the
+  normalization risk committees quote across business scales. Same
+  integral, different denominator.
+- Corporate bridge: E / VaR / CFaR is lesson 4.6's risk-measure chain
+  transplanted from portfolio returns to operating cash flow.
+
+## Development bug found & fixed (honesty log)
+
+First version used a RANDOMIZED "hedge" (resampled order 2/3/4 per
+day) and its numbers showed the hedge WORSE on both mean and tail —
+randomization is not a hedge. Fixed to a state-dependent buffer rule
+(order 4 when stock<2), which is an actual tail-hedge; dominance
+emerged from the measurement, not the narrative.
